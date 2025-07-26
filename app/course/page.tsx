@@ -277,7 +277,13 @@ function CourseContent() {
                         
                         <div className="flex items-center space-x-2 ml-4">
                           <span className="text-sm text-gray-400">{lesson.duration}</span>
-                          <button className="cyber-button text-sm px-4 py-2">
+                          <button 
+                            className="cyber-button text-sm px-4 py-2"
+                            onClick={() => {
+                              // Navigate to the lesson viewer
+                              window.location.href = `/lesson/${lesson.id}`
+                            }}
+                          >
                             <Play className="w-4 h-4" />
                           </button>
                         </div>
@@ -292,9 +298,9 @@ function CourseContent() {
                     className="cyber-button flex items-center space-x-2"
                     onClick={() => {
                       if (selectedModuleData && selectedModuleData.lessons.length > 0) {
-                        setSelectedLesson(selectedModuleData.lessons[0].id)
-                        // Optionally scroll to lesson content
-                        document.getElementById('lesson-content')?.scrollIntoView({ behavior: 'smooth' })
+                        // Navigate to the first lesson
+                        const firstLesson = selectedModuleData.lessons[0]
+                        window.location.href = `/lesson/${firstLesson.id}`
                       }
                     }}
                   >
@@ -305,12 +311,17 @@ function CourseContent() {
                     className="px-6 py-3 border border-cyber-500 text-cyber-500 hover:bg-cyber-500 hover:text-white font-semibold rounded-lg transition-all duration-300"
                     onClick={() => {
                       if (selectedModuleData) {
-                        // For now, just download the first resource of the first lesson if available
+                        // Download the first resource of the first lesson if available
                         const firstLesson = selectedModuleData.lessons[0]
                         if (firstLesson && firstLesson.resources && firstLesson.resources.length > 0) {
                           const resource = firstLesson.resources[0]
                           const fileName = `/resources/${resource.replace(/\s+/g, '_').toLowerCase()}.pdf`
-                          window.open(fileName, '_blank')
+                          const link = document.createElement('a')
+                          link.href = fileName
+                          link.download = resource.replace(/\s+/g, '_').toLowerCase() + '.pdf'
+                          document.body.appendChild(link)
+                          link.click()
+                          document.body.removeChild(link)
                         } else {
                           alert('No resources available for this module yet.')
                         }
