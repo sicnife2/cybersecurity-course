@@ -11,12 +11,17 @@ import {
   Globe,
   ArrowRight,
   Download,
-  ExternalLink
+  ExternalLink,
+  Wifi,
+  Target
 } from 'lucide-react'
 import PasswordGenerator from '@/components/PasswordGenerator'
 import HashGenerator from '@/components/HashGenerator'
 import Base64Tool from '@/components/Base64Tool'
 import PasswordStrengthChecker from '@/components/PasswordStrengthChecker'
+import NetworkScanner from '@/components/NetworkScanner'
+import PortScanner from '@/components/PortScanner'
+import VulnerabilityScanner from '@/components/VulnerabilityScanner'
 
 export default function ToolsPage() {
   const [activeTab, setActiveTab] = useState('password')
@@ -49,6 +54,27 @@ export default function ToolsPage() {
       description: 'Check how strong your password is',
       icon: <Eye className="w-8 h-8" />,
       component: <PasswordStrengthChecker />
+    },
+    {
+      id: 'network',
+      name: 'Network Scanner',
+      description: 'Scan networks for devices and open ports',
+      icon: <Wifi className="w-8 h-8" />,
+      component: <NetworkScanner />
+    },
+    {
+      id: 'port',
+      name: 'Port Scanner',
+      description: 'Scan specific ports on target systems',
+      icon: <Target className="w-8 h-8" />,
+      component: <PortScanner />
+    },
+    {
+      id: 'vulnerability',
+      name: 'Vulnerability Scanner',
+      description: 'Scan for common security vulnerabilities',
+      icon: <Shield className="w-8 h-8" />,
+      component: <VulnerabilityScanner />
     }
   ]
 
@@ -195,7 +221,18 @@ export default function ToolsPage() {
           <p className="text-xl text-gray-300 mb-8">
             We're constantly adding new cybersecurity tools. Have a suggestion?
           </p>
-          <button className="cyber-button text-lg px-8 py-4">
+          <button 
+            onClick={() => {
+              const toolName = prompt('What tool would you like to suggest?')
+              if (toolName) {
+                const description = prompt('Please describe what this tool should do:')
+                if (description) {
+                  alert(`Thank you for suggesting "${toolName}"! We'll review your suggestion and consider adding it to our toolkit.`)
+                }
+              }
+            }}
+            className="cyber-button text-lg px-8 py-4"
+          >
             Suggest a Tool
           </button>
         </motion.div>

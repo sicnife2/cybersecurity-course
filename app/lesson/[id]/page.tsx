@@ -207,7 +207,25 @@ export default function LessonViewer() {
                   <div className="prose prose-invert max-w-none">
                     <div 
                       className="text-gray-300 leading-relaxed"
-                      dangerouslySetInnerHTML={{ __html: lesson.content }}
+                      dangerouslySetInnerHTML={{ __html: lesson.content || `
+                        <h2>Lesson Content</h2>
+                        <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+                        <h3>Key Topics</h3>
+                        <ul>
+                          ${lesson.topics.map((topic: string) => `<li>${topic}</li>`).join('')}
+                        </ul>
+                        <h3>Learning Objectives</h3>
+                        <p>By the end of this lesson, you will understand:</p>
+                        <ul>
+                          <li>The fundamental concepts of ${lesson.title.toLowerCase()}</li>
+                          <li>How to apply these concepts in real-world scenarios</li>
+                          <li>Best practices for security implementation</li>
+                        </ul>
+                        <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
+                          <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
+                          <p>This lesson provides hands-on experience with cybersecurity concepts. Make sure to complete all exercises and review the additional resources.</p>
+                        </div>
+                      ` }}
                     />
                   </div>
 
@@ -289,13 +307,20 @@ export default function LessonViewer() {
                             <p className="text-sm text-gray-400">Additional learning material</p>
                           </div>
                         </div>
-                        <a
-                          href={`/resources/${resource.replace(/\s+/g, '_').toLowerCase()}.pdf`}
-                          download
+                        <button
+                          onClick={() => {
+                            // Create a download link for the resource
+                            const link = document.createElement('a')
+                            link.href = `/resources/${resource.replace(/\s+/g, '_').toLowerCase()}.pdf`
+                            link.download = `${resource.replace(/\s+/g, '_').toLowerCase()}.pdf`
+                            document.body.appendChild(link)
+                            link.click()
+                            document.body.removeChild(link)
+                          }}
                           className="text-cyber-400 hover:text-cyber-300 transition-colors"
                         >
                           <Download className="w-5 h-5" />
-                        </a>
+                        </button>
                       </div>
                     ))}
                   </div>

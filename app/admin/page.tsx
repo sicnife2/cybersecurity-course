@@ -109,9 +109,16 @@ export default function AdminPanel() {
   const handleToggleModule = (moduleId: string, field: 'isPublished' | 'isActive') => {
     setModules(prev => prev.map(module => 
       module.id === moduleId 
-        ? { ...module, [field]: !module[field] }
+        ? { ...module, [field]: !module[field], lastModified: new Date().toLocaleDateString() }
         : module
     ))
+    
+    // Show feedback to user
+    const module = modules.find(m => m.id === moduleId)
+    if (module) {
+      const action = field === 'isPublished' ? (module.isPublished ? 'unpublished' : 'published') : (module.isActive ? 'deactivated' : 'activated')
+      alert(`Module "${module.title}" has been ${action}.`)
+    }
   }
 
   const handleEditModule = (moduleId: string) => {
@@ -124,8 +131,10 @@ export default function AdminPanel() {
   }
 
   const handleDeleteModule = (moduleId: string) => {
-    if (confirm('Are you sure you want to delete this module?')) {
-      setModules(prev => prev.filter(module => module.id !== moduleId))
+    const module = modules.find(m => m.id === moduleId)
+    if (module && confirm(`Are you sure you want to delete the module "${module.title}"? This action cannot be undone.`)) {
+      setModules(prev => prev.filter(m => m.id !== moduleId))
+      alert(`Module "${module.title}" has been deleted.`)
     }
   }
 
