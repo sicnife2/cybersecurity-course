@@ -215,10 +215,10 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full cyber-button flex items-center justify-center space-x-2">
+                <a href={`/course?difficulty=${path.level.toLowerCase()}`} className="w-full cyber-button flex items-center justify-center space-x-2">
                   <span>Start Path</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </a>
               </motion.div>
             ))}
           </div>
@@ -277,9 +277,9 @@ export default function Home() {
             <p className="text-xl text-gray-300 mb-8">
               Join thousands of learners who are already protecting themselves and others online.
             </p>
-            <button className="cyber-button text-lg px-8 py-4">
+            <a href="/course" className="cyber-button text-lg px-8 py-4 inline-block">
               Start Your Cybersecurity Journey
-            </button>
+            </a>
           </motion.div>
         </div>
       </section>

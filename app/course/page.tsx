@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { 
   BookOpen, 
@@ -23,7 +24,16 @@ import {
 import { cybersecurityCourse, getModuleById, getModulesByDifficulty } from '@/data/courseStructure'
 
 export default function CoursePage() {
+  const searchParams = useSearchParams()
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all')
+  
+  // Handle URL parameters for filtering
+  useEffect(() => {
+    const difficulty = searchParams.get('difficulty')
+    if (difficulty) {
+      setSelectedDifficulty(difficulty.charAt(0).toUpperCase() + difficulty.slice(1))
+    }
+  }, [searchParams])
   const [selectedModule, setSelectedModule] = useState<string | null>(null)
   const [selectedLesson, setSelectedLesson] = useState<string | null>(null)
 
