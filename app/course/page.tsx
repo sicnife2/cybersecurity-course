@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { 
@@ -23,7 +23,7 @@ import {
 } from 'lucide-react'
 import { cybersecurityCourse, getModuleById, getModulesByDifficulty } from '@/data/courseStructure'
 
-export default function CoursePage() {
+function CourseContent() {
   const searchParams = useSearchParams()
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all')
   
@@ -368,5 +368,13 @@ export default function CoursePage() {
         </motion.div>
       </div>
     </div>
+  )
+}
+
+export default function CoursePage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CourseContent />
+    </Suspense>
   )
 } 
