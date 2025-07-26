@@ -152,99 +152,45 @@ export default function AdminPanel() {
             <BookOpen className="w-8 h-8 text-cyber-500" />
           </div>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="cyber-card"
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-400 text-sm">Published</p>
-              <p className="text-3xl font-bold text-success-500">{stats.publishedModules}</p>
-            </div>
-            <Check className="w-8 h-8 text-success-500" />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+        className="cyber-card"
+      >
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-gray-400 text-sm">Total Lessons</p>
+            <p className="text-3xl font-bold text-warning-500">{stats.totalLessons}</p>
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="cyber-card"
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-400 text-sm">Total Lessons</p>
-              <p className="text-3xl font-bold text-warning-500">{stats.totalLessons}</p>
-            </div>
-            <BookOpen className="w-8 h-8 text-warning-500" />
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="cyber-card"
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-400 text-sm">Active Modules</p>
-              <p className="text-3xl font-bold text-danger-500">{stats.activeModules}</p>
-            </div>
-            <Play className="w-8 h-8 text-danger-500" />
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Difficulty Distribution */}
-      <div className="cyber-card">
-        <h3 className="text-xl font-semibold mb-4">Module Distribution by Difficulty</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-green-500">{stats.beginnerModules}</div>
-            <div className="text-sm text-gray-400">Beginner</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-yellow-500">{stats.intermediateModules}</div>
-            <div className="text-sm text-gray-400">Intermediate</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-orange-500">{stats.advancedModules}</div>
-            <div className="text-sm text-gray-400">Advanced</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-red-500">{stats.expertModules}</div>
-            <div className="text-sm text-gray-400">Expert</div>
-          </div>
+          <BookOpen className="w-8 h-8 text-warning-500" />
         </div>
-      </div>
-
-      {/* Quick Actions */}
-      <div className="cyber-card">
-        <h3 className="text-xl font-semibold mb-4">Quick Actions</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <button 
-            onClick={() => setActiveTab('modules')}
-            className="cyber-button flex items-center justify-center space-x-2"
-          >
-            <BookOpen className="w-4 h-4" />
-            <span>Manage Modules</span>
-          </button>
-          <button className="cyber-button flex items-center justify-center space-x-2">
-            <Upload className="w-4 h-4" />
-            <span>Export Data</span>
-          </button>
-          <button className="cyber-button flex items-center justify-center space-x-2">
-            <Settings className="w-4 h-4" />
-            <span>Site Settings</span>
-          </button>
+      </motion.div>
+    </div>
+    {/* Difficulty Distribution */}
+    <div className="cyber-card">
+      <h3 className="text-xl font-semibold mb-4">Module Distribution by Difficulty</h3>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="text-center">
+          <div className="text-2xl font-bold text-green-500">{stats.beginnerModules}</div>
+          <div className="text-sm text-gray-400">Beginner</div>
+        </div>
+        <div className="text-center">
+          <div className="text-2xl font-bold text-yellow-500">{stats.intermediateModules}</div>
+          <div className="text-sm text-gray-400">Intermediate</div>
+        </div>
+        <div className="text-center">
+          <div className="text-2xl font-bold text-orange-500">{stats.advancedModules}</div>
+          <div className="text-sm text-gray-400">Advanced</div>
+        </div>
+        <div className="text-center">
+          <div className="text-2xl font-bold text-red-500">{stats.expertModules}</div>
+          <div className="text-sm text-gray-400">Expert</div>
         </div>
       </div>
     </div>
-  )
+  </div>
+)
 
   const renderModuleManagement = () => (
     <div className="space-y-6">
@@ -273,15 +219,6 @@ export default function AdminPanel() {
               className="w-full pl-10 pr-4 py-2 bg-dark-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-cyber-500 focus:outline-none"
             />
           </div>
-        </div>
-        <div className="flex gap-2">
-          <button className="cyber-button flex items-center space-x-2">
-            <Filter className="w-4 h-4" />
-            <span>Filter</span>
-          </button>
-          <button className="px-4 py-2 border border-cyber-500 text-cyber-500 hover:bg-cyber-500 hover:text-white rounded-lg transition-colors">
-            Export
-          </button>
         </div>
       </div>
 
@@ -387,48 +324,6 @@ export default function AdminPanel() {
   const renderSettings = () => (
     <div className="space-y-6">
       <div className="cyber-card">
-        <h3 className="text-xl font-semibold mb-4">Site Settings</h3>
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium mb-2">Site Name</label>
-            <input
-              type="text"
-              defaultValue="CyberGuard - Free Cybersecurity Course"
-              className="w-full px-3 py-2 bg-dark-700 border border-gray-600 rounded-lg text-white focus:border-cyber-500 focus:outline-none"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-2">Site Description</label>
-            <textarea
-              defaultValue="Complete cybersecurity course from beginner to expert level - 100% FREE"
-              rows={3}
-              className="w-full px-3 py-2 bg-dark-700 border border-gray-600 rounded-lg text-white focus:border-cyber-500 focus:outline-none"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-2">Admin Email</label>
-            <input
-              type="email"
-              defaultValue={session.user?.email || ''}
-              className="w-full px-3 py-2 bg-dark-700 border border-gray-600 rounded-lg text-white focus:border-cyber-500 focus:outline-none"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-2">Course Status</label>
-            <select className="w-full px-3 py-2 bg-dark-700 border border-gray-600 rounded-lg text-white focus:border-cyber-500 focus:outline-none">
-              <option>Active - Open for Learning</option>
-              <option>Maintenance Mode</option>
-              <option>Development Mode</option>
-            </select>
-          </div>
-          <button className="cyber-button flex items-center space-x-2">
-            <Save className="w-4 h-4" />
-            <span>Save Settings</span>
-          </button>
-        </div>
-      </div>
-
-      <div className="cyber-card">
         <h3 className="text-xl font-semibold mb-4">Access Control</h3>
         <div className="space-y-4">
           <div>
@@ -449,10 +344,6 @@ export default function AdminPanel() {
               ))}
             </div>
           </div>
-          <button className="cyber-button flex items-center space-x-2">
-            <Plus className="w-4 h-4" />
-            <span>Add Admin Email</span>
-          </button>
         </div>
       </div>
     </div>
