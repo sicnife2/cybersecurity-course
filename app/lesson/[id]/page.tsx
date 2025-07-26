@@ -402,8 +402,8 @@ export default function LessonViewer() {
                           onClick={() => {
                             // Create a download link for the resource
                             const link = document.createElement('a')
-                            link.href = `/resources/${resource.replace(/\s+/g, '_').toLowerCase()}.pdf`
-                            link.download = `${resource.replace(/\s+/g, '_').toLowerCase()}.pdf`
+                            link.href = `/resources/${resource.replace(/[^a-zA-Z0-9]+/g, '_').toLowerCase()}.pdf`
+                            link.download = `${resource.replace(/[^a-zA-Z0-9]+/g, '_').toLowerCase()}.pdf`
                             document.body.appendChild(link)
                             link.click()
                             document.body.removeChild(link)
