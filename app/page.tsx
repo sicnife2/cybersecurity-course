@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { 
   Shield, 
@@ -20,6 +21,7 @@ import {
 import ContactForm from '@/components/ContactForm'
 
 export default function Home() {
+  const router = useRouter()
   const [currentThreat, setCurrentThreat] = useState(0)
   const [showContact, setShowContact] = useState(false)
   
@@ -100,7 +102,7 @@ export default function Home() {
                 <span>Contact</span>
               </button>
             </div>
-            <button className="cyber-button">
+            <button className="cyber-button" onClick={() => router.push('/course')}>
               Get Started
             </button>
           </div>

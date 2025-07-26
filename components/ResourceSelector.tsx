@@ -36,6 +36,9 @@ export default function ResourceSelector({ resources, onClose, title = "Download
         await new Promise(resolve => setTimeout(resolve, 500))
         
         const fileName = `${resource.replace(/[^a-zA-Z0-9]+/g, '_').toLowerCase()}.pdf`
+        console.log('Attempting to download:', fileName)
+        console.log('Full URL:', `/resources/${fileName}`)
+        
         const link = document.createElement('a')
         link.href = `/resources/${fileName}`
         link.download = fileName
