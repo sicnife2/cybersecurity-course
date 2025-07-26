@@ -288,11 +288,35 @@ function CourseContent() {
 
                 {/* Module Actions */}
                 <div className="mt-8 flex space-x-4">
-                  <button className="cyber-button flex items-center space-x-2">
+                  <button
+                    className="cyber-button flex items-center space-x-2"
+                    onClick={() => {
+                      if (selectedModuleData && selectedModuleData.lessons.length > 0) {
+                        setSelectedLesson(selectedModuleData.lessons[0].id)
+                        // Optionally scroll to lesson content
+                        document.getElementById('lesson-content')?.scrollIntoView({ behavior: 'smooth' })
+                      }
+                    }}
+                  >
                     <Play className="w-5 h-5" />
                     <span>Start Module</span>
                   </button>
-                  <button className="px-6 py-3 border border-cyber-500 text-cyber-500 hover:bg-cyber-500 hover:text-white font-semibold rounded-lg transition-all duration-300">
+                  <button
+                    className="px-6 py-3 border border-cyber-500 text-cyber-500 hover:bg-cyber-500 hover:text-white font-semibold rounded-lg transition-all duration-300"
+                    onClick={() => {
+                      if (selectedModuleData) {
+                        // For now, just download the first resource of the first lesson if available
+                        const firstLesson = selectedModuleData.lessons[0]
+                        if (firstLesson && firstLesson.resources && firstLesson.resources.length > 0) {
+                          const resource = firstLesson.resources[0]
+                          const fileName = `/resources/${resource.replace(/\s+/g, '_').toLowerCase()}.pdf`
+                          window.open(fileName, '_blank')
+                        } else {
+                          alert('No resources available for this module yet.')
+                        }
+                      }
+                    }}
+                  >
                     Download Resources
                   </button>
                 </div>
