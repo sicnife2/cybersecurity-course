@@ -37,8 +37,8 @@ export default function Home() {
   const features = [
     {
       icon: <BookOpen className="w-8 h-8" />,
-      title: "Interactive Tutorials",
-      description: "Step-by-step guides from beginner to advanced cybersecurity concepts"
+      title: "Complete Course",
+      description: "Comprehensive cybersecurity course from beginner to expert level"
     },
     {
       icon: <Target className="w-8 h-8" />,
@@ -52,8 +52,8 @@ export default function Home() {
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Community",
-      description: "Connect with cybersecurity professionals and share knowledge"
+      title: "Free Learning",
+      description: "100% free access to all cybersecurity content and resources"
     }
   ]
 
@@ -93,7 +93,6 @@ export default function Home() {
             </div>
             <div className="hidden md:flex space-x-8">
               <a href="/course" className="text-gray-300 hover:text-white transition-colors">Course</a>
-              <a href="/tutorials" className="text-gray-300 hover:text-white transition-colors">Tutorials</a>
               <a href="/tools" className="text-gray-300 hover:text-white transition-colors">Tools</a>
               <a href="#threats" className="text-gray-300 hover:text-white transition-colors">Threats</a>
             </div>

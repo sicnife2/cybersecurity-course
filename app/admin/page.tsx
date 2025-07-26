@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { motion } from 'framer-motion'
 import { 
@@ -19,18 +19,54 @@ import {
   Search,
   Filter,
   Download,
-  Upload
+  Upload,
+  Save,
+  X,
+  Check,
+  Play,
+  Pause,
+  Lock,
+  Unlock
 } from 'lucide-react'
+import { cybersecurityCourse, getModuleById, getAllModules } from '@/data/courseStructure'
 
 const allowedEmails = [
   'sicnife04@gmail.com',
   'fordc15521@gmail.com',
 ]
 
+interface ModuleStatus {
+  id: string
+  title: string
+  difficulty: string
+  isPublished: boolean
+  isActive: boolean
+  lessonCount: number
+  lastModified: string
+}
+
 export default function AdminPanel() {
   const { data: session, status } = useSession()
   const [activeTab, setActiveTab] = useState('dashboard')
   const [searchTerm, setSearchTerm] = useState('')
+  const [modules, setModules] = useState<ModuleStatus[]>([])
+  const [editingModule, setEditingModule] = useState<string | null>(null)
+  const [showAddModule, setShowAddModule] = useState(false)
+
+  useEffect(() => {
+    // Convert course data to admin format
+    const courseModules = getAllModules()
+    const moduleStatus: ModuleStatus[] = courseModules.map(module => ({
+      id: module.id,
+      title: module.title,
+      difficulty: module.difficulty,
+      isPublished: true, // All modules are published by default
+      isActive: true,
+      lessonCount: module.lessons.length,
+      lastModified: new Date().toLocaleDateString()
+    }))
+    setModules(moduleStatus)
+  }, [])
 
   if (status === 'loading') {
     return <div className="min-h-screen flex items-center justify-center text-xl">Loading...</div>
@@ -58,41 +94,51 @@ export default function AdminPanel() {
     )
   }
 
-  // Mock data for demonstration
+  // Real stats based on actual course data
   const stats = {
-    totalUsers: 15420,
-    activeUsers: 8920,
-    totalCourses: 45,
-    totalLessons: 320,
-    threatsBlocked: 1250,
-    reportsToday: 23
+    totalModules: modules.length,
+    publishedModules: modules.filter(m => m.isPublished).length,
+    activeModules: modules.filter(m => m.isActive).length,
+    totalLessons: modules.reduce((sum, m) => sum + m.lessonCount, 0),
+    beginnerModules: modules.filter(m => m.difficulty === 'Beginner').length,
+    intermediateModules: modules.filter(m => m.difficulty === 'Intermediate').length,
+    advancedModules: modules.filter(m => m.difficulty === 'Advanced').length,
+    expertModules: modules.filter(m => m.difficulty === 'Expert').length
   }
 
-  const recentUsers = [
-    { id: 1, name: 'John Doe', email: 'john@example.com', status: 'active', lastActive: '2 hours ago' },
-    { id: 2, name: 'Jane Smith', email: 'jane@example.com', status: 'banned', lastActive: '1 day ago' },
-    { id: 3, name: 'Mike Johnson', email: 'mike@example.com', status: 'active', lastActive: '3 hours ago' },
-    { id: 4, name: 'Sarah Wilson', email: 'sarah@example.com', status: 'pending', lastActive: '5 hours ago' }
-  ]
+  const handleToggleModule = (moduleId: string, field: 'isPublished' | 'isActive') => {
+    setModules(prev => prev.map(module => 
+      module.id === moduleId 
+        ? { ...module, [field]: !module[field] }
+        : module
+    ))
+  }
 
-  const recentThreats = [
-    { id: 1, type: 'Phishing Attempt', severity: 'high', source: '192.168.1.100', time: '5 minutes ago' },
-    { id: 2, type: 'Brute Force Attack', severity: 'medium', source: '10.0.0.50', time: '15 minutes ago' },
-    { id: 3, type: 'SQL Injection', severity: 'high', source: '172.16.0.25', time: '1 hour ago' }
-  ]
+  const handleEditModule = (moduleId: string) => {
+    setEditingModule(moduleId)
+  }
+
+  const handleSaveModule = (moduleId: string) => {
+    setEditingModule(null)
+    // Here you would typically save to a database
+  }
+
+  const handleDeleteModule = (moduleId: string) => {
+    if (confirm('Are you sure you want to delete this module?')) {
+      setModules(prev => prev.filter(module => module.id !== moduleId))
+    }
+  }
 
   const tabs = [
     { id: 'dashboard', name: 'Dashboard', icon: <BarChart3 className="w-5 h-5" /> },
-    { id: 'users', name: 'User Management', icon: <Users className="w-5 h-5" /> },
-    { id: 'content', name: 'Content Management', icon: <BookOpen className="w-5 h-5" /> },
-    { id: 'threats', name: 'Threat Monitoring', icon: <AlertTriangle className="w-5 h-5" /> },
+    { id: 'modules', name: 'Module Management', icon: <BookOpen className="w-5 h-5" /> },
     { id: 'settings', name: 'Settings', icon: <Settings className="w-5 h-5" /> }
   ]
 
   const renderDashboard = () => (
     <div className="space-y-6">
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -100,10 +146,10 @@ export default function AdminPanel() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Total Users</p>
-              <p className="text-3xl font-bold text-cyber-500">{stats.totalUsers.toLocaleString()}</p>
+              <p className="text-gray-400 text-sm">Total Modules</p>
+              <p className="text-3xl font-bold text-cyber-500">{stats.totalModules}</p>
             </div>
-            <Users className="w-8 h-8 text-cyber-500" />
+            <BookOpen className="w-8 h-8 text-cyber-500" />
           </div>
         </motion.div>
 
@@ -115,10 +161,10 @@ export default function AdminPanel() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Active Users</p>
-              <p className="text-3xl font-bold text-success-500">{stats.activeUsers.toLocaleString()}</p>
+              <p className="text-gray-400 text-sm">Published</p>
+              <p className="text-3xl font-bold text-success-500">{stats.publishedModules}</p>
             </div>
-            <UserCheck className="w-8 h-8 text-success-500" />
+            <Check className="w-8 h-8 text-success-500" />
           </div>
         </motion.div>
 
@@ -130,78 +176,98 @@ export default function AdminPanel() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Threats Blocked</p>
-              <p className="text-3xl font-bold text-danger-500">{stats.threatsBlocked.toLocaleString()}</p>
+              <p className="text-gray-400 text-sm">Total Lessons</p>
+              <p className="text-3xl font-bold text-warning-500">{stats.totalLessons}</p>
             </div>
-            <Shield className="w-8 h-8 text-danger-500" />
+            <BookOpen className="w-8 h-8 text-warning-500" />
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="cyber-card"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-gray-400 text-sm">Active Modules</p>
+              <p className="text-3xl font-bold text-danger-500">{stats.activeModules}</p>
+            </div>
+            <Play className="w-8 h-8 text-danger-500" />
           </div>
         </motion.div>
       </div>
 
-      {/* Recent Activity */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="cyber-card">
-          <h3 className="text-xl font-semibold mb-4">Recent Users</h3>
-          <div className="space-y-3">
-            {recentUsers.map((user) => (
-              <div key={user.id} className="flex items-center justify-between p-3 bg-dark-700 rounded-lg">
-                <div>
-                  <p className="font-medium">{user.name}</p>
-                  <p className="text-sm text-gray-400">{user.email}</p>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <span className={`px-2 py-1 rounded-full text-xs ${
-                    user.status === 'active' ? 'bg-success-900 text-success-400' :
-                    user.status === 'banned' ? 'bg-danger-900 text-danger-400' :
-                    'bg-warning-900 text-warning-400'
-                  }`}>
-                    {user.status}
-                  </span>
-                  <button className="text-cyber-500 hover:text-cyber-400">
-                    <Eye className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            ))}
+      {/* Difficulty Distribution */}
+      <div className="cyber-card">
+        <h3 className="text-xl font-semibold mb-4">Module Distribution by Difficulty</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-green-500">{stats.beginnerModules}</div>
+            <div className="text-sm text-gray-400">Beginner</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-yellow-500">{stats.intermediateModules}</div>
+            <div className="text-sm text-gray-400">Intermediate</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-orange-500">{stats.advancedModules}</div>
+            <div className="text-sm text-gray-400">Advanced</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-red-500">{stats.expertModules}</div>
+            <div className="text-sm text-gray-400">Expert</div>
           </div>
         </div>
+      </div>
 
-        <div className="cyber-card">
-          <h3 className="text-xl font-semibold mb-4">Recent Threats</h3>
-          <div className="space-y-3">
-            {recentThreats.map((threat) => (
-              <div key={threat.id} className="flex items-center justify-between p-3 bg-dark-700 rounded-lg">
-                <div>
-                  <p className="font-medium">{threat.type}</p>
-                  <p className="text-sm text-gray-400">{threat.source}</p>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <span className={`px-2 py-1 rounded-full text-xs ${
-                    threat.severity === 'high' ? 'bg-danger-900 text-danger-400' :
-                    'bg-warning-900 text-warning-400'
-                  }`}>
-                    {threat.severity}
-                  </span>
-                  <span className="text-xs text-gray-400">{threat.time}</span>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Quick Actions */}
+      <div className="cyber-card">
+        <h3 className="text-xl font-semibold mb-4">Quick Actions</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <button 
+            onClick={() => setActiveTab('modules')}
+            className="cyber-button flex items-center justify-center space-x-2"
+          >
+            <BookOpen className="w-4 h-4" />
+            <span>Manage Modules</span>
+          </button>
+          <button className="cyber-button flex items-center justify-center space-x-2">
+            <Upload className="w-4 h-4" />
+            <span>Export Data</span>
+          </button>
+          <button className="cyber-button flex items-center justify-center space-x-2">
+            <Settings className="w-4 h-4" />
+            <span>Site Settings</span>
+          </button>
         </div>
       </div>
     </div>
   )
 
-  const renderUserManagement = () => (
+  const renderModuleManagement = () => (
     <div className="space-y-6">
-      {/* Search and Filters */}
+      {/* Header */}
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold">Module Management</h2>
+        <button 
+          onClick={() => setShowAddModule(true)}
+          className="cyber-button flex items-center space-x-2"
+        >
+          <Plus className="w-4 h-4" />
+          <span>Add Module</span>
+        </button>
+      </div>
+
+      {/* Search */}
       <div className="flex flex-col md:flex-row gap-4">
         <div className="flex-1">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
-              placeholder="Search users..."
+              placeholder="Search modules..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-10 pr-4 py-2 bg-dark-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-cyber-500 focus:outline-none"
@@ -219,50 +285,94 @@ export default function AdminPanel() {
         </div>
       </div>
 
-      {/* User Table */}
+      {/* Modules Table */}
       <div className="cyber-card">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
               <tr className="border-b border-gray-700">
-                <th className="text-left py-3 px-4">User</th>
-                <th className="text-left py-3 px-4">Email</th>
+                <th className="text-left py-3 px-4">Module</th>
+                <th className="text-left py-3 px-4">Difficulty</th>
+                <th className="text-left py-3 px-4">Lessons</th>
                 <th className="text-left py-3 px-4">Status</th>
-                <th className="text-left py-3 px-4">Last Active</th>
+                <th className="text-left py-3 px-4">Last Modified</th>
                 <th className="text-left py-3 px-4">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {recentUsers.map((user) => (
-                <tr key={user.id} className="border-b border-gray-800">
+              {modules
+                .filter(module => 
+                  module.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                  module.difficulty.toLowerCase().includes(searchTerm.toLowerCase())
+                )
+                .map((module) => (
+                <tr key={module.id} className="border-b border-gray-800">
                   <td className="py-3 px-4">
                     <div>
-                      <p className="font-medium">{user.name}</p>
-                      <p className="text-sm text-gray-400">ID: {user.id}</p>
+                      <p className="font-medium">{module.title}</p>
+                      <p className="text-sm text-gray-400">ID: {module.id}</p>
                     </div>
                   </td>
-                  <td className="py-3 px-4 text-gray-300">{user.email}</td>
                   <td className="py-3 px-4">
                     <span className={`px-2 py-1 rounded-full text-xs ${
-                      user.status === 'active' ? 'bg-success-900 text-success-400' :
-                      user.status === 'banned' ? 'bg-danger-900 text-danger-400' :
-                      'bg-warning-900 text-warning-400'
+                      module.difficulty === 'Beginner' ? 'bg-green-900 text-green-400' :
+                      module.difficulty === 'Intermediate' ? 'bg-yellow-900 text-yellow-400' :
+                      module.difficulty === 'Advanced' ? 'bg-orange-900 text-orange-400' :
+                      'bg-red-900 text-red-400'
                     }`}>
-                      {user.status}
+                      {module.difficulty}
                     </span>
                   </td>
-                  <td className="py-3 px-4 text-gray-300">{user.lastActive}</td>
+                  <td className="py-3 px-4 text-gray-300">{module.lessonCount}</td>
                   <td className="py-3 px-4">
                     <div className="flex space-x-2">
-                      <button className="text-cyber-500 hover:text-cyber-400">
-                        <Eye className="w-4 h-4" />
+                      <button
+                        onClick={() => handleToggleModule(module.id, 'isPublished')}
+                        className={`px-2 py-1 rounded text-xs ${
+                          module.isPublished 
+                            ? 'bg-success-900 text-success-400' 
+                            : 'bg-gray-700 text-gray-400'
+                        }`}
+                      >
+                        {module.isPublished ? 'Published' : 'Draft'}
                       </button>
-                      <button className="text-warning-500 hover:text-warning-400">
+                      <button
+                        onClick={() => handleToggleModule(module.id, 'isActive')}
+                        className={`px-2 py-1 rounded text-xs ${
+                          module.isActive 
+                            ? 'bg-cyber-900 text-cyber-400' 
+                            : 'bg-gray-700 text-gray-400'
+                        }`}
+                      >
+                        {module.isActive ? 'Active' : 'Inactive'}
+                      </button>
+                    </div>
+                  </td>
+                  <td className="py-3 px-4 text-gray-300">{module.lastModified}</td>
+                  <td className="py-3 px-4">
+                    <div className="flex space-x-2">
+                      <button 
+                        onClick={() => handleEditModule(module.id)}
+                        className="text-cyber-500 hover:text-cyber-400"
+                        title="Edit Module"
+                      >
                         <Edit className="w-4 h-4" />
                       </button>
-                      <button className="text-danger-500 hover:text-danger-400">
-                        <Ban className="w-4 h-4" />
+                      <button 
+                        onClick={() => handleDeleteModule(module.id)}
+                        className="text-danger-500 hover:text-danger-400"
+                        title="Delete Module"
+                      >
+                        <Trash2 className="w-4 h-4" />
                       </button>
+                      <a 
+                        href={`/course?difficulty=${module.difficulty.toLowerCase()}`}
+                        target="_blank"
+                        className="text-success-500 hover:text-success-400"
+                        title="View Module"
+                      >
+                        <Eye className="w-4 h-4" />
+                      </a>
                     </div>
                   </td>
                 </tr>
@@ -274,108 +384,24 @@ export default function AdminPanel() {
     </div>
   )
 
-  const renderContentManagement = () => (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">Content Management</h2>
-        <button className="cyber-button flex items-center space-x-2">
-          <Plus className="w-4 h-4" />
-          <span>Add Content</span>
-        </button>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="cyber-card">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold">Courses</h3>
-            <span className="text-2xl font-bold text-cyber-500">{stats.totalCourses}</span>
-          </div>
-          <div className="space-y-2">
-            <div className="flex justify-between text-sm">
-              <span>Published</span>
-              <span className="text-success-500">42</span>
-            </div>
-            <div className="flex justify-between text-sm">
-              <span>Draft</span>
-              <span className="text-warning-500">3</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="cyber-card">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold">Lessons</h3>
-            <span className="text-2xl font-bold text-success-500">{stats.totalLessons}</span>
-          </div>
-          <div className="space-y-2">
-            <div className="flex justify-between text-sm">
-              <span>Completed</span>
-              <span className="text-success-500">298</span>
-            </div>
-            <div className="flex justify-between text-sm">
-              <span>In Progress</span>
-              <span className="text-warning-500">22</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="cyber-card">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold">Tools</h3>
-            <span className="text-2xl font-bold text-danger-500">15</span>
-          </div>
-          <div className="space-y-2">
-            <div className="flex justify-between text-sm">
-              <span>Active</span>
-              <span className="text-success-500">12</span>
-            </div>
-            <div className="flex justify-between text-sm">
-              <span>Maintenance</span>
-              <span className="text-warning-500">3</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-
-  const renderThreatMonitoring = () => (
-    <div className="space-y-6">
-      <div className="cyber-card">
-        <h3 className="text-xl font-semibold mb-4">Live Threat Feed</h3>
-        <div className="space-y-3">
-          {recentThreats.map((threat) => (
-            <div key={threat.id} className="flex items-center justify-between p-4 bg-dark-700 rounded-lg border-l-4 border-danger-500">
-              <div>
-                <p className="font-medium text-danger-400">{threat.type}</p>
-                <p className="text-sm text-gray-400">Source: {threat.source}</p>
-                <p className="text-xs text-gray-500">{threat.time}</p>
-              </div>
-              <div className="flex space-x-2">
-                <button className="px-3 py-1 bg-danger-900 text-danger-400 rounded text-sm">
-                  Block
-                </button>
-                <button className="px-3 py-1 bg-cyber-900 text-cyber-400 rounded text-sm">
-                  Investigate
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-
   const renderSettings = () => (
     <div className="space-y-6">
       <div className="cyber-card">
-        <h3 className="text-xl font-semibold mb-4">Admin Settings</h3>
+        <h3 className="text-xl font-semibold mb-4">Site Settings</h3>
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium mb-2">Site Name</label>
             <input
               type="text"
-              defaultValue="CyberGuard"
+              defaultValue="CyberGuard - Free Cybersecurity Course"
+              className="w-full px-3 py-2 bg-dark-700 border border-gray-600 rounded-lg text-white focus:border-cyber-500 focus:outline-none"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-2">Site Description</label>
+            <textarea
+              defaultValue="Complete cybersecurity course from beginner to expert level - 100% FREE"
+              rows={3}
               className="w-full px-3 py-2 bg-dark-700 border border-gray-600 rounded-lg text-white focus:border-cyber-500 focus:outline-none"
             />
           </div>
@@ -383,20 +409,49 @@ export default function AdminPanel() {
             <label className="block text-sm font-medium mb-2">Admin Email</label>
             <input
               type="email"
-              defaultValue="admin@cyberguard.com"
+              defaultValue={session.user?.email || ''}
               className="w-full px-3 py-2 bg-dark-700 border border-gray-600 rounded-lg text-white focus:border-cyber-500 focus:outline-none"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2">Security Level</label>
+            <label className="block text-sm font-medium mb-2">Course Status</label>
             <select className="w-full px-3 py-2 bg-dark-700 border border-gray-600 rounded-lg text-white focus:border-cyber-500 focus:outline-none">
-              <option>High</option>
-              <option>Medium</option>
-              <option>Low</option>
+              <option>Active - Open for Learning</option>
+              <option>Maintenance Mode</option>
+              <option>Development Mode</option>
             </select>
           </div>
-          <button className="cyber-button">
-            Save Settings
+          <button className="cyber-button flex items-center space-x-2">
+            <Save className="w-4 h-4" />
+            <span>Save Settings</span>
+          </button>
+        </div>
+      </div>
+
+      <div className="cyber-card">
+        <h3 className="text-xl font-semibold mb-4">Access Control</h3>
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-2">Allowed Admin Emails</label>
+            <div className="space-y-2">
+              {allowedEmails.map((email, index) => (
+                <div key={index} className="flex items-center space-x-2">
+                  <input
+                    type="email"
+                    value={email}
+                    readOnly
+                    className="flex-1 px-3 py-2 bg-dark-700 border border-gray-600 rounded-lg text-white"
+                  />
+                  <button className="text-danger-500 hover:text-danger-400">
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+          <button className="cyber-button flex items-center space-x-2">
+            <Plus className="w-4 h-4" />
+            <span>Add Admin Email</span>
           </button>
         </div>
       </div>
@@ -414,8 +469,11 @@ export default function AdminPanel() {
               <span className="text-xl font-bold text-white">CyberGuard Admin</span>
             </div>
             <div className="flex items-center space-x-4">
-              <span className="text-gray-300">Admin Panel</span>
-              <button className="text-gray-300 hover:text-white transition-colors">
+              <span className="text-gray-300">Welcome, {session.user?.name}</span>
+              <button 
+                onClick={() => signOut()}
+                className="text-gray-300 hover:text-white transition-colors"
+              >
                 Logout
               </button>
             </div>
@@ -444,9 +502,7 @@ export default function AdminPanel() {
 
         {/* Content */}
         {activeTab === 'dashboard' && renderDashboard()}
-        {activeTab === 'users' && renderUserManagement()}
-        {activeTab === 'content' && renderContentManagement()}
-        {activeTab === 'threats' && renderThreatMonitoring()}
+        {activeTab === 'modules' && renderModuleManagement()}
         {activeTab === 'settings' && renderSettings()}
       </div>
     </div>
