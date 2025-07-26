@@ -35,7 +35,7 @@ export default function ResourceSelector({ resources, onClose, title = "Download
       for (const resource of selectedResources) {
         await new Promise(resolve => setTimeout(resolve, 500))
         
-        const fileName = `${resource.replace(/\s+/g, '_').toLowerCase()}.pdf`
+        const fileName = `${resource.replace(/[^a-zA-Z0-9]+/g, '_').toLowerCase()}.pdf`
         const link = document.createElement('a')
         link.href = `/resources/${fileName}`
         link.download = fileName

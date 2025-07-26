@@ -271,7 +271,7 @@ export default function LessonViewer({ lesson, onNext, onPrevious }: LessonViewe
                           </div>
                         </div>
                         <a
-                          href={`/resources/${resource.replace(/\s+/g, '_').toLowerCase()}.pdf`}
+                          href={`/resources/${resource.replace(/[^a-zA-Z0-9]+/g, '_').toLowerCase()}.pdf`}
                           download
                           className="text-cyber-400 hover:text-cyber-300 transition-colors"
                         >
