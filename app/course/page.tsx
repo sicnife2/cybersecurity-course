@@ -22,10 +22,13 @@ import {
   Rocket
 } from 'lucide-react'
 import { cybersecurityCourse, getModuleById, getModulesByDifficulty } from '@/data/courseStructure'
+import ResourceSelector from '@/components/ResourceSelector'
 
 function CourseContent() {
   const searchParams = useSearchParams()
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all')
+  const [showResourceSelector, setShowResourceSelector] = useState(false)
+  const [selectedModuleResources, setSelectedModuleResources] = useState<string[]>([])
   
   // Handle URL parameters for filtering
   useEffect(() => {
@@ -311,17 +314,17 @@ function CourseContent() {
                     className="px-6 py-3 border border-cyber-500 text-cyber-500 hover:bg-cyber-500 hover:text-white font-semibold rounded-lg transition-all duration-300"
                     onClick={() => {
                       if (selectedModuleData) {
-                        // Download the first resource of the first lesson if available
-                        const firstLesson = selectedModuleData.lessons[0]
-                        if (firstLesson && firstLesson.resources && firstLesson.resources.length > 0) {
-                          const resource = firstLesson.resources[0]
-                          const fileName = `/resources/${resource.replace(/\s+/g, '_').toLowerCase()}.pdf`
-                          const link = document.createElement('a')
-                          link.href = fileName
-                          link.download = resource.replace(/\s+/g, '_').toLowerCase() + '.pdf'
-                          document.body.appendChild(link)
-                          link.click()
-                          document.body.removeChild(link)
+                        // Collect all resources from all lessons in the module
+                        const allResources: string[] = []
+                        selectedModuleData.lessons.forEach(lesson => {
+                          if (lesson.resources && lesson.resources.length > 0) {
+                            allResources.push(...lesson.resources)
+                          }
+                        })
+                        
+                        if (allResources.length > 0) {
+                          setSelectedModuleResources(allResources)
+                          setShowResourceSelector(true)
                         } else {
                           alert('No resources available for this module yet.')
                         }
@@ -401,6 +404,15 @@ function CourseContent() {
             Begin Your Cybersecurity Journey
           </button>
         </motion.div>
+
+        {/* Resource Selector Modal */}
+        {showResourceSelector && (
+          <ResourceSelector
+            resources={selectedModuleResources}
+            onClose={() => setShowResourceSelector(false)}
+            title={`Download Resources - ${selectedModuleData?.title}`}
+          />
+        )}
       </div>
     </div>
   )

@@ -18,6 +18,7 @@ import {
   Share2
 } from 'lucide-react'
 import { cybersecurityCourse, getModuleById } from '@/data/courseStructure'
+import ExerciseModal from '@/components/ExerciseModal'
 
 export default function LessonViewer() {
   const params = useParams()
@@ -26,6 +27,8 @@ export default function LessonViewer() {
   const [completedSections, setCompletedSections] = useState<number[]>([])
   const [lesson, setLesson] = useState<any>(null)
   const [module, setModule] = useState<any>(null)
+  const [showExerciseModal, setShowExerciseModal] = useState(false)
+  const [selectedExercise, setSelectedExercise] = useState<any>(null)
 
   useEffect(() => {
     // Find the lesson by ID
@@ -262,12 +265,100 @@ export default function LessonViewer() {
                         </div>
                         <p className="text-gray-300 mb-4">{exercise}</p>
                         <div className="flex space-x-3">
-                          <button className="cyber-button text-sm px-4 py-2">
-                            Start Exercise
-                          </button>
-                          <button className="px-4 py-2 border border-cyber-500 text-cyber-500 hover:bg-cyber-500 hover:text-white rounded-lg transition-all duration-300 text-sm">
-                            View Solution
-                          </button>
+                          <button 
+                            className="cyber-button text-sm px-4 py-2"
+                            onClick={() => {
+                              const exerciseData = {
+                                id: `${lesson.id}-exercise-${index}`,
+                                title: `Exercise ${index + 1}`,
+                                description: exercise,
+                                type: index % 3 === 0 ? 'quiz' : index % 3 === 1 ? 'practical' : 'analysis',
+                                content: `
+                                  <h3>${exercise}</h3>
+                                  <p>This exercise will help you understand and apply the concepts learned in this lesson.</p>
+                                  <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-4">
+                                    <h4 class="text-cyber-400 font-semibold mb-2">Instructions</h4>
+                                    <p>Follow the steps below to complete this exercise:</p>
+                                    <ol class="list-decimal list-inside space-y-1 mt-2">
+                                      <li>Read through the exercise carefully</li>
+                                      <li>Apply the concepts learned in this lesson</li>
+                                      <li>Complete all required tasks</li>
+                                      <li>Review your work before submitting</li>
+                                    </ol>
+                                  </div>
+                                `,
+                                solution: `
+                                  <h3>Solution for ${exercise}</h3>
+                                  <p>Here's how to approach this exercise:</p>
+                                  <div class="bg-success-900/20 border border-success-500/30 rounded-lg p-4 mt-4">
+                                    <h4 class="text-success-400 font-semibold mb-2">Step-by-Step Solution</h4>
+                                    <ol class="list-decimal list-inside space-y-2">
+                                      <li>First, identify the key concepts involved</li>
+                                      <li>Apply the appropriate security principles</li>
+                                      <li>Document your findings and approach</li>
+                                      <li>Verify your solution meets all requirements</li>
+                                    </ol>
+                                  </div>
+                                `,
+                                hints: [
+                                  "Think about the security principles discussed in this lesson",
+                                  "Consider both technical and human factors",
+                                  "Document your process for future reference"
+                                ]
+                              }
+                                                              setSelectedExercise(exerciseData)
+                                setShowExerciseModal(true)
+                              }}
+                            >
+                              Start Exercise
+                            </button>
+                            <button 
+                              className="px-4 py-2 border border-cyber-500 text-cyber-500 hover:bg-cyber-500 hover:text-white rounded-lg transition-all duration-300 text-sm"
+                              onClick={() => {
+                                const exerciseData = {
+                                id: `${lesson.id}-exercise-${index}`,
+                                title: `Exercise ${index + 1} - Solution`,
+                                description: exercise,
+                                type: index % 3 === 0 ? 'quiz' : index % 3 === 1 ? 'practical' : 'analysis',
+                                content: `
+                                  <h3>${exercise}</h3>
+                                  <p>This exercise will help you understand and apply the concepts learned in this lesson.</p>
+                                  <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-4">
+                                    <h4 class="text-cyber-400 font-semibold mb-2">Instructions</h4>
+                                    <p>Follow the steps below to complete this exercise:</p>
+                                    <ol class="list-decimal list-inside space-y-1 mt-2">
+                                      <li>Read through the exercise carefully</li>
+                                      <li>Apply the concepts learned in this lesson</li>
+                                      <li>Complete all required tasks</li>
+                                      <li>Review your work before submitting</li>
+                                    </ol>
+                                  </div>
+                                `,
+                                solution: `
+                                  <h3>Solution for ${exercise}</h3>
+                                  <p>Here's how to approach this exercise:</p>
+                                  <div class="bg-success-900/20 border border-success-500/30 rounded-lg p-4 mt-4">
+                                    <h4 class="text-success-400 font-semibold mb-2">Step-by-Step Solution</h4>
+                                    <ol class="list-decimal list-inside space-y-2">
+                                      <li>First, identify the key concepts involved</li>
+                                      <li>Apply the appropriate security principles</li>
+                                      <li>Document your findings and approach</li>
+                                      <li>Verify your solution meets all requirements</li>
+                                    </ol>
+                                  </div>
+                                `,
+                                hints: [
+                                  "Think about the security principles discussed in this lesson",
+                                  "Consider both technical and human factors",
+                                  "Document your process for future reference"
+                                ]
+                              }
+                                                              setSelectedExercise(exerciseData)
+                                setShowExerciseModal(true)
+                              }}
+                            >
+                              View Solution
+                            </button>
                         </div>
                       </div>
                     ))}
@@ -404,6 +495,17 @@ export default function LessonViewer() {
           </div>
         </div>
       </div>
+
+      {/* Exercise Modal */}
+      {showExerciseModal && selectedExercise && (
+        <ExerciseModal
+          exercise={selectedExercise}
+          onClose={() => {
+            setShowExerciseModal(false)
+            setSelectedExercise(null)
+          }}
+        />
+      )}
     </div>
   )
 } 

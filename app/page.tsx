@@ -14,11 +14,14 @@ import {
   ArrowRight,
   Play,
   Code,
-  Globe
+  Globe,
+  Mail
 } from 'lucide-react'
+import ContactForm from '@/components/ContactForm'
 
 export default function Home() {
   const [currentThreat, setCurrentThreat] = useState(0)
+  const [showContact, setShowContact] = useState(false)
   
   const threats = [
     "Phishing attacks increased by 600% in 2023",
@@ -89,6 +92,13 @@ export default function Home() {
             <div className="hidden md:flex space-x-8">
               <a href="/course" className="text-gray-300 hover:text-white transition-colors">Course</a>
               <a href="/tools" className="text-gray-300 hover:text-white transition-colors">Tools</a>
+              <button 
+                onClick={() => setShowContact(true)}
+                className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2"
+              >
+                <Mail className="w-4 h-4" />
+                <span>Contact</span>
+              </button>
             </div>
             <button className="cyber-button">
               Get Started
@@ -236,6 +246,11 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Contact Form Modal */}
+      {showContact && (
+        <ContactForm onClose={() => setShowContact(false)} />
+      )}
     </div>
   )
 } 

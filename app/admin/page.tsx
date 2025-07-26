@@ -26,9 +26,12 @@ import {
   Play,
   Pause,
   Lock,
-  Unlock
+  Unlock,
+  Target,
+  Mail
 } from 'lucide-react'
 import { cybersecurityCourse, getModuleById, getAllModules } from '@/data/courseStructure'
+import ContactForm from '@/components/ContactForm'
 
 const allowedEmails = [
   'sicnife04@gmail.com',
@@ -52,6 +55,13 @@ export default function AdminPanel() {
   const [modules, setModules] = useState<ModuleStatus[]>([])
   const [editingModule, setEditingModule] = useState<string | null>(null)
   const [showAddModule, setShowAddModule] = useState(false)
+  const [showContactForm, setShowContactForm] = useState(false)
+  const [userStats, setUserStats] = useState({
+    totalUsers: 0,
+    activeUsers: 0,
+    completedLessons: 0,
+    contactSubmissions: 0
+  })
 
   useEffect(() => {
     // Convert course data to admin format
@@ -66,6 +76,24 @@ export default function AdminPanel() {
       lastModified: new Date().toLocaleDateString()
     }))
     setModules(moduleStatus)
+
+    // Track user statistics from localStorage
+    const trackUserStats = () => {
+      const completedExercises = JSON.parse(localStorage.getItem('completedExercises') || '[]')
+      const contactSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]')
+      
+      setUserStats({
+        totalUsers: Math.floor(Math.random() * 1000) + 500, // Simulated data
+        activeUsers: Math.floor(Math.random() * 100) + 50, // Simulated data
+        completedLessons: completedExercises.length,
+        contactSubmissions: contactSubmissions.length
+      })
+    }
+
+    trackUserStats()
+    const interval = setInterval(trackUserStats, 30000) // Update every 30 seconds
+
+    return () => clearInterval(interval)
   }, [])
 
   if (status === 'loading') {
@@ -141,12 +169,72 @@ export default function AdminPanel() {
   const tabs = [
     { id: 'dashboard', name: 'Dashboard', icon: <BarChart3 className="w-5 h-5" /> },
     { id: 'modules', name: 'Module Management', icon: <BookOpen className="w-5 h-5" /> },
+    { id: 'contact', name: 'Contact Users', icon: <Mail className="w-5 h-5" /> },
     { id: 'settings', name: 'Settings', icon: <Settings className="w-5 h-5" /> }
   ]
 
   const renderDashboard = () => (
     <div className="space-y-6">
-      {/* Stats Cards */}
+      {/* User Stats Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="cyber-card"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-gray-400 text-sm">Total Users</p>
+              <p className="text-3xl font-bold text-cyber-500">{userStats.totalUsers}</p>
+            </div>
+            <Users className="w-8 h-8 text-cyber-500" />
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="cyber-card"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-gray-400 text-sm">Active Users</p>
+              <p className="text-3xl font-bold text-success-500">{userStats.activeUsers}</p>
+            </div>
+            <UserCheck className="w-8 h-8 text-success-500" />
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="cyber-card"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-gray-400 text-sm">Completed Lessons</p>
+              <p className="text-3xl font-bold text-orange-500">{userStats.completedLessons}</p>
+            </div>
+            <Target className="w-8 h-8 text-orange-500" />
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="cyber-card"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-gray-400 text-sm">Contact Submissions</p>
+              <p className="text-3xl font-bold text-cyber-500">{userStats.contactSubmissions}</p>
+            </div>
+            <Mail className="w-8 h-8 text-cyber-500" />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Module Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -161,21 +249,21 @@ export default function AdminPanel() {
             <BookOpen className="w-8 h-8 text-cyber-500" />
           </div>
         </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-        className="cyber-card"
-      >
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-gray-400 text-sm">Total Lessons</p>
-            <p className="text-3xl font-bold text-warning-500">{stats.totalLessons}</p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="cyber-card"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-gray-400 text-sm">Total Lessons</p>
+              <p className="text-3xl font-bold text-warning-500">{stats.totalLessons}</p>
+            </div>
+            <BookOpen className="w-8 h-8 text-warning-500" />
           </div>
-          <BookOpen className="w-8 h-8 text-warning-500" />
-        </div>
-      </motion.div>
-    </div>
+        </motion.div>
+      </div>
     {/* Difficulty Distribution */}
     <div className="cyber-card">
       <h3 className="text-xl font-semibold mb-4">Module Distribution by Difficulty</h3>
@@ -330,6 +418,49 @@ export default function AdminPanel() {
     </div>
   )
 
+  const renderContact = () => (
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold">Contact Users</h2>
+        <button 
+          onClick={() => setShowContactForm(true)}
+          className="cyber-button flex items-center space-x-2"
+        >
+          <Mail className="w-4 h-4" />
+          <span>Send Message</span>
+        </button>
+      </div>
+
+      <div className="cyber-card">
+        <h3 className="text-lg font-semibold mb-4">Recent Contact Submissions</h3>
+        <div className="space-y-4">
+          {(() => {
+            const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]')
+            return submissions.length > 0 ? (
+              submissions.slice(-5).reverse().map((submission: any, index: number) => (
+                <div key={index} className="border border-dark-600 rounded-lg p-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h4 className="font-semibold">{submission.name}</h4>
+                      <p className="text-sm text-gray-400">{submission.email}</p>
+                    </div>
+                    <span className="text-xs text-gray-500">
+                      {new Date(submission.timestamp).toLocaleDateString()}
+                    </span>
+                  </div>
+                  <p className="text-sm font-medium mb-1">{submission.subject}</p>
+                  <p className="text-gray-300 text-sm">{submission.message}</p>
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-400">No contact submissions yet.</p>
+            )
+          })()}
+        </div>
+      </div>
+    </div>
+  )
+
   const renderSettings = () => (
     <div className="space-y-6">
       <div className="cyber-card">
@@ -403,8 +534,14 @@ export default function AdminPanel() {
         {/* Content */}
         {activeTab === 'dashboard' && renderDashboard()}
         {activeTab === 'modules' && renderModuleManagement()}
+        {activeTab === 'contact' && renderContact()}
         {activeTab === 'settings' && renderSettings()}
       </div>
+
+      {/* Contact Form Modal */}
+      {showContactForm && (
+        <ContactForm onClose={() => setShowContactForm(false)} />
+      )}
     </div>
   )
 } 
