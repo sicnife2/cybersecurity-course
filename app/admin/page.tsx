@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useSession, signIn, signOut } from 'next-auth/react'
 import { motion } from 'framer-motion'
 import { 
   Shield, 
@@ -21,9 +22,41 @@ import {
   Upload
 } from 'lucide-react'
 
+const allowedEmails = [
+  'sicnife04@gmail.com',
+  'fordc15521@gmail.com',
+]
+
 export default function AdminPanel() {
+  const { data: session, status } = useSession()
   const [activeTab, setActiveTab] = useState('dashboard')
   const [searchTerm, setSearchTerm] = useState('')
+
+  if (status === 'loading') {
+    return <div className="min-h-screen flex items-center justify-center text-xl">Loading...</div>
+  }
+
+  if (!session) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <Shield className="w-12 h-12 text-cyber-500 mb-4" />
+        <h2 className="text-2xl font-bold mb-2">Admin Login</h2>
+        <p className="mb-6 text-gray-400">Sign in with Google to access the admin panel.</p>
+        <button className="cyber-button" onClick={() => signIn('google')}>Sign in with Google</button>
+      </div>
+    )
+  }
+
+  if (!allowedEmails.includes(session.user?.email || '')) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <Shield className="w-12 h-12 text-danger-500 mb-4" />
+        <h2 className="text-2xl font-bold mb-2 text-danger-400">Access Denied</h2>
+        <p className="mb-6 text-gray-400">You do not have permission to access this page.</p>
+        <button className="cyber-button" onClick={() => signOut()}>Sign out</button>
+      </div>
+    )
+  }
 
   // Mock data for demonstration
   const stats = {
