@@ -14,7 +14,9 @@ import {
   ExternalLink
 } from 'lucide-react'
 import PasswordGenerator from '@/components/PasswordGenerator'
-import ThreatIntelligence from '@/components/ThreatIntelligence'
+import HashGenerator from '@/components/HashGenerator'
+import Base64Tool from '@/components/Base64Tool'
+import PasswordStrengthChecker from '@/components/PasswordStrengthChecker'
 
 export default function ToolsPage() {
   const [activeTab, setActiveTab] = useState('password')
@@ -28,56 +30,25 @@ export default function ToolsPage() {
       component: <PasswordGenerator />
     },
     {
-      id: 'threats',
-      name: 'Threat Intelligence',
-      description: 'Real-time cybersecurity threats and alerts from around the world',
-      icon: <Shield className="w-8 h-8" />,
-      component: <ThreatIntelligence />
-    }
-  ]
-
-  const securityTools = [
-    {
-      name: 'Network Scanner',
-      description: 'Scan your network for vulnerabilities and open ports',
-      icon: <Globe className="w-6 h-6" />,
-      status: 'Coming Soon',
-      color: 'bg-cyber-600'
-    },
-    {
-      name: 'Encryption Tool',
-      description: 'Encrypt and decrypt files with military-grade encryption',
-      icon: <Lock className="w-6 h-6" />,
-      status: 'Coming Soon',
-      color: 'bg-success-600'
-    },
-    {
+      id: 'hash',
       name: 'Hash Generator',
-      description: 'Generate cryptographic hashes for file integrity verification',
-      icon: <Code className="w-6 h-6" />,
-      status: 'Coming Soon',
-      color: 'bg-danger-600'
+      description: 'Generate MD5, SHA-1, SHA-256 hashes for any text',
+      icon: <Code className="w-8 h-8" />,
+      component: <HashGenerator />
     },
     {
-      name: 'SSL Checker',
-      description: 'Check SSL certificate validity and security configuration',
-      icon: <Shield className="w-6 h-6" />,
-      status: 'Coming Soon',
-      color: 'bg-yellow-600'
+      id: 'base64',
+      name: 'Base64 Encoder/Decoder',
+      description: 'Encode or decode Base64 text easily',
+      icon: <Globe className="w-8 h-8" />,
+      component: <Base64Tool />
     },
     {
-      name: 'IP Analyzer',
-      description: 'Analyze IP addresses for potential threats and geolocation',
-      icon: <Eye className="w-6 h-6" />,
-      status: 'Coming Soon',
-      color: 'bg-purple-600'
-    },
-    {
-      name: 'Malware Scanner',
-      description: 'Scan files and URLs for potential malware threats',
-      icon: <Zap className="w-6 h-6" />,
-      status: 'Coming Soon',
-      color: 'bg-orange-600'
+      id: 'strength',
+      name: 'Password Strength Checker',
+      description: 'Check how strong your password is',
+      icon: <Eye className="w-8 h-8" />,
+      component: <PasswordStrengthChecker />
     }
   ]
 
@@ -100,7 +71,7 @@ export default function ToolsPage() {
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Free, powerful tools to help you protect yourself online. 
-            From password generation to threat intelligence, we've got you covered.
+            From password generation to hash and encoding tools, we've got you covered.
           </p>
         </motion.div>
 
@@ -144,41 +115,6 @@ export default function ToolsPage() {
               {activeTool.component}
             </div>
           )}
-        </motion.div>
-
-        {/* Coming Soon Tools */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-12"
-        >
-          <h2 className="text-3xl font-bold text-center mb-8">More Tools Coming Soon</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {securityTools.map((tool, index) => (
-              <motion.div
-                key={tool.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="cyber-card group"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className={`p-3 rounded-lg ${tool.color}`}>
-                    {tool.icon}
-                  </div>
-                  <span className="text-xs bg-cyber-600 text-white px-2 py-1 rounded-full">
-                    {tool.status}
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{tool.name}</h3>
-                <p className="text-gray-400 mb-4">{tool.description}</p>
-                <button className="w-full py-2 bg-dark-700 text-gray-300 rounded-lg hover:bg-dark-600 transition-colors">
-                  Notify When Available
-                </button>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
 
         {/* External Resources */}

@@ -270,9 +270,13 @@ export default function LessonViewer({ lesson, onNext, onPrevious }: LessonViewe
                             <p className="text-sm text-gray-400">Additional learning material</p>
                           </div>
                         </div>
-                        <button className="text-cyber-400 hover:text-cyber-300 transition-colors">
+                        <a
+                          href={`/resources/${resource.replace(/\s+/g, '_').toLowerCase()}.pdf`}
+                          download
+                          className="text-cyber-400 hover:text-cyber-300 transition-colors"
+                        >
                           <Download className="w-5 h-5" />
-                        </button>
+                        </a>
                       </div>
                     ))}
                   </div>

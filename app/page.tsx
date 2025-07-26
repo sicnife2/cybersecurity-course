@@ -41,14 +41,9 @@ export default function Home() {
       description: "Comprehensive cybersecurity course from beginner to expert level"
     },
     {
-      icon: <Target className="w-8 h-8" />,
-      title: "Real-time Threats",
-      description: "Live threat intelligence and security alerts from around the world"
-    },
-    {
       icon: <Code className="w-8 h-8" />,
       title: "Security Tools",
-      description: "Free tools for password generation, encryption, and security testing"
+      description: "Free tools for password generation, hash, encoding, and more"
     },
     {
       icon: <Users className="w-8 h-8" />,
@@ -94,7 +89,6 @@ export default function Home() {
             <div className="hidden md:flex space-x-8">
               <a href="/course" className="text-gray-300 hover:text-white transition-colors">Course</a>
               <a href="/tools" className="text-gray-300 hover:text-white transition-colors">Tools</a>
-              <a href="#threats" className="text-gray-300 hover:text-white transition-colors">Threats</a>
             </div>
             <button className="cyber-button">
               Get Started
