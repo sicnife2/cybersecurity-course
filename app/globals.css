@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-dark-900 text-white;
+  }
+}
+
+@layer components {
+  .cyber-gradient {
+    background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #8b5cf6 100%);
+  }
+  
+  .cyber-border {
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, #0ea5e9, #3b82f6) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .cyber-button {
+    @apply px-6 py-3 bg-cyber-600 hover:bg-cyber-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+  }
+  
+  .cyber-card {
+    @apply bg-dark-800 rounded-xl p-6 border border-dark-700 hover:border-cyber-500 transition-all duration-300;
+  }
+  
+  .typing-animation {
+    overflow: hidden;
+    border-right: 2px solid #0ea5e9;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #0ea5e9 }
+  }
+} 
