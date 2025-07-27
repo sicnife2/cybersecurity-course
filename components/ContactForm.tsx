@@ -195,12 +195,6 @@ export default function ContactForm({ onClose }: ContactFormProps) {
             </button>
           </div>
         </form>
-
-        <div className="mt-4 p-3 bg-cyber-900/20 border border-cyber-500/30 rounded-lg">
-          <p className="text-sm text-gray-400">
-            Your message will be sent to <span className="text-cyber-400">sicnife04@gmail.com</span>
-          </p>
-        </div>
       </motion.div>
     </motion.div>
   )

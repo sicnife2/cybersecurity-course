@@ -51,12 +51,11 @@ export async function POST(request: NextRequest) {
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
-            Message from CyberGuide Admin
+            Message from CyberGuide Team
           </h2>
           
           <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #007bff; margin-top: 0;">From CyberGuide Team</h3>
-            <p><strong>Admin:</strong> ${adminName}</p>
             <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
           </div>
           
