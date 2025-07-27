@@ -14,6 +14,8 @@ export interface CourseLesson {
   duration: string
   topics: string[]
   exercises: Exercise[];
+  resources: string[];
+  content: string;
 }
 
 export interface Exercise {
@@ -24,9 +26,6 @@ export interface Exercise {
   content: string;
   questions?: { question: string; options: string[]; correctAnswer: string; }[]; // Optional for quiz type
   // Add other properties relevant to different exercise types
-
-  resources: string[]
-  content: string
 }
 
 export const cybersecurityCourse: CourseModule[] = [
