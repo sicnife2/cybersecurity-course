@@ -172,7 +172,7 @@ export default function AdminPanel() {
   const tabs = [
     { id: 'dashboard', name: 'Dashboard', icon: <BarChart3 className="w-5 h-5" /> },
     { id: 'modules', name: 'Module Management', icon: <BookOpen className="w-5 h-5" /> },
-    { id: 'contact', name: 'Contact Users', icon: <Mail className="w-5 h-5" /> },
+    { id: 'contact', name: 'Support Management', icon: <Mail className="w-5 h-5" /> },
     { id: 'settings', name: 'Settings', icon: <Settings className="w-5 h-5" /> }
   ]
 
@@ -424,7 +424,7 @@ export default function AdminPanel() {
   const renderContact = () => (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">Contact Users</h2>
+        <h2 className="text-2xl font-bold">Support Management</h2>
         <div className="flex space-x-3">
           <button 
             onClick={() => setShowContactForm(true)}
@@ -438,8 +438,23 @@ export default function AdminPanel() {
             className="cyber-button flex items-center space-x-2"
           >
             <Send className="w-4 h-4" />
-            <span>Send Email to User</span>
+            <span>Send Support Email</span>
           </button>
+        </div>
+      </div>
+      
+      <div className="cyber-card">
+        <h3 className="text-lg font-semibold mb-4">Support Email Setup</h3>
+        <div className="space-y-2">
+          <p className="text-sm text-gray-400">
+            <strong>Support Email:</strong> cyberguide9@gmail.com
+          </p>
+          <p className="text-sm text-gray-400">
+            <strong>Admin Email:</strong> sicnife04@gmail.com
+          </p>
+          <p className="text-xs text-gray-500">
+            All contact form submissions are sent to the support email, which forwards to admin.
+          </p>
         </div>
       </div>
 

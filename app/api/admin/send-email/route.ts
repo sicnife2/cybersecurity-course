@@ -22,11 +22,11 @@ export async function POST(request: NextRequest) {
       }
     })
 
-    // Email content from admin to user
-    const mailOptions = {
-      from: `"CyberGuide Admin" <${process.env.EMAIL_USER}>`,
-      to: to,
-      subject: `[CyberGuide] ${subject}`,
+                // Email content from admin to user
+            const mailOptions = {
+              from: `"CyberGuide Support" <cyberguide9@gmail.com>`,
+              to: to,
+              subject: `[CyberGuide Support] ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">

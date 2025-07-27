@@ -27,11 +27,11 @@ export async function POST(request: NextRequest) {
       }
     })
 
-    // Email content
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: 'sicnife04@gmail.com', // Your email address
-      subject: `Contact Form: ${subject}`,
+                // Email content
+            const mailOptions = {
+              from: process.env.EMAIL_USER,
+              to: 'cyberguide9@gmail.com', // Support email address
+              subject: `Contact Form: ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
