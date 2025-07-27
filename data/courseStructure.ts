@@ -33,7 +33,34 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Understanding what cybersecurity is and why it matters',
         duration: '45 min',
         topics: ['CIA Triad', 'Threat landscape', 'Attack types', 'Security principles'],
-        exercises: ['Cybersecurity quiz', 'Threat identification', 'Security assessment'],
+        exercises: [
+          {
+            id: 'cybersecurity-quiz-1',
+            title: 'Cybersecurity Fundamentals Quiz',
+            description: 'Test your knowledge on the basics of cybersecurity.',
+            type: 'quiz',
+            content: 'Answer the following questions to test your understanding of cybersecurity fundamentals.',
+            questions: [
+              {
+                question: 'What does the \'C\' in CIA Triad stand for?',
+                options: ['Confidentiality', 'Control', 'Compliance', 'Cryptography'],
+                correctAnswer: 'A',
+              },
+              {
+                question: 'Which of the following is NOT a common type of malware?',
+                options: ['Virus', 'Worm', 'Firewall', 'Ransomware'],
+                correctAnswer: 'C',
+              },
+              {
+                question: 'What is the primary goal of a phishing attack?',
+                options: ['To spread viruses', 'To steal user data', 'To crash systems', 'To encrypt files'],
+                correctAnswer: 'B',
+              },
+            ],
+          },
+          'Threat identification',
+          'Security assessment',
+        ],
         resources: ['NIST Framework', 'CISA Essentials', 'Security basics guide'],
         content: `
           <h2>What is Cybersecurity?</h2>
@@ -933,28 +960,61 @@ export const cybersecurityCourse: CourseModule[] = [
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>Information Gathering & Reconnaissance</h2>
+          <p>Reconnaissance is the first phase of ethical hacking, involving the collection of information about target systems, networks, and organizations using legal methods. Effective reconnaissance provides the foundation for all subsequent penetration testing activities.</p>
           
-          <h3>Key Topics</h3>
+          <h3>OSINT Techniques</h3>
+          <p>Open Source Intelligence (OSINT) involves gathering information from publicly available sources:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>Domain Research:</strong> WHOIS lookups, DNS records, subdomain enumeration</li>
+            <li><strong>Search Engine Reconnaissance:</strong> Advanced search operators, cached content, metadata analysis</li>
+            <li><strong>Social Media Intelligence:</strong> Employee information, organizational structure, technology stack details</li>
+            <li><strong>Public Records:</strong> Business filings, legal documents, financial reports</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Network Scanning</h3>
+          <p>Identifying active hosts, open ports, and running services:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>Host Discovery:</strong> ICMP scanning, ARP scanning, TCP/UDP scanning</li>
+            <li><strong>Port Scanning:</strong> TCP SYN/FIN/ACK scanning, UDP scanning, version detection</li>
+            <li><strong>Network Mapping:</strong> Topology discovery, routing information, network boundaries</li>
+            <li><strong>OS Fingerprinting:</strong> Identifying operating systems through behavior analysis</li>
+          </ul>
+          
+          <h3>Service Enumeration</h3>
+          <p>Gathering detailed information about discovered services:</p>
+          <ul>
+            <li><strong>Web Server Enumeration:</strong> Server type, version, technologies used</li>
+            <li><strong>Database Enumeration:</strong> Database type, version, accessible instances</li>
+            <li><strong>Service Banners:</strong> Collecting service identification information</li>
+            <li><strong>Authentication Mechanisms:</strong> Identifying login portals and authentication types</li>
+          </ul>
+          
+          <h3>Social Engineering Reconnaissance</h3>
+          <p>Understanding the human element of security:</p>
+          <ul>
+            <li><strong>Organizational Structure:</strong> Key personnel, departments, reporting lines</li>
+            <li><strong>Employee Information:</strong> Contact details, roles, responsibilities</li>
+            <li><strong>Physical Security:</strong> Building layouts, security measures, access controls</li>
+            <li><strong>Psychological Profiling:</strong> Understanding potential targets for social engineering</li>
+          </ul>
+          
+          <h3>Reconnaissance Tools</h3>
+          <ul>
+            <li><strong>Passive Tools:</strong> Shodan, TheHarvester, Maltego, Recon-ng</li>
+            <li><strong>Active Tools:</strong> Nmap, Masscan, Netcat, Fierce</li>
+            <li><strong>Web Reconnaissance:</strong> Gobuster, Nikto, Wappalyzer, Google Dorks</li>
+            <li><strong>Social Engineering Tools:</strong> Social-Engineer Toolkit (SET), LinkedIn tools</li>
           </ul>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">Ethical Considerations</h4>
+            <p>Always obtain proper authorization before conducting reconnaissance activities. Even passive information gathering can violate laws and regulations if performed without permission. Document your scope and authorization carefully.</p>
+          </div>
+          
+          <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
+            <h4 class="text-cyber-400 font-semibold mb-2">Professional Tip</h4>
+            <p>Organize your reconnaissance findings methodically. Create detailed maps of discovered assets, document all findings, and maintain a clear chain of evidence. This information will be crucial for later phases of penetration testing.</p>
           </div>
         `
       },
@@ -969,28 +1029,70 @@ export const cybersecurityCourse: CourseModule[] = [
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>Vulnerability Assessment</h2>
+          <p>Vulnerability assessment is a systematic process of identifying, classifying, and prioritizing security vulnerabilities in systems, applications, and networks. This critical phase follows reconnaissance and provides the foundation for targeted exploitation during penetration testing.</p>
           
-          <h3>Key Topics</h3>
+          <h3>Vulnerability Scanning</h3>
+          <p>Automated identification of potential security weaknesses:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>Network Vulnerability Scanning:</strong> Identifying weaknesses in network devices, services, and protocols</li>
+            <li><strong>Web Application Scanning:</strong> Detecting vulnerabilities in web applications, APIs, and services</li>
+            <li><strong>Database Scanning:</strong> Finding security issues in database management systems</li>
+            <li><strong>Configuration Scanning:</strong> Identifying misconfigurations and insecure settings</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Assessment Methodologies</h3>
+          <p>Structured approaches to vulnerability assessment:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>Black Box Testing:</strong> Testing without prior knowledge of the target system</li>
+            <li><strong>White Box Testing:</strong> Testing with complete knowledge of the target system</li>
+            <li><strong>Gray Box Testing:</strong> Testing with partial knowledge of the target system</li>
+            <li><strong>Credentialed vs. Non-Credentialed Scanning:</strong> Scanning with or without authentication</li>
+          </ul>
+          
+          <h3>Risk Analysis</h3>
+          <p>Evaluating the impact and likelihood of identified vulnerabilities:</p>
+          <ul>
+            <li><strong>Vulnerability Scoring:</strong> Using CVSS (Common Vulnerability Scoring System)</li>
+            <li><strong>Threat Modeling:</strong> Identifying potential threats and attack vectors</li>
+            <li><strong>Impact Assessment:</strong> Evaluating potential business impact of vulnerabilities</li>
+            <li><strong>Prioritization:</strong> Ranking vulnerabilities based on risk level</li>
+          </ul>
+          
+          <h3>Reporting</h3>
+          <p>Documenting and communicating assessment findings:</p>
+          <ul>
+            <li><strong>Executive Summary:</strong> High-level overview for management</li>
+            <li><strong>Technical Report:</strong> Detailed findings for technical teams</li>
+            <li><strong>Remediation Recommendations:</strong> Specific actions to address vulnerabilities</li>
+            <li><strong>Verification Planning:</strong> Strategies to verify successful remediation</li>
+          </ul>
+          
+          <h3>Vulnerability Assessment Tools</h3>
+          <ul>
+            <li><strong>Network Scanners:</strong> Nessus, OpenVAS, Nexpose, Qualys</li>
+            <li><strong>Web Application Scanners:</strong> OWASP ZAP, Burp Suite, Acunetix</li>
+            <li><strong>Database Scanners:</strong> AppDetectivePro, DbProtect, Scuba</li>
+            <li><strong>Configuration Analyzers:</strong> Microsoft Baseline Security Analyzer, Lynis</li>
+          </ul>
+          
+          <h3>Common Vulnerability Categories</h3>
+          <ul>
+            <li><strong>Missing Patches:</strong> Unpatched software and systems</li>
+            <li><strong>Misconfigurations:</strong> Insecure default settings, unnecessary services</li>
+            <li><strong>Authentication Issues:</strong> Weak credentials, improper session management</li>
+            <li><strong>Authorization Flaws:</strong> Insufficient access controls, privilege escalation paths</li>
+            <li><strong>Input Validation:</strong> Injection vulnerabilities, cross-site scripting</li>
           </ul>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">Best Practice</h4>
+            <p>Establish a regular vulnerability assessment schedule. Systems should be scanned after significant changes, patch deployments, or at regular intervals (weekly, monthly, quarterly) depending on the criticality of the assets.</p>
+          </div>
+          
+          <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
+            <h4 class="text-cyber-400 font-semibold mb-2">Industry Insight</h4>
+            <p>False positives are common in automated vulnerability scanning. Always verify critical findings manually before reporting them or initiating remediation efforts. This verification step saves valuable time and resources.</p>
           </div>
         `
       },
@@ -1005,28 +1107,71 @@ export const cybersecurityCourse: CourseModule[] = [
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>Exploitation Techniques</h2>
+          <p>Exploitation is the process of leveraging identified vulnerabilities to gain unauthorized access to systems, applications, or data. This phase follows reconnaissance and vulnerability assessment in the ethical hacking methodology.</p>
           
-          <h3>Key Topics</h3>
+          <h3>Exploit Development</h3>
+          <p>Creating custom exploits to target specific vulnerabilities:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>Buffer Overflow Exploitation:</strong> Manipulating memory to execute arbitrary code</li>
+            <li><strong>Format String Attacks:</strong> Exploiting improper string formatting</li>
+            <li><strong>Race Condition Exploitation:</strong> Taking advantage of timing issues in code execution</li>
+            <li><strong>Shellcode Development:</strong> Creating payload code for execution after exploitation</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Metasploit Framework</h3>
+          <p>Using the industry-standard exploitation framework:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>Exploit Modules:</strong> Pre-built exploits for known vulnerabilities</li>
+            <li><strong>Payload Selection:</strong> Choosing appropriate code to execute after exploitation</li>
+            <li><strong>Auxiliary Modules:</strong> Scanning, fuzzing, and information gathering tools</li>
+            <li><strong>Post-Exploitation Modules:</strong> Tools for maintaining access and gathering information</li>
+          </ul>
+          
+          <h3>Custom Exploits</h3>
+          <p>Developing specialized exploits for unique scenarios:</p>
+          <ul>
+            <li><strong>Zero-Day Exploitation:</strong> Exploiting previously unknown vulnerabilities</li>
+            <li><strong>Exploit Chaining:</strong> Combining multiple vulnerabilities for greater impact</li>
+            <li><strong>Evasion Techniques:</strong> Bypassing security controls and detection mechanisms</li>
+            <li><strong>Exploit Customization:</strong> Modifying existing exploits for specific targets</li>
+          </ul>
+          
+          <h3>Post-Exploitation</h3>
+          <p>Actions taken after successful exploitation:</p>
+          <ul>
+            <li><strong>Privilege Escalation:</strong> Gaining higher-level access rights</li>
+            <li><strong>Persistence Mechanisms:</strong> Ensuring continued access to compromised systems</li>
+            <li><strong>Lateral Movement:</strong> Expanding access to other systems in the network</li>
+            <li><strong>Data Exfiltration:</strong> Extracting valuable information from compromised systems</li>
+          </ul>
+          
+          <h3>Exploitation Tools</h3>
+          <ul>
+            <li><strong>Metasploit Framework:</strong> Comprehensive exploitation toolkit</li>
+            <li><strong>PowerShell Empire:</strong> Post-exploitation framework</li>
+            <li><strong>BeEF (Browser Exploitation Framework):</strong> Web browser exploitation</li>
+            <li><strong>Immunity Debugger/IDA Pro:</strong> Tools for analyzing and developing exploits</li>
+          </ul>
+          
+          <h3>Exploitation Methodology</h3>
+          <ul>
+            <li><strong>Information Gathering:</strong> Collecting target-specific details</li>
+            <li><strong>Vulnerability Verification:</strong> Confirming the existence of vulnerabilities</li>
+            <li><strong>Exploit Selection/Development:</strong> Choosing or creating appropriate exploits</li>
+            <li><strong>Execution and Verification:</strong> Running exploits and confirming success</li>
+            <li><strong>Post-Exploitation Activities:</strong> Actions after successful exploitation</li>
+            <li><strong>Clean-up:</strong> Removing artifacts and evidence of exploitation</li>
           </ul>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">Ethical Considerations</h4>
+            <p>Exploitation techniques must only be used with explicit permission and within the defined scope of a penetration test or security assessment. Unauthorized exploitation is illegal and unethical. Always document all exploitation activities thoroughly.</p>
+          </div>
+          
+          <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
+            <h4 class="text-cyber-400 font-semibold mb-2">Safety Precautions</h4>
+            <p>Some exploits can cause system instability or service disruption. Always understand the potential impact of exploits before using them, especially in production environments. Consider using staging environments when possible, and always have rollback plans ready.</p>
           </div>
         `
       },
@@ -1041,28 +1186,82 @@ export const cybersecurityCourse: CourseModule[] = [
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>Web Application Exploitation</h2>
+          <p>Web applications are prime targets for attackers due to their widespread use, complexity, and direct exposure to the internet. This lesson covers techniques for identifying and exploiting common web application vulnerabilities.</p>
           
-          <h3>Key Topics</h3>
+          <h3>SQL Injection</h3>
+          <p>Exploiting database query vulnerabilities:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>Basic SQL Injection:</strong> Manipulating query logic with single quotes and comments</li>
+            <li><strong>Union-Based Injection:</strong> Extracting data from different database tables</li>
+            <li><strong>Error-Based Injection:</strong> Leveraging database error messages to extract information</li>
+            <li><strong>Blind SQL Injection:</strong> Extracting data when no output is visible</li>
+            <li><strong>Time-Based Injection:</strong> Using time delays to extract information</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Cross-Site Scripting (XSS)</h3>
+          <p>Injecting malicious scripts into web pages:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>Reflected XSS:</strong> Non-persistent attacks requiring user interaction</li>
+            <li><strong>Stored XSS:</strong> Persistent attacks affecting all visitors to a page</li>
+            <li><strong>DOM-Based XSS:</strong> Exploiting client-side JavaScript vulnerabilities</li>
+            <li><strong>XSS Payloads:</strong> Cookie theft, keylogging, phishing, session hijacking</li>
+          </ul>
+          
+          <h3>Cross-Site Request Forgery (CSRF)</h3>
+          <p>Tricking users into performing unwanted actions:</p>
+          <ul>
+            <li><strong>CSRF Attack Vectors:</strong> Image tags, hidden iframes, XHR requests</li>
+            <li><strong>State-Changing Operations:</strong> Targeting account settings, financial transactions</li>
+            <li><strong>CSRF Token Bypass:</strong> Methods to circumvent protection mechanisms</li>
+            <li><strong>Same-Site Cookie Exploitation:</strong> Working around browser protections</li>
+          </ul>
+          
+          <h3>Authentication Bypass</h3>
+          <p>Circumventing login mechanisms:</p>
+          <ul>
+            <li><strong>Brute Force Attacks:</strong> Systematically trying username/password combinations</li>
+            <li><strong>Credential Stuffing:</strong> Using leaked credentials from other breaches</li>
+            <li><strong>Logic Flaws:</strong> Exploiting flaws in authentication workflows</li>
+            <li><strong>Session Management Attacks:</strong> Session fixation, hijacking, and prediction</li>
+          </ul>
+          
+          <h3>Other Common Web Vulnerabilities</h3>
+          <ul>
+            <li><strong>Server-Side Request Forgery (SSRF):</strong> Forcing the server to make unintended requests</li>
+            <li><strong>XML External Entity (XXE):</strong> Exploiting XML parsers to access local files</li>
+            <li><strong>Insecure Deserialization:</strong> Manipulating serialized objects to execute code</li>
+            <li><strong>File Upload Vulnerabilities:</strong> Uploading malicious files for execution</li>
+            <li><strong>API Vulnerabilities:</strong> Exploiting weaknesses in application programming interfaces</li>
+          </ul>
+          
+          <h3>Web Exploitation Tools</h3>
+          <ul>
+            <li><strong>Burp Suite:</strong> Comprehensive web application security testing platform</li>
+            <li><strong>OWASP ZAP:</strong> Open-source web application security scanner</li>
+            <li><strong>SQLmap:</strong> Automated SQL injection tool</li>
+            <li><strong>XSStrike:</strong> Advanced XSS detection and exploitation tool</li>
+            <li><strong>Commix:</strong> Command injection exploitation tool</li>
+          </ul>
+          
+          <h3>Exploitation Methodology</h3>
+          <ul>
+            <li><strong>Mapping the Application:</strong> Identifying entry points and functionality</li>
+            <li><strong>Parameter Analysis:</strong> Testing all input parameters for vulnerabilities</li>
+            <li><strong>Authentication Testing:</strong> Probing login mechanisms and session management</li>
+            <li><strong>Business Logic Testing:</strong> Identifying flaws in application workflows</li>
+            <li><strong>Exploitation:</strong> Leveraging identified vulnerabilities</li>
+            <li><strong>Post-Exploitation:</strong> Expanding access and extracting data</li>
           </ul>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">Defense Perspective</h4>
+            <p>Understanding web application exploitation is crucial for developers and security professionals to implement effective defenses. Key protective measures include input validation, output encoding, parameterized queries, content security policies, and regular security testing.</p>
+          </div>
+          
+          <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
+            <h4 class="text-cyber-400 font-semibold mb-2">OWASP Resources</h4>
+            <p>The Open Web Application Security Project (OWASP) provides extensive resources for web application security, including the OWASP Top 10, testing guides, and cheat sheets. These resources are invaluable for both attackers and defenders.</p>
           </div>
         `
       },
@@ -1077,28 +1276,84 @@ export const cybersecurityCourse: CourseModule[] = [
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>Wireless Network Exploitation</h2>
+          <p>Wireless networks present unique security challenges due to their broadcast nature and various implementation vulnerabilities. This lesson covers techniques for testing and exploiting wireless network security.</p>
           
-          <h3>Key Topics</h3>
+          <h3>WiFi Attacks</h3>
+          <p>Exploiting vulnerabilities in wireless networks:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>WEP Cracking:</strong> Exploiting weaknesses in the outdated WEP encryption</li>
+            <li><strong>WPA/WPA2 Password Attacks:</strong> Dictionary attacks, brute force, and PMKID attacks</li>
+            <li><strong>WPA3 Vulnerabilities:</strong> Dragonblood attacks and other emerging threats</li>
+            <li><strong>Evil Twin Attacks:</strong> Creating rogue access points to intercept traffic</li>
+            <li><strong>Deauthentication Attacks:</strong> Forcing clients to disconnect and reconnect</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Wireless Reconnaissance</h3>
+          <p>Gathering information about wireless networks:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>Passive Scanning:</strong> Monitoring wireless traffic without transmitting</li>
+            <li><strong>Active Scanning:</strong> Sending probe requests to discover networks</li>
+            <li><strong>Client Device Discovery:</strong> Identifying connected devices</li>
+            <li><strong>Traffic Analysis:</strong> Examining wireless frames and protocols</li>
+            <li><strong>GPS Mapping:</strong> Creating maps of wireless networks (wardriving)</li>
+          </ul>
+          
+          <h3>Bluetooth Security</h3>
+          <p>Exploiting vulnerabilities in Bluetooth technology:</p>
+          <ul>
+            <li><strong>Bluejacking:</strong> Sending unsolicited messages to Bluetooth devices</li>
+            <li><strong>Bluesnarfing:</strong> Unauthorized access to information on Bluetooth devices</li>
+            <li><strong>Bluebugging:</strong> Taking control of Bluetooth-enabled devices</li>
+            <li><strong>BIAS Attack:</strong> Bluetooth Impersonation AttackS on secure connections</li>
+            <li><strong>Bluetooth Low Energy (BLE) Vulnerabilities:</strong> Exploiting IoT devices</li>
+          </ul>
+          
+          <h3>RFID Security</h3>
+          <p>Testing and exploiting Radio-Frequency Identification systems:</p>
+          <ul>
+            <li><strong>RFID Cloning:</strong> Duplicating RFID tags and cards</li>
+            <li><strong>Relay Attacks:</strong> Extending the range of RFID communications</li>
+            <li><strong>Side-Channel Attacks:</strong> Analyzing power consumption or electromagnetic emissions</li>
+            <li><strong>Cryptographic Attacks:</strong> Exploiting weak encryption in RFID systems</li>
+          </ul>
+          
+          <h3>Wireless Monitoring</h3>
+          <p>Tools and techniques for wireless network analysis:</p>
+          <ul>
+            <li><strong>Packet Capture:</strong> Collecting and analyzing wireless traffic</li>
+            <li><strong>Protocol Analysis:</strong> Examining wireless protocols for vulnerabilities</li>
+            <li><strong>Signal Analysis:</strong> Measuring and mapping signal strength</li>
+            <li><strong>Spectrum Analysis:</strong> Identifying interference and rogue devices</li>
+          </ul>
+          
+          <h3>Wireless Exploitation Tools</h3>
+          <ul>
+            <li><strong>Aircrack-ng Suite:</strong> Comprehensive wireless security assessment toolkit</li>
+            <li><strong>Kismet:</strong> Wireless network detector and sniffer</li>
+            <li><strong>Wireshark:</strong> Network protocol analyzer with wireless capabilities</li>
+            <li><strong>Wifite:</strong> Automated wireless attack tool</li>
+            <li><strong>Bluetooth Tools:</strong> Bluelog, Bluesnarfer, Ubertooth</li>
+            <li><strong>RFID Tools:</strong> Proxmark3, RFID Guardian</li>
+          </ul>
+          
+          <h3>Countermeasures and Defenses</h3>
+          <ul>
+            <li><strong>Strong Encryption:</strong> Using WPA2/WPA3 with strong passwords</li>
+            <li><strong>Network Segmentation:</strong> Separating guest and internal networks</li>
+            <li><strong>MAC Filtering:</strong> Restricting access based on device identifiers</li>
+            <li><strong>Wireless IDS/IPS:</strong> Detecting and preventing wireless attacks</li>
+            <li><strong>Regular Security Assessments:</strong> Testing wireless security periodically</li>
           </ul>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">Legal Considerations</h4>
+            <p>Wireless network testing without explicit permission is illegal in most jurisdictions. Always obtain proper authorization before conducting any wireless security assessments. Be aware of local laws regarding radio frequency monitoring and transmission.</p>
+          </div>
+          
+          <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
+            <h4 class="text-cyber-400 font-semibold mb-2">Equipment Recommendations</h4>
+            <p>For effective wireless security testing, use wireless adapters that support monitor mode and packet injection. External antennas can improve range and signal quality. Consider specialized hardware like Ubertooth for Bluetooth testing and Proxmark3 for RFID analysis.</p>
           </div>
         `
       }
@@ -1124,28 +1379,85 @@ export const cybersecurityCourse: CourseModule[] = [
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>Security Incident Handling</h2>
+          <p>Security incident handling is the structured approach to addressing and managing the aftermath of a security breach or attack. A well-defined incident response process helps organizations minimize damage, reduce recovery time and costs, and prevent similar incidents in the future.</p>
           
-          <h3>Key Topics</h3>
+          <h3>Incident Classification</h3>
+          <p>Categorizing security incidents by type and severity:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>Malware Incidents:</strong> Viruses, worms, ransomware, trojans</li>
+            <li><strong>Network Intrusions:</strong> Unauthorized access, data breaches</li>
+            <li><strong>Denial of Service:</strong> Disruption of services and availability</li>
+            <li><strong>Social Engineering:</strong> Phishing, pretexting, baiting</li>
+            <li><strong>Insider Threats:</strong> Malicious or negligent actions by authorized users</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Incident Response Lifecycle</h3>
+          <p>The NIST incident response process consists of four main phases:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>Preparation:</strong> Developing incident response plans, policies, and capabilities</li>
+            <li><strong>Detection & Analysis:</strong> Identifying and investigating potential incidents</li>
+            <li><strong>Containment, Eradication & Recovery:</strong> Limiting damage and restoring systems</li>
+            <li><strong>Post-Incident Activity:</strong> Learning from incidents and improving response</li>
+          </ul>
+          
+          <h3>Response Procedures</h3>
+          <p>Structured approaches to handling security incidents:</p>
+          <ul>
+            <li><strong>Initial Response:</strong> First actions upon incident detection</li>
+            <li><strong>Incident Triage:</strong> Assessing severity and prioritizing response</li>
+            <li><strong>Investigation Techniques:</strong> Gathering and analyzing evidence</li>
+            <li><strong>Communication Protocols:</strong> Internal and external notification procedures</li>
+            <li><strong>Documentation Requirements:</strong> Maintaining incident records</li>
+          </ul>
+          
+          <h3>Containment Strategies</h3>
+          <p>Methods to limit the impact of security incidents:</p>
+          <ul>
+            <li><strong>Short-term Containment:</strong> Immediate actions to limit damage</li>
+            <li><strong>System Isolation:</strong> Disconnecting affected systems from networks</li>
+            <li><strong>Credential Management:</strong> Changing passwords and access controls</li>
+            <li><strong>Traffic Filtering:</strong> Blocking malicious network traffic</li>
+            <li><strong>Long-term Containment:</strong> Temporary fixes to allow system operation</li>
+          </ul>
+          
+          <h3>Recovery Procedures</h3>
+          <p>Restoring systems and operations after an incident:</p>
+          <ul>
+            <li><strong>System Restoration:</strong> Rebuilding from clean backups</li>
+            <li><strong>Malware Removal:</strong> Eliminating all traces of malicious code</li>
+            <li><strong>Vulnerability Patching:</strong> Addressing exploited weaknesses</li>
+            <li><strong>Service Restoration:</strong> Bringing systems back online securely</li>
+            <li><strong>Monitoring:</strong> Watching for signs of recurring issues</li>
+          </ul>
+          
+          <h3>Incident Response Team</h3>
+          <p>Key roles and responsibilities in incident handling:</p>
+          <ul>
+            <li><strong>Incident Response Manager:</strong> Coordinates overall response</li>
+            <li><strong>Technical Lead:</strong> Directs technical investigation and remediation</li>
+            <li><strong>Communications Coordinator:</strong> Manages internal and external communications</li>
+            <li><strong>Legal Counsel:</strong> Addresses legal and regulatory requirements</li>
+            <li><strong>Executive Sponsor:</strong> Provides authority and resources</li>
+          </ul>
+          
+          <h3>Incident Response Tools</h3>
+          <ul>
+            <li><strong>SIEM Systems:</strong> Security Information and Event Management tools</li>
+            <li><strong>Forensic Tools:</strong> Disk imaging, memory analysis, network capture</li>
+            <li><strong>Malware Analysis:</strong> Sandboxes, reverse engineering tools</li>
+            <li><strong>Ticketing Systems:</strong> Incident tracking and management</li>
+            <li><strong>Communication Platforms:</strong> Secure messaging and collaboration tools</li>
           </ul>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">Regulatory Considerations</h4>
+            <p>Many industries have specific requirements for incident reporting and handling. Be familiar with regulations like GDPR, HIPAA, PCI-DSS, and others that may apply to your organization. These regulations often specify timeframes for reporting breaches and requirements for customer notification.</p>
+          </div>
+          
+          <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
+            <h4 class="text-cyber-400 font-semibold mb-2">Lessons Learned</h4>
+            <p>The post-incident review is one of the most valuable parts of the incident response process. Conduct thorough reviews after each significant incident to identify what went well, what could be improved, and how to prevent similar incidents in the future. Document these lessons and update your incident response plan accordingly.</p>
           </div>
         `
       },
@@ -1160,28 +1472,97 @@ export const cybersecurityCourse: CourseModule[] = [
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>Digital Forensics</h2>
+          <p>Digital forensics is the process of uncovering and interpreting electronic data to preserve evidence in its most original form while performing a structured investigation. It involves collecting, identifying, and validating digital information to reconstruct past events and is crucial for both criminal investigations and corporate incident response.</p>
           
-          <h3>Key Topics</h3>
+          <h3>Forensic Principles</h3>
+          <p>Core principles that guide digital forensic investigations:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>Chain of Custody:</strong> Documenting how evidence was collected, analyzed, and preserved</li>
+            <li><strong>Data Integrity:</strong> Ensuring evidence is not altered during collection and analysis</li>
+            <li><strong>Documentation:</strong> Maintaining detailed records of all forensic processes</li>
+            <li><strong>Repeatability:</strong> Ensuring forensic processes can be replicated by other investigators</li>
+            <li><strong>Reliability:</strong> Using validated tools and methods for evidence collection</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Evidence Collection</h3>
+          <p>Methods and procedures for gathering digital evidence:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>Live Acquisition:</strong> Collecting volatile data from running systems</li>
+            <li><strong>Dead Acquisition:</strong> Creating forensic images of non-running systems</li>
+            <li><strong>Network Capture:</strong> Recording network traffic for analysis</li>
+            <li><strong>Memory Forensics:</strong> Extracting and analyzing system RAM</li>
+            <li><strong>Mobile Device Acquisition:</strong> Specialized techniques for smartphones and tablets</li>
+          </ul>
+          
+          <h3>Disk Forensics</h3>
+          <p>Analyzing storage media for evidence:</p>
+          <ul>
+            <li><strong>File System Analysis:</strong> Examining file structures and metadata</li>
+            <li><strong>Data Carving:</strong> Recovering deleted or fragmented files</li>
+            <li><strong>Slack Space Analysis:</strong> Examining unused portions of allocated disk space</li>
+            <li><strong>Partition Analysis:</strong> Investigating disk partitioning schemes</li>
+            <li><strong>Timeline Analysis:</strong> Reconstructing the sequence of events on a system</li>
+          </ul>
+          
+          <h3>Memory Forensics</h3>
+          <p>Analyzing system RAM for volatile evidence:</p>
+          <ul>
+            <li><strong>Process Analysis:</strong> Examining running processes and their memory spaces</li>
+            <li><strong>Network Connections:</strong> Identifying active network connections</li>
+            <li><strong>Loaded Modules:</strong> Analyzing loaded drivers and DLLs</li>
+            <li><strong>Registry Hives:</strong> Examining registry data in memory</li>
+            <li><strong>Malware Detection:</strong> Identifying malicious code in memory</li>
+          </ul>
+          
+          <h3>Network Forensics</h3>
+          <p>Analyzing network traffic and logs for evidence:</p>
+          <ul>
+            <li><strong>Packet Analysis:</strong> Examining captured network packets</li>
+            <li><strong>Log Analysis:</strong> Reviewing firewall, IDS, and server logs</li>
+            <li><strong>Flow Analysis:</strong> Examining network flow data</li>
+            <li><strong>Email Forensics:</strong> Investigating email headers and content</li>
+            <li><strong>Web Forensics:</strong> Analyzing web server logs and browser artifacts</li>
+          </ul>
+          
+          <h3>Mobile Forensics</h3>
+          <p>Specialized techniques for mobile devices:</p>
+          <ul>
+            <li><strong>Data Extraction Methods:</strong> Logical, file system, and physical acquisition</li>
+            <li><strong>App Analysis:</strong> Examining mobile application data</li>
+            <li><strong>Call and Message Records:</strong> Recovering communication history</li>
+            <li><strong>Location Data:</strong> Analyzing GPS and location information</li>
+            <li><strong>Cloud Artifacts:</strong> Investigating cloud-synced mobile data</li>
+          </ul>
+          
+          <h3>Forensic Tools</h3>
+          <p>Essential tools for digital forensic investigations:</p>
+          <ul>
+            <li><strong>Disk Imaging:</strong> FTK Imager, dd, Guymager</li>
+            <li><strong>Forensic Suites:</strong> EnCase, Autopsy, X-Ways Forensics</li>
+            <li><strong>Memory Analysis:</strong> Volatility, Rekall, Memoryze</li>
+            <li><strong>Network Analysis:</strong> Wireshark, NetworkMiner, Zeek</li>
+            <li><strong>Mobile Forensics:</strong> Cellebrite, Oxygen Forensic, Magnet AXIOM</li>
+          </ul>
+          
+          <h3>Forensic Analysis</h3>
+          <p>Techniques for examining collected evidence:</p>
+          <ul>
+            <li><strong>Artifact Analysis:</strong> Examining system and application artifacts</li>
+            <li><strong>Malware Analysis:</strong> Identifying and analyzing malicious code</li>
+            <li><strong>Timeline Creation:</strong> Reconstructing the sequence of events</li>
+            <li><strong>Data Correlation:</strong> Connecting evidence from multiple sources</li>
+            <li><strong>Reporting:</strong> Documenting findings in a clear, concise manner</li>
           </ul>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">Legal Considerations</h4>
+            <p>Digital forensic investigations must adhere to legal requirements to ensure evidence admissibility in court. This includes proper search authorization, maintaining chain of custody, using validated tools and methods, and ensuring privacy laws are respected. Forensic investigators should work closely with legal counsel to ensure their processes meet all applicable legal standards.</p>
+          </div>
+          
+          <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
+            <h4 class="text-cyber-400 font-semibold mb-2">Anti-Forensics Awareness</h4>
+            <p>Be aware of anti-forensic techniques that may be used to hide evidence, such as data encryption, steganography, timestamp manipulation, secure deletion, and artifact wiping. Understanding these techniques helps forensic investigators develop countermeasures and adapt their investigation methods accordingly.</p>
           </div>
         `
       },
@@ -1196,28 +1577,106 @@ export const cybersecurityCourse: CourseModule[] = [
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>Malware Analysis</h2>
+          <p>Malware analysis is the process of studying malicious software to understand its functionality, origin, and potential impact. This discipline combines reverse engineering, behavioral analysis, and threat intelligence to identify and mitigate malware threats effectively.</p>
           
-          <h3>Key Topics</h3>
+          <h3>Types of Malware</h3>
+          <p>Understanding different malware categories and their characteristics:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>Viruses:</strong> Self-replicating code that attaches to legitimate programs</li>
+            <li><strong>Worms:</strong> Self-propagating malware that spreads across networks</li>
+            <li><strong>Trojans:</strong> Malware disguised as legitimate software</li>
+            <li><strong>Ransomware:</strong> Encrypts data and demands payment for decryption</li>
+            <li><strong>Rootkits:</strong> Conceals malicious activities by modifying operating system functions</li>
+            <li><strong>Backdoors:</strong> Provides unauthorized remote access to systems</li>
+            <li><strong>Spyware:</strong> Collects information without user consent</li>
+            <li><strong>Botnets:</strong> Networks of compromised computers controlled remotely</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Analysis Environment</h3>
+          <p>Setting up secure environments for malware analysis:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>Isolated Networks:</strong> Air-gapped or segregated network environments</li>
+            <li><strong>Virtual Machines:</strong> Isolated and restorable analysis platforms</li>
+            <li><strong>Sandboxes:</strong> Controlled execution environments for observing behavior</li>
+            <li><strong>Hardware Considerations:</strong> Physical isolation and monitoring tools</li>
+            <li><strong>Network Monitoring:</strong> Capturing and analyzing malware communications</li>
+          </ul>
+          
+          <h3>Static Analysis</h3>
+          <p>Examining malware without execution:</p>
+          <ul>
+            <li><strong>File Properties:</strong> Examining metadata, signatures, and hashes</li>
+            <li><strong>String Analysis:</strong> Extracting readable text from binary files</li>
+            <li><strong>Header Analysis:</strong> Examining file structure and format</li>
+            <li><strong>Disassembly:</strong> Converting machine code to assembly language</li>
+            <li><strong>Code Analysis:</strong> Identifying functions, algorithms, and logic</li>
+            <li><strong>Packer Detection:</strong> Identifying obfuscation techniques</li>
+          </ul>
+          
+          <h3>Dynamic Analysis</h3>
+          <p>Observing malware behavior during execution:</p>
+          <ul>
+            <li><strong>Process Monitoring:</strong> Tracking created processes and their activities</li>
+            <li><strong>File System Changes:</strong> Monitoring file creation, modification, and deletion</li>
+            <li><strong>Registry Modifications:</strong> Tracking changes to the system registry</li>
+            <li><strong>Network Activity:</strong> Capturing and analyzing network communications</li>
+            <li><strong>API Calls:</strong> Monitoring interactions with operating system functions</li>
+            <li><strong>Memory Analysis:</strong> Examining runtime memory for hidden components</li>
+          </ul>
+          
+          <h3>Advanced Analysis Techniques</h3>
+          <p>Specialized methods for complex malware:</p>
+          <ul>
+            <li><strong>Code Debugging:</strong> Step-by-step execution and state examination</li>
+            <li><strong>Hooking:</strong> Intercepting API calls and system functions</li>
+            <li><strong>Decryption:</strong> Revealing encrypted code and data</li>
+            <li><strong>Unpacking:</strong> Extracting compressed or obfuscated code</li>
+            <li><strong>Emulation:</strong> Simulating execution in controlled environments</li>
+            <li><strong>Memory Forensics:</strong> In-depth analysis of memory dumps</li>
+          </ul>
+          
+          <h3>Malware Evasion Techniques</h3>
+          <p>Understanding how malware attempts to avoid detection:</p>
+          <ul>
+            <li><strong>Anti-VM Techniques:</strong> Detecting and evading virtual machines</li>
+            <li><strong>Anti-Debugging:</strong> Preventing or detecting debugger presence</li>
+            <li><strong>Code Obfuscation:</strong> Disguising code functionality</li>
+            <li><strong>Polymorphism:</strong> Changing code structure while maintaining functionality</li>
+            <li><strong>Encryption:</strong> Hiding code and data through encryption</li>
+            <li><strong>Timing-Based Evasion:</strong> Delaying execution to evade sandboxes</li>
+          </ul>
+          
+          <h3>Malware Analysis Tools</h3>
+          <p>Essential tools for effective malware analysis:</p>
+          <ul>
+            <li><strong>Disassemblers:</strong> IDA Pro, Ghidra, Radare2</li>
+            <li><strong>Debuggers:</strong> OllyDbg, x64dbg, WinDbg</li>
+            <li><strong>Dynamic Analysis:</strong> Process Monitor, Process Explorer, Regshot</li>
+            <li><strong>Network Analysis:</strong> Wireshark, NetworkMiner, INetSim</li>
+            <li><strong>Sandboxes:</strong> Cuckoo Sandbox, ANY.RUN, Joe Sandbox</li>
+            <li><strong>Memory Analysis:</strong> Volatility, Rekall, Redline</li>
+            <li><strong>Static Analysis:</strong> PEiD, PEStudio, FLOSS</li>
+          </ul>
+          
+          <h3>Malware Analysis Reporting</h3>
+          <p>Documenting and communicating analysis findings:</p>
+          <ul>
+            <li><strong>Technical Indicators:</strong> Hashes, signatures, network indicators</li>
+            <li><strong>Behavioral Analysis:</strong> Observed actions and their impact</li>
+            <li><strong>Threat Assessment:</strong> Evaluating potential damage and targets</li>
+            <li><strong>Mitigation Recommendations:</strong> Suggested countermeasures</li>
+            <li><strong>Attribution Analysis:</strong> Potential sources and threat actors</li>
           </ul>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">Safety Precautions</h4>
+            <p>Always handle malware with extreme caution. Never analyze malware on production systems or networks. Ensure proper isolation of your analysis environment and follow strict safety protocols to prevent accidental infection or spread. Remember that some malware can detect and target analysis environments, potentially causing damage to your systems.</p>
+          </div>
+          
+          <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
+            <h4 class="text-cyber-400 font-semibold mb-2">Legal and Ethical Considerations</h4>
+            <p>Malware analysis must be conducted within legal and ethical boundaries. Ensure you have proper authorization to possess and analyze malware samples. Never deploy malware against systems without explicit permission, even for testing purposes. Be aware of relevant laws regarding computer fraud and abuse in your jurisdiction.</p>
           </div>
         `
       }
@@ -1242,28 +1701,109 @@ export const cybersecurityCourse: CourseModule[] = [
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>Cloud Security Fundamentals</h2>
+          <p>Cloud security encompasses the technologies, policies, controls, and services that protect cloud data, applications, and infrastructure from threats and data breaches. As organizations increasingly migrate to cloud environments, understanding cloud security principles becomes essential for maintaining a strong security posture.</p>
           
-          <h3>Key Topics</h3>
+          <h3>Cloud Service Models</h3>
+          <p>Understanding the different cloud service models and their security implications:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>Infrastructure as a Service (IaaS):</strong> Provides virtualized computing resources over the internet</li>
+            <li><strong>Platform as a Service (PaaS):</strong> Offers hardware and software tools over the internet</li>
+            <li><strong>Software as a Service (SaaS):</strong> Delivers software applications over the internet</li>
+            <li><strong>Function as a Service (FaaS):</strong> Enables serverless computing architectures</li>
+            <li><strong>Security as a Service (SECaaS):</strong> Delivers security services through the cloud</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Cloud Deployment Models</h3>
+          <p>Different ways to deploy cloud services and their security considerations:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>Public Cloud:</strong> Services offered over the public internet and shared across organizations</li>
+            <li><strong>Private Cloud:</strong> Cloud infrastructure dedicated to a single organization</li>
+            <li><strong>Hybrid Cloud:</strong> Combination of public and private cloud environments</li>
+            <li><strong>Multi-Cloud:</strong> Using multiple cloud service providers for different functions</li>
+            <li><strong>Community Cloud:</strong> Infrastructure shared by several organizations with common concerns</li>
+          </ul>
+          
+          <h3>Shared Responsibility Model</h3>
+          <p>Understanding security responsibilities in cloud environments:</p>
+          <ul>
+            <li><strong>Provider Responsibilities:</strong> Security of the cloud (infrastructure, hardware, software)</li>
+            <li><strong>Customer Responsibilities:</strong> Security in the cloud (data, access management, network controls)</li>
+            <li><strong>Model Variations:</strong> How responsibilities shift across IaaS, PaaS, and SaaS</li>
+            <li><strong>Compliance Implications:</strong> How shared responsibility affects regulatory compliance</li>
+            <li><strong>Documentation:</strong> Importance of clearly defined responsibilities</li>
+          </ul>
+          
+          <h3>Cloud Security Threats</h3>
+          <p>Common security challenges in cloud environments:</p>
+          <ul>
+            <li><strong>Data Breaches:</strong> Unauthorized access to sensitive information</li>
+            <li><strong>Misconfiguration:</strong> Improperly configured cloud resources</li>
+            <li><strong>Insufficient Identity Management:</strong> Weak authentication and authorization</li>
+            <li><strong>Account Hijacking:</strong> Compromised credentials and account takeover</li>
+            <li><strong>Insecure APIs:</strong> Vulnerabilities in application programming interfaces</li>
+            <li><strong>Advanced Persistent Threats:</strong> Targeted attacks against cloud infrastructure</li>
+            <li><strong>Denial of Service:</strong> Attacks that disrupt cloud service availability</li>
+          </ul>
+          
+          <h3>Identity and Access Management</h3>
+          <p>Controlling access to cloud resources:</p>
+          <ul>
+            <li><strong>Authentication Methods:</strong> Multi-factor authentication, single sign-on</li>
+            <li><strong>Authorization Controls:</strong> Role-based access control, attribute-based access</li>
+            <li><strong>Privileged Access Management:</strong> Controlling administrative access</li>
+            <li><strong>Federation:</strong> Managing identities across multiple systems</li>
+            <li><strong>Identity Governance:</strong> Policies for identity lifecycle management</li>
+          </ul>
+          
+          <h3>Data Security in the Cloud</h3>
+          <p>Protecting data throughout its lifecycle:</p>
+          <ul>
+            <li><strong>Encryption:</strong> Data-at-rest, data-in-transit, and data-in-use protection</li>
+            <li><strong>Key Management:</strong> Secure creation, storage, and rotation of encryption keys</li>
+            <li><strong>Data Classification:</strong> Identifying and categorizing sensitive information</li>
+            <li><strong>Data Loss Prevention:</strong> Preventing unauthorized data exfiltration</li>
+            <li><strong>Data Residency:</strong> Controlling where data is stored geographically</li>
+          </ul>
+          
+          <h3>Network Security</h3>
+          <p>Securing cloud network infrastructure:</p>
+          <ul>
+            <li><strong>Virtual Networks:</strong> Isolated network environments in the cloud</li>
+            <li><strong>Network Segmentation:</strong> Dividing networks into security zones</li>
+            <li><strong>Firewalls:</strong> Controlling traffic between network segments</li>
+            <li><strong>Web Application Firewalls:</strong> Protecting web applications from attacks</li>
+            <li><strong>DDoS Protection:</strong> Mitigating distributed denial of service attacks</li>
+          </ul>
+          
+          <h3>Security Monitoring and Operations</h3>
+          <p>Continuous monitoring of cloud environments:</p>
+          <ul>
+            <li><strong>Security Information and Event Management (SIEM):</strong> Collecting and analyzing security data</li>
+            <li><strong>Cloud Security Posture Management:</strong> Assessing cloud configuration security</li>
+            <li><strong>Threat Detection:</strong> Identifying potential security incidents</li>
+            <li><strong>Incident Response:</strong> Reacting to and managing security events</li>
+            <li><strong>Security Automation:</strong> Automating security processes and responses</li>
+          </ul>
+          
+          <h3>Compliance and Governance</h3>
+          <p>Meeting regulatory requirements in the cloud:</p>
+          <ul>
+            <li><strong>Regulatory Frameworks:</strong> GDPR, HIPAA, PCI DSS, and other standards</li>
+            <li><strong>Compliance Monitoring:</strong> Continuous assessment of compliance status</li>
+            <li><strong>Audit Logging:</strong> Recording activities for compliance verification</li>
+            <li><strong>Risk Management:</strong> Identifying and mitigating security risks</li>
+            <li><strong>Governance Frameworks:</strong> Establishing policies and procedures</li>
           </ul>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">Cloud Security Best Practices</h4>
+            <p>Implement a defense-in-depth strategy by combining multiple security controls. Use the principle of least privilege for access management. Regularly audit and assess your cloud environment for vulnerabilities and misconfigurations. Encrypt sensitive data both at rest and in transit. Implement comprehensive logging and monitoring. Develop and test incident response plans specifically for cloud environments. Stay informed about cloud provider security updates and new security features.</p>
+          </div>
+          
+          <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
+            <h4 class="text-cyber-400 font-semibold mb-2">Cloud Security Alliance</h4>
+            <p>The Cloud Security Alliance (CSA) is a nonprofit organization that promotes best practices for providing security assurance within cloud computing. The CSA offers resources like the Cloud Controls Matrix (CCM), Security Guidance for Critical Areas of Focus in Cloud Computing, and the Certificate of Cloud Security Knowledge (CCSK) certification. These resources provide valuable frameworks and knowledge for implementing effective cloud security measures.</p>
           </div>
         `
       },
@@ -1278,28 +1818,108 @@ export const cybersecurityCourse: CourseModule[] = [
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>AWS Security</h2>
+          <p>Amazon Web Services (AWS) is a comprehensive cloud platform offering over 200 services globally. Securing AWS environments requires understanding AWS-specific security services, features, and best practices to protect your cloud infrastructure, applications, and data.</p>
           
-          <h3>Key Topics</h3>
+          <h3>AWS Shared Responsibility Model</h3>
+          <p>Understanding security responsibilities in AWS:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>AWS Responsibility:</strong> Security "of" the cloud (infrastructure, hardware, software)</li>
+            <li><strong>Customer Responsibility:</strong> Security "in" the cloud (data, configurations, access management)</li>
+            <li><strong>Service-Specific Variations:</strong> How responsibilities shift across different AWS services</li>
+            <li><strong>Compliance Boundaries:</strong> Where AWS and customer responsibilities meet</li>
+            <li><strong>Documentation:</strong> AWS security documentation and compliance programs</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Identity and Access Management (IAM)</h3>
+          <p>Controlling access to AWS resources:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>IAM Users:</strong> Individual identities for AWS access</li>
+            <li><strong>IAM Groups:</strong> Collections of users with shared permissions</li>
+            <li><strong>IAM Roles:</strong> Temporary permissions for users, applications, and services</li>
+            <li><strong>IAM Policies:</strong> JSON documents defining permissions</li>
+            <li><strong>Permission Boundaries:</strong> Limiting maximum permissions for IAM entities</li>
+            <li><strong>AWS Organizations:</strong> Managing multiple AWS accounts</li>
+            <li><strong>AWS Single Sign-On:</strong> Centralized access management</li>
+          </ul>
+          
+          <h3>Network Security</h3>
+          <p>Securing AWS network infrastructure:</p>
+          <ul>
+            <li><strong>Virtual Private Cloud (VPC):</strong> Isolated network environments</li>
+            <li><strong>Subnets:</strong> Network segmentation within VPCs</li>
+            <li><strong>Security Groups:</strong> Instance-level firewall controls</li>
+            <li><strong>Network ACLs:</strong> Subnet-level network access controls</li>
+            <li><strong>VPC Flow Logs:</strong> Network traffic logging</li>
+            <li><strong>AWS Transit Gateway:</strong> Centralized network connectivity</li>
+            <li><strong>AWS Shield:</strong> DDoS protection service</li>
+            <li><strong>AWS WAF:</strong> Web application firewall</li>
+          </ul>
+          
+          <h3>Data Protection</h3>
+          <p>Securing data in AWS environments:</p>
+          <ul>
+            <li><strong>AWS KMS:</strong> Key Management Service for encryption</li>
+            <li><strong>AWS CloudHSM:</strong> Hardware security modules for cryptographic operations</li>
+            <li><strong>S3 Encryption:</strong> Server-side and client-side encryption options</li>
+            <li><strong>EBS Encryption:</strong> Encrypted block storage volumes</li>
+            <li><strong>RDS Encryption:</strong> Database encryption capabilities</li>
+            <li><strong>Secrets Manager:</strong> Secure storage of secrets and credentials</li>
+            <li><strong>Certificate Manager:</strong> SSL/TLS certificate provisioning and management</li>
+          </ul>
+          
+          <h3>Detection and Monitoring</h3>
+          <p>Monitoring AWS environments for security events:</p>
+          <ul>
+            <li><strong>CloudTrail:</strong> AWS API activity logging and monitoring</li>
+            <li><strong>CloudWatch:</strong> Resource monitoring and operational data collection</li>
+            <li><strong>Config:</strong> Resource configuration tracking and compliance</li>
+            <li><strong>GuardDuty:</strong> Threat detection service</li>
+            <li><strong>Security Hub:</strong> Centralized security and compliance management</li>
+            <li><strong>Inspector:</strong> Automated security assessment service</li>
+            <li><strong>Detective:</strong> Security investigation and analysis</li>
+          </ul>
+          
+          <h3>Compliance and Governance</h3>
+          <p>Meeting regulatory requirements in AWS:</p>
+          <ul>
+            <li><strong>AWS Artifact:</strong> Compliance documentation and agreements</li>
+            <li><strong>AWS Audit Manager:</strong> Continuous audit evidence collection</li>
+            <li><strong>Control Tower:</strong> Multi-account governance</li>
+            <li><strong>Systems Manager:</strong> Operational management and automation</li>
+            <li><strong>Trusted Advisor:</strong> Best practice recommendations</li>
+            <li><strong>License Manager:</strong> Software license compliance</li>
+          </ul>
+          
+          <h3>Incident Response</h3>
+          <p>Responding to security incidents in AWS:</p>
+          <ul>
+            <li><strong>Preparation:</strong> AWS-specific incident response planning</li>
+            <li><strong>Detection:</strong> Using AWS services for incident detection</li>
+            <li><strong>Containment:</strong> Isolating affected resources</li>
+            <li><strong>Eradication:</strong> Removing unauthorized access and malicious code</li>
+            <li><strong>Recovery:</strong> Restoring systems using AWS backup and recovery services</li>
+            <li><strong>Post-Incident:</strong> Learning and improving AWS security posture</li>
+          </ul>
+          
+          <h3>AWS Security Services</h3>
+          <p>Specialized security services in AWS:</p>
+          <ul>
+            <li><strong>Macie:</strong> Data security and privacy service</li>
+            <li><strong>Firewall Manager:</strong> Centralized firewall rule management</li>
+            <li><strong>Network Firewall:</strong> Network traffic filtering</li>
+            <li><strong>AWS Backup:</strong> Centralized backup management</li>
+            <li><strong>DDoS Response Team:</strong> Support during DDoS attacks</li>
           </ul>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">AWS Security Best Practices</h4>
+            <p>Follow the principle of least privilege when granting permissions. Use IAM roles instead of long-term access keys. Enable multi-factor authentication for all users. Implement infrastructure as code for consistent security configurations. Regularly review and rotate credentials. Use VPC endpoints to access AWS services privately. Enable logging and monitoring across all AWS services. Implement automated compliance checks. Regularly test your incident response procedures in AWS environments.</p>
+          </div>
+          
+          <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
+            <h4 class="text-cyber-400 font-semibold mb-2">AWS Well-Architected Framework</h4>
+            <p>The AWS Well-Architected Framework includes a Security Pillar that provides guidance for securing cloud workloads. It covers key areas such as identity and access management, detection, infrastructure protection, data protection, and incident response. The framework offers a set of design principles and best practices to help you build secure applications and environments in AWS.</p>
           </div>
         `
       },
@@ -1471,4 +2091,4 @@ export const getModulesByDifficulty = (difficulty: string) => {
 
 export const getAllModules = () => {
   return cybersecurityCourse
-} 
+}

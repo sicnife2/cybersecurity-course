@@ -4,14 +4,21 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Target, X, CheckCircle, XCircle, Play, Eye } from 'lucide-react'
 
+interface QuizQuestion {
+  question: string;
+  options: string[];
+  correctAnswer: string; // Store the correct option letter (e.g., 'A', 'B')
+}
+
 interface Exercise {
-  id: string
-  title: string
-  description: string
-  type: 'quiz' | 'practical' | 'analysis'
-  content: string
-  solution?: string
-  hints?: string[]
+  id: string;
+  title: string;
+  description: string;
+  type: 'quiz' | 'practical' | 'analysis';
+  content: string;
+  solution?: string;
+  hints?: string[];
+  questions?: QuizQuestion[]; // Add questions property for quiz type
 }
 
 interface ExerciseModalProps {
@@ -24,15 +31,40 @@ export default function ExerciseModal({ exercise, onClose }: ExerciseModalProps)
   const [showHints, setShowHints] = useState(false)
   const [completed, setCompleted] = useState(false)
 
-  const handleComplete = () => {
-    setCompleted(true)
-    // Store completion in localStorage for tracking
-    const completedExercises = JSON.parse(localStorage.getItem('completedExercises') || '[]')
-    if (!completedExercises.includes(exercise.id)) {
-      completedExercises.push(exercise.id)
-      localStorage.setItem('completedExercises', JSON.stringify(completedExercises))
-    }
+  const [userAnswers, setUserAnswers] = useState<{ [questionIndex: number]: string }>({})
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
+
+  const handleAnswerChange = (questionIndex: number, answer: string) => {
+    setUserAnswers(prev => ({ ...prev, [questionIndex]: answer }))
   }
+
+  const checkAnswers = () => {
+    if (exercise.type !== 'quiz' || !exercise.questions) return true; // Not a quiz or no questions, consider it correct
+
+    let allCorrect = true;
+    exercise.questions.forEach((q, index) => {
+      const userAnswer = userAnswers[index];
+      if (userAnswer !== q.correctAnswer) {
+        allCorrect = false;
+      }
+    });
+    return allCorrect;
+  }
+
+  const handleSubmit = () => {
+    const result = checkAnswers();
+    setIsCorrect(result);
+    setIsSubmitted(true);
+    if (result) {
+      setCompleted(true);
+      const completedExercises = JSON.parse(localStorage.getItem('completedExercises') || '[]');
+      if (!completedExercises.includes(exercise.id)) {
+        completedExercises.push(exercise.id);
+        localStorage.setItem('completedExercises', JSON.stringify(completedExercises));
+      }
+    }
+  };
 
   return (
     <motion.div
@@ -133,31 +165,56 @@ export default function ExerciseModal({ exercise, onClose }: ExerciseModalProps)
 
             {/* Interactive Elements based on exercise type */}
             {exercise.type === 'quiz' && (
-              <div className="space-y-3">
-                <h4 className="font-semibold text-lg">Quiz Questions</h4>
-                <div className="space-y-3">
-                  {[
-                    "What is the primary goal of cybersecurity?",
-                    "Which of the following is NOT a common attack vector?",
-                    "What does CIA stand for in cybersecurity?"
-                  ].map((question, index) => (
-                    <div key={index} className="p-4 bg-dark-700 rounded-lg">
-                      <p className="font-medium mb-3">{question}</p>
-                      <div className="space-y-2">
-                        {['Option A', 'Option B', 'Option C', 'Option D'].map((option, optIndex) => (
-                          <label key={optIndex} className="flex items-center space-x-3 cursor-pointer">
-                            <input
-                              type="radio"
-                              name={`question-${index}`}
-                              className="w-4 h-4 text-cyber-600 bg-dark-700 border-dark-600 focus:ring-cyber-500"
-                            />
-                            <span className="text-gray-300">{option}</span>
-                          </label>
-                        ))}
-                      </div>
+              <div className="space-y-6">
+                {exercise.questions?.map((question, index) => (
+                  <div key={index} className="p-4 bg-dark-700 rounded-lg">
+                    <p className="font-semibold text-gray-300 mb-2">{question.question}</p>
+                    <div className="space-y-2">
+                      {question.options.map((option, optionIndex) => (
+                        <label
+                          key={optionIndex}
+                          className="flex items-center space-x-2 cursor-pointer"
+                        >
+                          <input
+                            type="radio"
+                            name={`question-${index}`}
+                            className="w-4 h-4 text-cyber-600 bg-dark-700 border-dark-600 focus:ring-cyber-500"
+                            onChange={() => handleAnswerChange(index, String.fromCharCode(65 + optionIndex))}
+                            checked={userAnswers[index] === String.fromCharCode(65 + optionIndex)}
+                            disabled={isSubmitted}
+                          />
+                          <span className="text-gray-300">{option}</span>
+                        </label>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {exercise.type === 'quiz' && ( // Add submit button and result display for quiz
+              <div className="mt-6 flex items-center space-x-4">
+                {!isSubmitted && (
+                  <button
+                    onClick={handleSubmit}
+                    className="cyber-button bg-cyber-600 hover:bg-cyber-700 text-white"
+                  >
+                    Submit Answer
+                  </button>
+                )}
+
+                {isSubmitted && isCorrect !== null && (
+                  <div className="flex items-center space-x-2">
+                    {isCorrect ? (
+                      <CheckCircle className="w-6 h-6 text-success-500" />
+                    ) : (
+                      <XCircle className="w-6 h-6 text-error-500" />
+                    )}
+                    <span className={`font-semibold ${isCorrect ? 'text-success-400' : 'text-error-400'}`}>
+                      {isCorrect ? 'Correct!' : 'Incorrect. Try again.'}
+                    </span>
+                  </div>
+                )}
               </div>
             )}
 
@@ -227,19 +284,26 @@ export default function ExerciseModal({ exercise, onClose }: ExerciseModalProps)
           </button>
           {currentView === 'exercise' && (
             <button
-              onClick={handleComplete}
-              disabled={completed}
+              onClick={handleSubmit}
+              disabled={isSubmitted}
               className="flex-1 cyber-button flex items-center justify-center space-x-2 disabled:opacity-50"
             >
-              {completed ? (
-                <>
-                  <CheckCircle className="w-4 h-4" />
-                  <span>Completed</span>
-                </>
+              {isSubmitted ? (
+                isCorrect ? (
+                  <>
+                    <CheckCircle className="w-4 h-4" />
+                    <span>Correct</span>
+                  </>
+                ) : (
+                  <>
+                    <XCircle className="w-4 h-4" />
+                    <span>Incorrect</span>
+                  </>
+                )
               ) : (
                 <>
                   <CheckCircle className="w-4 h-4" />
-                  <span>Mark as Complete</span>
+                  <span>Submit</span>
                 </>
               )}
             </button>
@@ -257,4 +321,4 @@ export default function ExerciseModal({ exercise, onClose }: ExerciseModalProps)
       </motion.div>
     </motion.div>
   )
-} 
+}

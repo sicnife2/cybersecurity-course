@@ -31,21 +31,26 @@ export default function ResourceSelector({ resources, onClose, title = "Download
     setIsDownloading(true)
 
     try {
-      // Simulate download process
       for (const resource of selectedResources) {
-        await new Promise(resolve => setTimeout(resolve, 500))
-        
-        const fileName = `${resource.replace(/[^a-zA-Z0-9]+/g, '_').toLowerCase()}.pdf`
-        console.log('Attempting to download:', fileName)
-        console.log('Full URL:', `/resources/${fileName}`)
-        
-        const link = document.createElement('a')
-        link.href = `/resources/${fileName}`
-        link.download = fileName
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
-      }
+          // Check if the resource PDF exists in the public/resources directory
+          const fileName = `${resource.replace(/[^a-zA-Z0-9]+/g, '_').toLowerCase()}.pdf`
+          const resourceUrl = `/resources/${fileName}`
+          try {
+            const response = await fetch(resourceUrl, { method: 'HEAD' })
+            if (response.ok) {
+              const link = document.createElement('a')
+              link.href = resourceUrl
+              link.download = fileName
+              document.body.appendChild(link)
+              link.click()
+              document.body.removeChild(link)
+            } else {
+              alert(`Resource "${resource}" is coming soon.`)
+            }
+          } catch (error) {
+            alert(`Failed to download resource "${resource}".`)
+          }
+        }
 
       // Show success message
       setTimeout(() => {
@@ -182,4 +187,4 @@ export default function ResourceSelector({ resources, onClose, title = "Download
       </motion.div>
     </motion.div>
   )
-} 
+}
