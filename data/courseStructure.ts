@@ -73,14 +73,45 @@ export const cybersecurityCourse: CourseModule[] = [
             title: 'Threat identification',
             description: 'Learn to identify various cybersecurity threats',
             type: 'practical',
-            content: 'Practice identifying different types of cybersecurity threats.'
+            content: '
+      <h3>Hands-On Practical Exercise</h3>
+      <p>Apply threat identification concepts through this practical, hands-on exercise designed to build real-world skills.</p>
+      <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-green-400 font-semibold mb-2">Exercise Steps</h4>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Review the scenario and requirements carefully</li>
+          <li>Set up your environment as instructed</li>
+          <li>Follow the step-by-step implementation guide</li>
+          <li>Test your implementation thoroughly</li>
+          <li>Document your findings and results</li>
+          <li>Submit your completed work for review</li>
+        </ol>
+      </div>
+      <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
+        <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
+      </div>
+    '
           },
           {
             id: 'security-assessment',
             title: 'Security assessment',
             description: 'Learn to perform basic security assessments',
             type: 'practical',
-            content: 'Practice performing a basic security assessment.'
+            content: '
+      <h3>Security Analysis Exercise</h3>
+      <p>Develop your analytical skills by examining security assessment scenarios and identifying security implications.</p>
+      <div class="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-purple-400 font-semibold mb-2">Analysis Framework</h4>
+        <ol class="list-decimal list-inside space-y-2">
+          <li><strong>Identify:</strong> What are the key components and stakeholders?</li>
+          <li><strong>Assess:</strong> What are the potential risks and vulnerabilities?</li>
+          <li><strong>Evaluate:</strong> What is the impact and likelihood of threats?</li>
+          <li><strong>Recommend:</strong> What security measures should be implemented?</li>
+          <li><strong>Document:</strong> Prepare a comprehensive analysis report</li>
+        </ol>
+      </div>
+    '
           }
         ],
         resources: ['NIST Framework', 'CISA Essentials', 'Security basics guide'],
@@ -217,21 +248,75 @@ export const cybersecurityCourse: CourseModule[] = [
             title: 'Password strength test',
             description: 'Test the strength of different passwords',
             type: 'practical',
-            content: 'Practice testing the strength of different passwords using various criteria.'
+            content: '
+      <h3>Hands-On Practical Exercise</h3>
+      <p>Apply password security concepts through this practical, hands-on exercise designed to build real-world skills.</p>
+      <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-green-400 font-semibold mb-2">Exercise Steps</h4>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Review the scenario and requirements carefully</li>
+          <li>Set up your environment as instructed</li>
+          <li>Follow the step-by-step implementation guide</li>
+          <li>Test your implementation thoroughly</li>
+          <li>Document your findings and results</li>
+          <li>Submit your completed work for review</li>
+        </ol>
+      </div>
+      <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
+        <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
+      </div>
+    '
           },
           {
             id: '2fa-setup-lab',
             title: '2FA setup lab',
             description: 'Set up two-factor authentication',
             type: 'practical',
-            content: 'Practice setting up two-factor authentication for various accounts.'
+            content: '
+      <h3>Hands-On Practical Exercise</h3>
+      <p>Apply two-factor authentication concepts through this practical, hands-on exercise designed to build real-world skills.</p>
+      <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-green-400 font-semibold mb-2">Exercise Steps</h4>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Review the scenario and requirements carefully</li>
+          <li>Set up your environment as instructed</li>
+          <li>Follow the step-by-step implementation guide</li>
+          <li>Test your implementation thoroughly</li>
+          <li>Document your findings and results</li>
+          <li>Submit your completed work for review</li>
+        </ol>
+      </div>
+      <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
+        <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
+      </div>
+    '
           },
           {
             id: 'password-manager-configuration',
             title: 'Password manager configuration',
             description: 'Configure a password manager',
             type: 'practical',
-            content: 'Practice configuring a password manager to securely store and generate passwords.'
+            content: '
+      <h3>Hands-On Practical Exercise</h3>
+      <p>Apply password management concepts through this practical, hands-on exercise designed to build real-world skills.</p>
+      <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-green-400 font-semibold mb-2">Exercise Steps</h4>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Review the scenario and requirements carefully</li>
+          <li>Set up your environment as instructed</li>
+          <li>Follow the step-by-step implementation guide</li>
+          <li>Test your implementation thoroughly</li>
+          <li>Document your findings and results</li>
+          <li>Submit your completed work for review</li>
+        </ol>
+      </div>
+      <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
+        <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
+      </div>
+    '
           }
         ],
         resources: ['Password best practices', '2FA guide', 'Password manager comparison'],
@@ -2506,28 +2591,110 @@ export const cybersecurityCourse: CourseModule[] = [
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>Advanced Cybersecurity Concepts & Practical Applications</h2>
+          <p>This comprehensive lesson provides in-depth coverage of critical cybersecurity concepts with real-world applications, industry best practices, and hands-on learning opportunities.</p>
           
-          <h3>Key Topics</h3>
+          <h3>Core Security Principles</h3>
+          <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-blue-400 font-semibold mb-2">Defense in Depth Strategy</h4>
+            <ul>
+              <li><strong>Layered Security:</strong> Multiple overlapping security controls</li>
+              <li><strong>Redundancy:</strong> Backup systems and failover mechanisms</li>
+              <li><strong>Diversity:</strong> Different types of security technologies</li>
+              <li><strong>Least Privilege:</strong> Minimum necessary access rights</li>
+              <li><strong>Zero Trust:</strong> Never trust, always verify approach</li>
+            </ul>
+          </div>
+          
+          <h3>Threat Analysis & Risk Assessment</h3>
+          <p>Understanding and evaluating cybersecurity threats is fundamental to effective security:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>Threat Modeling:</strong> Systematic approach to identifying threats</li>
+            <li><strong>Vulnerability Assessment:</strong> Identifying security weaknesses</li>
+            <li><strong>Risk Calculation:</strong> Threat × Vulnerability × Impact</li>
+            <li><strong>Attack Surface Analysis:</strong> Mapping potential entry points</li>
+            <li><strong>Threat Intelligence:</strong> Leveraging external threat data</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Security Controls & Implementation</h3>
+          <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-green-400 font-semibold mb-2">Technical Controls</h4>
+            <ul>
+              <li><strong>Access Controls:</strong> Authentication, authorization, accounting</li>
+              <li><strong>Encryption:</strong> Data protection at rest and in transit</li>
+              <li><strong>Network Security:</strong> Firewalls, IDS/IPS, network segmentation</li>
+              <li><strong>Endpoint Protection:</strong> Antivirus, EDR, device management</li>
+              <li><strong>Security Monitoring:</strong> SIEM, log analysis, threat hunting</li>
+            </ul>
+          </div>
+          
+          <div class="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-purple-400 font-semibold mb-2">Administrative Controls</h4>
+            <ul>
+              <li><strong>Security Policies:</strong> Documented security requirements</li>
+              <li><strong>Procedures:</strong> Step-by-step implementation guides</li>
+              <li><strong>Training Programs:</strong> Security awareness and education</li>
+              <li><strong>Incident Response:</strong> Structured response to security events</li>
+              <li><strong>Compliance Management:</strong> Regulatory and standard adherence</li>
+            </ul>
+          </div>
+          
+          <h3>Emerging Technologies & Threats</h3>
+          <p>Stay ahead of evolving cybersecurity landscape:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>AI/ML Security:</strong> Artificial intelligence in cybersecurity</li>
+            <li><strong>Cloud Security:</strong> Securing cloud-native applications</li>
+            <li><strong>IoT Security:</strong> Internet of Things device protection</li>
+            <li><strong>Mobile Security:</strong> Smartphone and tablet security</li>
+            <li><strong>Quantum Cryptography:</strong> Post-quantum security preparations</li>
           </ul>
+          
+          <h3>Practical Implementation Strategies</h3>
+          <div class="bg-orange-900/20 border border-orange-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-orange-400 font-semibold mb-2">Security Architecture Design</h4>
+            <ul>
+              <li><strong>Security by Design:</strong> Building security into systems from the start</li>
+              <li><strong>Secure Development:</strong> SDLC security integration</li>
+              <li><strong>Infrastructure Security:</strong> Hardening servers and networks</li>
+              <li><strong>Identity Management:</strong> User lifecycle and access management</li>
+              <li><strong>Data Protection:</strong> Classification, handling, and retention</li>
+            </ul>
+          </div>
+          
+          <h3>Industry Standards & Frameworks</h3>
+          <p>Leverage established security frameworks for comprehensive protection:</p>
+          <ul>
+            <li><strong>NIST Cybersecurity Framework:</strong> Identify, Protect, Detect, Respond, Recover</li>
+            <li><strong>ISO 27001/27002:</strong> Information security management systems</li>
+            <li><strong>CIS Controls:</strong> Critical security controls implementation</li>
+            <li><strong>OWASP:</strong> Web application security best practices</li>
+            <li><strong>SANS Top 20:</strong> Critical security controls</li>
+          </ul>
+          
+          <h3>Real-World Case Studies</h3>
+          <p>Learn from actual cybersecurity incidents and successful implementations:</p>
+          <ul>
+            <li><strong>Breach Analysis:</strong> Understanding how attacks succeed</li>
+            <li><strong>Response Strategies:</strong> Effective incident handling</li>
+            <li><strong>Lessons Learned:</strong> Improving security posture</li>
+            <li><strong>Success Stories:</strong> Effective security implementations</li>
+          </ul>
+          
+          <h3>Hands-On Practice & Tools</h3>
+          <div class="bg-red-900/20 border border-red-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-red-400 font-semibold mb-2">Practical Exercises</h4>
+            <ul>
+              <li><strong>Security Assessments:</strong> Vulnerability scanning and analysis</li>
+              <li><strong>Configuration Hardening:</strong> Securing systems and applications</li>
+              <li><strong>Incident Simulation:</strong> Tabletop and technical exercises</li>
+              <li><strong>Tool Implementation:</strong> Deploying security technologies</li>
+              <li><strong>Policy Development:</strong> Creating security documentation</li>
+            </ul>
+          </div>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">Professional Development</h4>
+            <p>This lesson prepares you for real-world cybersecurity challenges. Apply these concepts in practice, stay current with emerging threats, and continue building your expertise. Cybersecurity is a continuous learning journey that requires both technical skills and strategic thinking.</p>
           </div>
         `
       }
@@ -2574,28 +2741,110 @@ export const cybersecurityCourse: CourseModule[] = [
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>Advanced Cybersecurity Concepts & Practical Applications</h2>
+          <p>This comprehensive lesson provides in-depth coverage of critical cybersecurity concepts with real-world applications, industry best practices, and hands-on learning opportunities.</p>
           
-          <h3>Key Topics</h3>
+          <h3>Core Security Principles</h3>
+          <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-blue-400 font-semibold mb-2">Defense in Depth Strategy</h4>
+            <ul>
+              <li><strong>Layered Security:</strong> Multiple overlapping security controls</li>
+              <li><strong>Redundancy:</strong> Backup systems and failover mechanisms</li>
+              <li><strong>Diversity:</strong> Different types of security technologies</li>
+              <li><strong>Least Privilege:</strong> Minimum necessary access rights</li>
+              <li><strong>Zero Trust:</strong> Never trust, always verify approach</li>
+            </ul>
+          </div>
+          
+          <h3>Threat Analysis & Risk Assessment</h3>
+          <p>Understanding and evaluating cybersecurity threats is fundamental to effective security:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>Threat Modeling:</strong> Systematic approach to identifying threats</li>
+            <li><strong>Vulnerability Assessment:</strong> Identifying security weaknesses</li>
+            <li><strong>Risk Calculation:</strong> Threat × Vulnerability × Impact</li>
+            <li><strong>Attack Surface Analysis:</strong> Mapping potential entry points</li>
+            <li><strong>Threat Intelligence:</strong> Leveraging external threat data</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Security Controls & Implementation</h3>
+          <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-green-400 font-semibold mb-2">Technical Controls</h4>
+            <ul>
+              <li><strong>Access Controls:</strong> Authentication, authorization, accounting</li>
+              <li><strong>Encryption:</strong> Data protection at rest and in transit</li>
+              <li><strong>Network Security:</strong> Firewalls, IDS/IPS, network segmentation</li>
+              <li><strong>Endpoint Protection:</strong> Antivirus, EDR, device management</li>
+              <li><strong>Security Monitoring:</strong> SIEM, log analysis, threat hunting</li>
+            </ul>
+          </div>
+          
+          <div class="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-purple-400 font-semibold mb-2">Administrative Controls</h4>
+            <ul>
+              <li><strong>Security Policies:</strong> Documented security requirements</li>
+              <li><strong>Procedures:</strong> Step-by-step implementation guides</li>
+              <li><strong>Training Programs:</strong> Security awareness and education</li>
+              <li><strong>Incident Response:</strong> Structured response to security events</li>
+              <li><strong>Compliance Management:</strong> Regulatory and standard adherence</li>
+            </ul>
+          </div>
+          
+          <h3>Emerging Technologies & Threats</h3>
+          <p>Stay ahead of evolving cybersecurity landscape:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>AI/ML Security:</strong> Artificial intelligence in cybersecurity</li>
+            <li><strong>Cloud Security:</strong> Securing cloud-native applications</li>
+            <li><strong>IoT Security:</strong> Internet of Things device protection</li>
+            <li><strong>Mobile Security:</strong> Smartphone and tablet security</li>
+            <li><strong>Quantum Cryptography:</strong> Post-quantum security preparations</li>
           </ul>
+          
+          <h3>Practical Implementation Strategies</h3>
+          <div class="bg-orange-900/20 border border-orange-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-orange-400 font-semibold mb-2">Security Architecture Design</h4>
+            <ul>
+              <li><strong>Security by Design:</strong> Building security into systems from the start</li>
+              <li><strong>Secure Development:</strong> SDLC security integration</li>
+              <li><strong>Infrastructure Security:</strong> Hardening servers and networks</li>
+              <li><strong>Identity Management:</strong> User lifecycle and access management</li>
+              <li><strong>Data Protection:</strong> Classification, handling, and retention</li>
+            </ul>
+          </div>
+          
+          <h3>Industry Standards & Frameworks</h3>
+          <p>Leverage established security frameworks for comprehensive protection:</p>
+          <ul>
+            <li><strong>NIST Cybersecurity Framework:</strong> Identify, Protect, Detect, Respond, Recover</li>
+            <li><strong>ISO 27001/27002:</strong> Information security management systems</li>
+            <li><strong>CIS Controls:</strong> Critical security controls implementation</li>
+            <li><strong>OWASP:</strong> Web application security best practices</li>
+            <li><strong>SANS Top 20:</strong> Critical security controls</li>
+          </ul>
+          
+          <h3>Real-World Case Studies</h3>
+          <p>Learn from actual cybersecurity incidents and successful implementations:</p>
+          <ul>
+            <li><strong>Breach Analysis:</strong> Understanding how attacks succeed</li>
+            <li><strong>Response Strategies:</strong> Effective incident handling</li>
+            <li><strong>Lessons Learned:</strong> Improving security posture</li>
+            <li><strong>Success Stories:</strong> Effective security implementations</li>
+          </ul>
+          
+          <h3>Hands-On Practice & Tools</h3>
+          <div class="bg-red-900/20 border border-red-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-red-400 font-semibold mb-2">Practical Exercises</h4>
+            <ul>
+              <li><strong>Security Assessments:</strong> Vulnerability scanning and analysis</li>
+              <li><strong>Configuration Hardening:</strong> Securing systems and applications</li>
+              <li><strong>Incident Simulation:</strong> Tabletop and technical exercises</li>
+              <li><strong>Tool Implementation:</strong> Deploying security technologies</li>
+              <li><strong>Policy Development:</strong> Creating security documentation</li>
+            </ul>
+          </div>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">Professional Development</h4>
+            <p>This lesson prepares you for real-world cybersecurity challenges. Apply these concepts in practice, stay current with emerging threats, and continue building your expertise. Cybersecurity is a continuous learning journey that requires both technical skills and strategic thinking.</p>
           </div>
         `
       },
@@ -2611,49 +2860,185 @@ export const cybersecurityCourse: CourseModule[] = [
             title: 'Device security audit',
             description: 'Audit IoT device security',
             type: 'analysis',
-            content: 'Conduct a comprehensive security audit of IoT devices.'
+            content: '
+      <h3>Hands-On Practical Exercise</h3>
+      <p>Apply IoT device security audit concepts through this practical, hands-on exercise designed to build real-world skills.</p>
+      <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-green-400 font-semibold mb-2">Exercise Steps</h4>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Review the scenario and requirements carefully</li>
+          <li>Set up your environment as instructed</li>
+          <li>Follow the step-by-step implementation guide</li>
+          <li>Test your implementation thoroughly</li>
+          <li>Document your findings and results</li>
+          <li>Submit your completed work for review</li>
+        </ol>
+      </div>
+      <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
+        <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
+      </div>
+    '
           },
           {
             id: 'firmware-analysis',
             title: 'Firmware analysis',
             description: 'Analyze IoT device firmware',
             type: 'analysis',
-            content: 'Examine IoT device firmware for security vulnerabilities.'
+            content: '
+      <h3>Hands-On Practical Exercise</h3>
+      <p>Apply firmware security analysis concepts through this practical, hands-on exercise designed to build real-world skills.</p>
+      <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-green-400 font-semibold mb-2">Exercise Steps</h4>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Review the scenario and requirements carefully</li>
+          <li>Set up your environment as instructed</li>
+          <li>Follow the step-by-step implementation guide</li>
+          <li>Test your implementation thoroughly</li>
+          <li>Document your findings and results</li>
+          <li>Submit your completed work for review</li>
+        </ol>
+      </div>
+      <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
+        <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
+      </div>
+    '
           },
           {
             id: 'security-configuration-iot',
             title: 'Security configuration',
             description: 'Configure IoT device security',
             type: 'practical',
-            content: 'Set up and configure security settings for IoT devices.'
+            content: '
+      <h3>Hands-On Practical Exercise</h3>
+      <p>Apply IoT device security configuration concepts through this practical, hands-on exercise designed to build real-world skills.</p>
+      <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-green-400 font-semibold mb-2">Exercise Steps</h4>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Review the scenario and requirements carefully</li>
+          <li>Set up your environment as instructed</li>
+          <li>Follow the step-by-step implementation guide</li>
+          <li>Test your implementation thoroughly</li>
+          <li>Document your findings and results</li>
+          <li>Submit your completed work for review</li>
+        </ol>
+      </div>
+      <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
+        <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
+      </div>
+    '
           }
         ],
         resources: ['Device security guide', 'Firmware analysis tools', 'Configuration best practices']
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>Advanced Cybersecurity Concepts & Practical Applications</h2>
+          <p>This comprehensive lesson provides in-depth coverage of critical cybersecurity concepts with real-world applications, industry best practices, and hands-on learning opportunities.</p>
           
-          <h3>Key Topics</h3>
+          <h3>Core Security Principles</h3>
+          <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-blue-400 font-semibold mb-2">Defense in Depth Strategy</h4>
+            <ul>
+              <li><strong>Layered Security:</strong> Multiple overlapping security controls</li>
+              <li><strong>Redundancy:</strong> Backup systems and failover mechanisms</li>
+              <li><strong>Diversity:</strong> Different types of security technologies</li>
+              <li><strong>Least Privilege:</strong> Minimum necessary access rights</li>
+              <li><strong>Zero Trust:</strong> Never trust, always verify approach</li>
+            </ul>
+          </div>
+          
+          <h3>Threat Analysis & Risk Assessment</h3>
+          <p>Understanding and evaluating cybersecurity threats is fundamental to effective security:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>Threat Modeling:</strong> Systematic approach to identifying threats</li>
+            <li><strong>Vulnerability Assessment:</strong> Identifying security weaknesses</li>
+            <li><strong>Risk Calculation:</strong> Threat × Vulnerability × Impact</li>
+            <li><strong>Attack Surface Analysis:</strong> Mapping potential entry points</li>
+            <li><strong>Threat Intelligence:</strong> Leveraging external threat data</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Security Controls & Implementation</h3>
+          <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-green-400 font-semibold mb-2">Technical Controls</h4>
+            <ul>
+              <li><strong>Access Controls:</strong> Authentication, authorization, accounting</li>
+              <li><strong>Encryption:</strong> Data protection at rest and in transit</li>
+              <li><strong>Network Security:</strong> Firewalls, IDS/IPS, network segmentation</li>
+              <li><strong>Endpoint Protection:</strong> Antivirus, EDR, device management</li>
+              <li><strong>Security Monitoring:</strong> SIEM, log analysis, threat hunting</li>
+            </ul>
+          </div>
+          
+          <div class="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-purple-400 font-semibold mb-2">Administrative Controls</h4>
+            <ul>
+              <li><strong>Security Policies:</strong> Documented security requirements</li>
+              <li><strong>Procedures:</strong> Step-by-step implementation guides</li>
+              <li><strong>Training Programs:</strong> Security awareness and education</li>
+              <li><strong>Incident Response:</strong> Structured response to security events</li>
+              <li><strong>Compliance Management:</strong> Regulatory and standard adherence</li>
+            </ul>
+          </div>
+          
+          <h3>Emerging Technologies & Threats</h3>
+          <p>Stay ahead of evolving cybersecurity landscape:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>AI/ML Security:</strong> Artificial intelligence in cybersecurity</li>
+            <li><strong>Cloud Security:</strong> Securing cloud-native applications</li>
+            <li><strong>IoT Security:</strong> Internet of Things device protection</li>
+            <li><strong>Mobile Security:</strong> Smartphone and tablet security</li>
+            <li><strong>Quantum Cryptography:</strong> Post-quantum security preparations</li>
           </ul>
+          
+          <h3>Practical Implementation Strategies</h3>
+          <div class="bg-orange-900/20 border border-orange-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-orange-400 font-semibold mb-2">Security Architecture Design</h4>
+            <ul>
+              <li><strong>Security by Design:</strong> Building security into systems from the start</li>
+              <li><strong>Secure Development:</strong> SDLC security integration</li>
+              <li><strong>Infrastructure Security:</strong> Hardening servers and networks</li>
+              <li><strong>Identity Management:</strong> User lifecycle and access management</li>
+              <li><strong>Data Protection:</strong> Classification, handling, and retention</li>
+            </ul>
+          </div>
+          
+          <h3>Industry Standards & Frameworks</h3>
+          <p>Leverage established security frameworks for comprehensive protection:</p>
+          <ul>
+            <li><strong>NIST Cybersecurity Framework:</strong> Identify, Protect, Detect, Respond, Recover</li>
+            <li><strong>ISO 27001/27002:</strong> Information security management systems</li>
+            <li><strong>CIS Controls:</strong> Critical security controls implementation</li>
+            <li><strong>OWASP:</strong> Web application security best practices</li>
+            <li><strong>SANS Top 20:</strong> Critical security controls</li>
+          </ul>
+          
+          <h3>Real-World Case Studies</h3>
+          <p>Learn from actual cybersecurity incidents and successful implementations:</p>
+          <ul>
+            <li><strong>Breach Analysis:</strong> Understanding how attacks succeed</li>
+            <li><strong>Response Strategies:</strong> Effective incident handling</li>
+            <li><strong>Lessons Learned:</strong> Improving security posture</li>
+            <li><strong>Success Stories:</strong> Effective security implementations</li>
+          </ul>
+          
+          <h3>Hands-On Practice & Tools</h3>
+          <div class="bg-red-900/20 border border-red-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-red-400 font-semibold mb-2">Practical Exercises</h4>
+            <ul>
+              <li><strong>Security Assessments:</strong> Vulnerability scanning and analysis</li>
+              <li><strong>Configuration Hardening:</strong> Securing systems and applications</li>
+              <li><strong>Incident Simulation:</strong> Tabletop and technical exercises</li>
+              <li><strong>Tool Implementation:</strong> Deploying security technologies</li>
+              <li><strong>Policy Development:</strong> Creating security documentation</li>
+            </ul>
+          </div>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">Professional Development</h4>
+            <p>This lesson prepares you for real-world cybersecurity challenges. Apply these concepts in practice, stay current with emerging threats, and continue building your expertise. Cybersecurity is a continuous learning journey that requires both technical skills and strategic thinking.</p>
           </div>
         `
       },
@@ -2669,49 +3054,185 @@ export const cybersecurityCourse: CourseModule[] = [
             title: 'Network security setup',
             description: 'Set up IoT network security',
             type: 'practical',
-            content: 'Configure network security for IoT environments.'
+            content: '
+      <h3>Hands-On Practical Exercise</h3>
+      <p>Apply IoT network security concepts through this practical, hands-on exercise designed to build real-world skills.</p>
+      <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-green-400 font-semibold mb-2">Exercise Steps</h4>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Review the scenario and requirements carefully</li>
+          <li>Set up your environment as instructed</li>
+          <li>Follow the step-by-step implementation guide</li>
+          <li>Test your implementation thoroughly</li>
+          <li>Document your findings and results</li>
+          <li>Submit your completed work for review</li>
+        </ol>
+      </div>
+      <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
+        <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
+      </div>
+    '
           },
           {
             id: 'traffic-analysis-iot',
             title: 'Traffic analysis',
             description: 'Analyze IoT network traffic',
             type: 'analysis',
-            content: 'Monitor and analyze network traffic in IoT environments.'
+            content: '
+      <h3>Hands-On Practical Exercise</h3>
+      <p>Apply network traffic analysis concepts through this practical, hands-on exercise designed to build real-world skills.</p>
+      <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-green-400 font-semibold mb-2">Exercise Steps</h4>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Review the scenario and requirements carefully</li>
+          <li>Set up your environment as instructed</li>
+          <li>Follow the step-by-step implementation guide</li>
+          <li>Test your implementation thoroughly</li>
+          <li>Document your findings and results</li>
+          <li>Submit your completed work for review</li>
+        </ol>
+      </div>
+      <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
+        <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
+      </div>
+    '
           },
           {
             id: 'access-control-configuration',
             title: 'Access control configuration',
             description: 'Configure IoT access controls',
             type: 'practical',
-            content: 'Set up and configure access controls for IoT networks.'
+            content: '
+      <h3>Hands-On Practical Exercise</h3>
+      <p>Apply access control configuration concepts through this practical, hands-on exercise designed to build real-world skills.</p>
+      <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-green-400 font-semibold mb-2">Exercise Steps</h4>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Review the scenario and requirements carefully</li>
+          <li>Set up your environment as instructed</li>
+          <li>Follow the step-by-step implementation guide</li>
+          <li>Test your implementation thoroughly</li>
+          <li>Document your findings and results</li>
+          <li>Submit your completed work for review</li>
+        </ol>
+      </div>
+      <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mt-4">
+        <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
+        <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
+      </div>
+    '
           }
         ],
         resources: ['Network security guide', 'Monitoring tools', 'Protocol security']
       ,
 
         content: `
-          <h2>Lesson Content</h2>
-          <p>This lesson covers important cybersecurity concepts and practical applications.</p>
+          <h2>Advanced Cybersecurity Concepts & Practical Applications</h2>
+          <p>This comprehensive lesson provides in-depth coverage of critical cybersecurity concepts with real-world applications, industry best practices, and hands-on learning opportunities.</p>
           
-          <h3>Key Topics</h3>
+          <h3>Core Security Principles</h3>
+          <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-blue-400 font-semibold mb-2">Defense in Depth Strategy</h4>
+            <ul>
+              <li><strong>Layered Security:</strong> Multiple overlapping security controls</li>
+              <li><strong>Redundancy:</strong> Backup systems and failover mechanisms</li>
+              <li><strong>Diversity:</strong> Different types of security technologies</li>
+              <li><strong>Least Privilege:</strong> Minimum necessary access rights</li>
+              <li><strong>Zero Trust:</strong> Never trust, always verify approach</li>
+            </ul>
+          </div>
+          
+          <h3>Threat Analysis & Risk Assessment</h3>
+          <p>Understanding and evaluating cybersecurity threats is fundamental to effective security:</p>
           <ul>
-            <li>Understanding fundamental concepts</li>
-            <li>Practical implementation</li>
-            <li>Security best practices</li>
-            <li>Real-world applications</li>
+            <li><strong>Threat Modeling:</strong> Systematic approach to identifying threats</li>
+            <li><strong>Vulnerability Assessment:</strong> Identifying security weaknesses</li>
+            <li><strong>Risk Calculation:</strong> Threat × Vulnerability × Impact</li>
+            <li><strong>Attack Surface Analysis:</strong> Mapping potential entry points</li>
+            <li><strong>Threat Intelligence:</strong> Leveraging external threat data</li>
           </ul>
           
-          <h3>Learning Objectives</h3>
-          <p>By the end of this lesson, you will understand:</p>
+          <h3>Security Controls & Implementation</h3>
+          <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-green-400 font-semibold mb-2">Technical Controls</h4>
+            <ul>
+              <li><strong>Access Controls:</strong> Authentication, authorization, accounting</li>
+              <li><strong>Encryption:</strong> Data protection at rest and in transit</li>
+              <li><strong>Network Security:</strong> Firewalls, IDS/IPS, network segmentation</li>
+              <li><strong>Endpoint Protection:</strong> Antivirus, EDR, device management</li>
+              <li><strong>Security Monitoring:</strong> SIEM, log analysis, threat hunting</li>
+            </ul>
+          </div>
+          
+          <div class="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-purple-400 font-semibold mb-2">Administrative Controls</h4>
+            <ul>
+              <li><strong>Security Policies:</strong> Documented security requirements</li>
+              <li><strong>Procedures:</strong> Step-by-step implementation guides</li>
+              <li><strong>Training Programs:</strong> Security awareness and education</li>
+              <li><strong>Incident Response:</strong> Structured response to security events</li>
+              <li><strong>Compliance Management:</strong> Regulatory and standard adherence</li>
+            </ul>
+          </div>
+          
+          <h3>Emerging Technologies & Threats</h3>
+          <p>Stay ahead of evolving cybersecurity landscape:</p>
           <ul>
-            <li>Core cybersecurity principles</li>
-            <li>How to apply concepts in real scenarios</li>
-            <li>Security implementation strategies</li>
+            <li><strong>AI/ML Security:</strong> Artificial intelligence in cybersecurity</li>
+            <li><strong>Cloud Security:</strong> Securing cloud-native applications</li>
+            <li><strong>IoT Security:</strong> Internet of Things device protection</li>
+            <li><strong>Mobile Security:</strong> Smartphone and tablet security</li>
+            <li><strong>Quantum Cryptography:</strong> Post-quantum security preparations</li>
           </ul>
+          
+          <h3>Practical Implementation Strategies</h3>
+          <div class="bg-orange-900/20 border border-orange-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-orange-400 font-semibold mb-2">Security Architecture Design</h4>
+            <ul>
+              <li><strong>Security by Design:</strong> Building security into systems from the start</li>
+              <li><strong>Secure Development:</strong> SDLC security integration</li>
+              <li><strong>Infrastructure Security:</strong> Hardening servers and networks</li>
+              <li><strong>Identity Management:</strong> User lifecycle and access management</li>
+              <li><strong>Data Protection:</strong> Classification, handling, and retention</li>
+            </ul>
+          </div>
+          
+          <h3>Industry Standards & Frameworks</h3>
+          <p>Leverage established security frameworks for comprehensive protection:</p>
+          <ul>
+            <li><strong>NIST Cybersecurity Framework:</strong> Identify, Protect, Detect, Respond, Recover</li>
+            <li><strong>ISO 27001/27002:</strong> Information security management systems</li>
+            <li><strong>CIS Controls:</strong> Critical security controls implementation</li>
+            <li><strong>OWASP:</strong> Web application security best practices</li>
+            <li><strong>SANS Top 20:</strong> Critical security controls</li>
+          </ul>
+          
+          <h3>Real-World Case Studies</h3>
+          <p>Learn from actual cybersecurity incidents and successful implementations:</p>
+          <ul>
+            <li><strong>Breach Analysis:</strong> Understanding how attacks succeed</li>
+            <li><strong>Response Strategies:</strong> Effective incident handling</li>
+            <li><strong>Lessons Learned:</strong> Improving security posture</li>
+            <li><strong>Success Stories:</strong> Effective security implementations</li>
+          </ul>
+          
+          <h3>Hands-On Practice & Tools</h3>
+          <div class="bg-red-900/20 border border-red-500/30 rounded-lg p-4 mb-4">
+            <h4 class="text-red-400 font-semibold mb-2">Practical Exercises</h4>
+            <ul>
+              <li><strong>Security Assessments:</strong> Vulnerability scanning and analysis</li>
+              <li><strong>Configuration Hardening:</strong> Securing systems and applications</li>
+              <li><strong>Incident Simulation:</strong> Tabletop and technical exercises</li>
+              <li><strong>Tool Implementation:</strong> Deploying security technologies</li>
+              <li><strong>Policy Development:</strong> Creating security documentation</li>
+            </ul>
+          </div>
           
           <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-6">
-            <h4 class="text-cyber-400 font-semibold mb-2">Important Note</h4>
-            <p>Complete all exercises and review additional resources for comprehensive understanding.</p>
+            <h4 class="text-cyber-400 font-semibold mb-2">Professional Development</h4>
+            <p>This lesson prepares you for real-world cybersecurity challenges. Apply these concepts in practice, stay current with emerging threats, and continue building your expertise. Cybersecurity is a continuous learning journey that requires both technical skills and strategic thinking.</p>
           </div>
         `
       }
