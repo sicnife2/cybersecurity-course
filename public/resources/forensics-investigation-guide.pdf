@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Forensics Investigation Guide</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        h3 { color: #7f8c8d; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 5px; }
+        .section { margin-bottom: 30px; }
+        .highlight { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <br><h1>Digital Forensics Investigation Guide</h1><br><h2>Investigation Process</h2><li>Evidence identification</li><li>Collection and preservation</li><li>Analysis and examination</li><li>Documentation and reporting</li><br><h2>Evidence Types</h2><li>Volatile data (RAM)</li><li>Non-volatile data (hard drives)</li><li>Network traffic</li><li>Mobile devices</li><li>Cloud storage</li><br><h2>Tools and Techniques</h2><li>Imaging tools</li><li>Analysis software</li><li>Network forensics</li><li>Mobile forensics</li><li>Memory forensics</li><br><h2>Legal Considerations</h2><li>Chain of custody</li><li>Evidence integrity</li><li>Legal authority</li><li>Privacy rights</li><li>Admissibility requirements</li><br><h2>Best Practices</h2><li>Documentation</li><li>Tool validation</li><li>Quality assurance</li><li>Peer review</li><li>Continuing education</li><br>
+</body>
+</html>

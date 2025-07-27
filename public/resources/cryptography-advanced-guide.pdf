@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cryptography Advanced Guide</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        h3 { color: #7f8c8d; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 5px; }
+        .section { margin-bottom: 30px; }
+        .highlight { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <br><h1>Advanced Cryptography Guide</h1><br><h2>Symmetric Encryption</h2><li>AES (Advanced Encryption Standard)</li><li>DES (Data Encryption Standard)</li><li>3DES (Triple DES)</li><li>Blowfish</li><br><h2>Asymmetric Encryption</h2><li>RSA</li><li>ECC (Elliptic Curve Cryptography)</li><li>DSA (Digital Signature Algorithm)</li><li>Diffie-Hellman</li><br><h2>Hashing Algorithms</h2><li>SHA-256</li><li>SHA-512</li><li>MD5 (deprecated)</li><li>bcrypt</li><br><h2>Digital Signatures</h2><li>RSA signatures</li><li>DSA signatures</li><li>ECDSA</li><li>Certificate validation</li><br><h2>Key Management</h2><li>Key generation</li><li>Key distribution</li><li>Key storage</li><li>Key rotation</li><br><h2>Applications</h2><li>SSL/TLS</li><li>PGP/GPG</li><li>Blockchain</li><li>Secure communications</li><br>
+</body>
+</html>

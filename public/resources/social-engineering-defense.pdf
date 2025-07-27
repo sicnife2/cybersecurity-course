@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Social Engineering Defense</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        h3 { color: #7f8c8d; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 5px; }
+        .section { margin-bottom: 30px; }
+        .highlight { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <br><h1>Social Engineering Defense Guide</h1><br><h2>Types of Social Engineering</h2><li>Phishing attacks</li><li>Pretexting</li><li>Baiting</li><li>Quid pro quo</li><li>Tailgating</li><br><h2>Attack Vectors</h2><li>Email phishing</li><li>Voice phishing (vishing)</li><li>SMS phishing (smishing)</li><li>Physical manipulation</li><li>Social media attacks</li><br><h2>Red Flags</h2><li>Urgency or threats</li><li>Requests for sensitive information</li><li>Unusual sender addresses</li><li>Poor grammar or spelling</li><li>Too-good-to-be-true offers</li><br><h2>Defense Strategies</h2><li>Security awareness training</li><li>Multi-factor authentication</li><li>Verification procedures</li><li>Incident reporting</li><li>Regular testing</li><br><h2>Response Procedures</h2><li>Immediate reporting</li><li>Evidence preservation</li><li>Communication protocols</li><li>Recovery procedures</li><br>
+</body>
+</html>

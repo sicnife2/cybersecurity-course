@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Compliance Frameworks Overview</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        h3 { color: #7f8c8d; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 5px; }
+        .section { margin-bottom: 30px; }
+        .highlight { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <br><h1>Compliance Frameworks Overview</h1><br><h2>Industry Standards</h2><li>ISO 27001</li><li>NIST Cybersecurity Framework</li><li>COBIT</li><li>ITIL</li><br><h2>Regulatory Requirements</h2><li>GDPR (General Data Protection Regulation)</li><li>HIPAA (Health Insurance Portability and Accountability Act)</li><li>SOX (Sarbanes-Oxley Act)</li><li>PCI DSS (Payment Card Industry Data Security Standard)</li><br><h2>Implementation</h2><li>Gap analysis</li><li>Control mapping</li><li>Process documentation</li><li>Training and awareness</li><li>Regular audits</li><br><h2>Monitoring and Reporting</h2><li>Compliance monitoring</li><li>Regular assessments</li><li>Audit preparation</li><li>Continuous improvement</li><li>Stakeholder communication</li><br><h2>Best Practices</h2><li>Risk-based approach</li><li>Regular updates</li><li>Stakeholder engagement</li><li>Documentation management</li><li>Training programs</li><br>
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Web Application Security Guide</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        h3 { color: #7f8c8d; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 5px; }
+        .section { margin-bottom: 30px; }
+        .highlight { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <br><h1>Web Application Security Guide</h1><br><h2>OWASP Top 10</h2><li>Injection</li><p>2. Broken Authentication</p><p>3. Sensitive Data Exposure</p><p>4. XML External Entities</p><p>5. Broken Access Control</p><p>6. Security Misconfiguration</p><p>7. Cross-Site Scripting</p><p>8. Insecure Deserialization</p><p>9. Using Components with Known Vulnerabilities</p><p>10. Insufficient Logging & Monitoring</p><br><h2>Common Vulnerabilities</h2><h3>SQL Injection</h3><li>Input validation</li><li>Parameterized queries</li><li>Least privilege principle</li><br><h3>Cross-Site Scripting (XSS)</h3><li>Output encoding</li><li>Content Security Policy</li><li>Input sanitization</li><br><h3>Cross-Site Request Forgery (CSRF)</h3><li>Anti-CSRF tokens</li><li>SameSite cookies</li><li>Referrer validation</li><br><h2>Security Testing</h2><li>Automated scanning</li><li>Manual penetration testing</li><li>Code review</li><li>Security architecture review</li><br>
+</body>
+</html>

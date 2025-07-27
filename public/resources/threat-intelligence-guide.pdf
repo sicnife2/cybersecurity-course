@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Threat Intelligence Guide</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        h3 { color: #7f8c8d; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 5px; }
+        .section { margin-bottom: 30px; }
+        .highlight { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <br><h1>Threat Intelligence Guide</h1><br><h2>Intelligence Types</h2><li>Strategic intelligence</li><li>Operational intelligence</li><li>Tactical intelligence</li><li>Technical intelligence</li><br><h2>Sources</h2><li>Open source intelligence</li><li>Commercial feeds</li><li>Government sources</li><li>Industry sharing</li><li>Dark web monitoring</li><br><h2>Analysis Process</h2><li>Collection</li><li>Processing</li><li>Analysis</li><li>Dissemination</li><li>Feedback</li><br><h2>Applications</h2><li>Threat hunting</li><li>Incident response</li><li>Security planning</li><li>Risk assessment</li><li>Vulnerability management</li><br><h2>Tools and Platforms</h2><li>Threat intelligence platforms</li><li>SIEM integration</li><li>Automated feeds</li><li>Manual analysis tools</li><li>Reporting systems</li><br><h2>Best Practices</h2><li>Source validation</li><li>Context analysis</li><li>Timely dissemination</li><li>Actionable intelligence</li><li>Continuous improvement</li><br>
+</body>
+</html>

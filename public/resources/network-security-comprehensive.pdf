@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Network Security Comprehensive</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        h3 { color: #7f8c8d; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 5px; }
+        .section { margin-bottom: 30px; }
+        .highlight { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <br><h1>Network Security Comprehensive Guide</h1><br><h2>Network Fundamentals</h2><p>Understanding how networks function is essential for cybersecurity professionals.</p><br><h3>OSI Model</h3><li>Physical Layer - Hardware transmission</li><p>2. Data Link Layer - Error detection</p><p>3. Network Layer - Routing and addressing</p><p>4. Transport Layer - Reliable data delivery</p><p>5. Session Layer - Connection management</p><p>6. Presentation Layer - Data formatting</p><p>7. Application Layer - User services</p><br><h3>TCP/IP Protocol Suite</h3><li>IP (Internet Protocol): Addressing and routing</li><li>TCP (Transmission Control Protocol): Reliable delivery</li><li>UDP (User Datagram Protocol): Fast delivery</li><li>ICMP (Internet Control Message Protocol): Error reporting</li><br><h2>Security Measures</h2><li>Firewalls and intrusion detection</li><li>Network segmentation</li><li>VPN implementation</li><li>Regular security audits</li><li>Traffic monitoring</li><br>
+</body>
+</html>

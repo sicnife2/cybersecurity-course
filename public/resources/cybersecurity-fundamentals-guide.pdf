@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cybersecurity Fundamentals Guide</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        h3 { color: #7f8c8d; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 5px; }
+        .section { margin-bottom: 30px; }
+        .highlight { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <br><h1>Cybersecurity Fundamentals Guide</h1><br><h2>Introduction</h2><p>This comprehensive guide covers the essential principles of cybersecurity, providing a solid foundation for understanding digital security concepts.</p><br><h2>The CIA Triad</h2><li>**Confidentiality**: Ensuring information is accessible only to authorized users</li><li>**Integrity**: Maintaining data accuracy and consistency</li><li>**Availability**: Ensuring authorized users have access when needed</li><br><h2>Common Threats</h2><li>Malware (viruses, worms, trojans)</li><li>Phishing attacks</li><li>Social engineering</li><li>DDoS attacks</li><li>Insider threats</li><br><h2>Best Practices</h2><li>Use strong, unique passwords</li><li>Enable two-factor authentication</li><li>Keep software updated</li><li>Be cautious with email attachments</li><li>Use antivirus software</li><li>Regular backups</li><br><h2>Incident Response</h2><li>Identify the incident</li><p>2. Contain the threat</p><p>3. Eradicate the problem</p><p>4. Recover systems</p><p>5. Document lessons learned</p><br>
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Incident Response Playbook</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        h3 { color: #7f8c8d; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 5px; }
+        .section { margin-bottom: 30px; }
+        .highlight { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <br><h1>Incident Response Playbook</h1><br><h2>Preparation Phase</h2><li>Incident response team formation</li><li>Tools and resources identification</li><li>Communication plan development</li><li>Training and awareness</li><br><h2>Identification Phase</h2><li>Event detection</li><li>Initial assessment</li><li>Classification and prioritization</li><li>Notification procedures</li><br><h2>Containment Phase</h2><li>Short-term containment</li><li>Long-term containment</li><li>Evidence preservation</li><li>Communication with stakeholders</li><br><h2>Eradication Phase</h2><li>Root cause analysis</li><li>Vulnerability remediation</li><li>System restoration</li><li>Security improvements</li><br><h2>Recovery Phase</h2><li>System validation</li><li>Monitoring and testing</li><li>Documentation</li><li>Lessons learned</li><br><h2>Post-Incident Activities</h2><li>Incident report preparation</li><li>Process improvement</li><li>Training updates</li><li>Policy review</li><br>
+</body>
+</html>

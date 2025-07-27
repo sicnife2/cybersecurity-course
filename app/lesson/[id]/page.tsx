@@ -257,108 +257,43 @@ export default function LessonViewer() {
                   <h2 className="text-2xl font-bold mb-6">Hands-on Exercises</h2>
                   
                   <div className="space-y-6">
-                    {lesson.exercises.map((exercise: string, index: number) => (
+                    {lesson.exercises.map((exercise: any, index: number) => (
                       <div key={index} className="border border-dark-600 rounded-lg p-4">
                         <div className="flex items-center justify-between mb-3">
-                          <h3 className="text-lg font-semibold">Exercise {index + 1}</h3>
-                          <span className="text-sm text-cyber-400">Practice</span>
+                          <h3 className="text-lg font-semibold">{exercise.title}</h3>
+                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                            exercise.type === 'quiz' ? 'bg-success-600' :
+                            exercise.type === 'practical' ? 'bg-cyber-600' : 'bg-orange-600'
+                          }`}>
+                            {exercise.type.charAt(0).toUpperCase() + exercise.type.slice(1)}
+                          </span>
                         </div>
-                        <p className="text-gray-300 mb-4">{exercise}</p>
+                        <p className="text-gray-300 mb-4">{exercise.description}</p>
                         <div className="flex space-x-3">
                           <button 
                             className="cyber-button text-sm px-4 py-2"
                             onClick={() => {
-                              const exerciseData = {
-                                id: `${lesson.id}-exercise-${index}`,
-                                title: `Exercise ${index + 1}`,
-                                description: exercise,
-                                type: index % 3 === 0 ? 'quiz' : index % 3 === 1 ? 'practical' : 'analysis',
-                                content: `
-                                  <h3>${exercise}</h3>
-                                  <p>This exercise will help you understand and apply the concepts learned in this lesson.</p>
-                                  <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-4">
-                                    <h4 class="text-cyber-400 font-semibold mb-2">Instructions</h4>
-                                    <p>Follow the steps below to complete this exercise:</p>
-                                    <ol class="list-decimal list-inside space-y-1 mt-2">
-                                      <li>Read through the exercise carefully</li>
-                                      <li>Apply the concepts learned in this lesson</li>
-                                      <li>Complete all required tasks</li>
-                                      <li>Review your work before submitting</li>
-                                    </ol>
-                                  </div>
-                                `,
-                                solution: `
-                                  <h3>Solution for ${exercise}</h3>
-                                  <p>Here's how to approach this exercise:</p>
-                                  <div class="bg-success-900/20 border border-success-500/30 rounded-lg p-4 mt-4">
-                                    <h4 class="text-success-400 font-semibold mb-2">Step-by-Step Solution</h4>
-                                    <ol class="list-decimal list-inside space-y-2">
-                                      <li>First, identify the key concepts involved</li>
-                                      <li>Apply the appropriate security principles</li>
-                                      <li>Document your findings and approach</li>
-                                      <li>Verify your solution meets all requirements</li>
-                                    </ol>
-                                  </div>
-                                `,
-                                hints: [
-                                  "Think about the security principles discussed in this lesson",
-                                  "Consider both technical and human factors",
-                                  "Document your process for future reference"
-                                ]
+                              setSelectedExercise(exercise)
+                              setShowExerciseModal(true)
+                            }}
+                          >
+                            Start Exercise
+                          </button>
+                          <button 
+                            className="px-4 py-2 border border-cyber-500 text-cyber-500 hover:bg-cyber-500 hover:text-white rounded-lg transition-all duration-300 text-sm"
+                            onClick={() => {
+                              // Create a solution view of the exercise
+                              const solutionExercise = {
+                                ...exercise,
+                                title: `${exercise.title} - Solution`,
+                                content: exercise.solution || exercise.content
                               }
-                                                              setSelectedExercise(exerciseData)
-                                setShowExerciseModal(true)
-                              }}
-                            >
-                              Start Exercise
-                            </button>
-                            <button 
-                              className="px-4 py-2 border border-cyber-500 text-cyber-500 hover:bg-cyber-500 hover:text-white rounded-lg transition-all duration-300 text-sm"
-                              onClick={() => {
-                                const exerciseData = {
-                                id: `${lesson.id}-exercise-${index}`,
-                                title: `Exercise ${index + 1} - Solution`,
-                                description: exercise,
-                                type: index % 3 === 0 ? 'quiz' : index % 3 === 1 ? 'practical' : 'analysis',
-                                content: `
-                                  <h3>${exercise}</h3>
-                                  <p>This exercise will help you understand and apply the concepts learned in this lesson.</p>
-                                  <div class="bg-cyber-900/20 border border-cyber-500/30 rounded-lg p-4 mt-4">
-                                    <h4 class="text-cyber-400 font-semibold mb-2">Instructions</h4>
-                                    <p>Follow the steps below to complete this exercise:</p>
-                                    <ol class="list-decimal list-inside space-y-1 mt-2">
-                                      <li>Read through the exercise carefully</li>
-                                      <li>Apply the concepts learned in this lesson</li>
-                                      <li>Complete all required tasks</li>
-                                      <li>Review your work before submitting</li>
-                                    </ol>
-                                  </div>
-                                `,
-                                solution: `
-                                  <h3>Solution for ${exercise}</h3>
-                                  <p>Here's how to approach this exercise:</p>
-                                  <div class="bg-success-900/20 border border-success-500/30 rounded-lg p-4 mt-4">
-                                    <h4 class="text-success-400 font-semibold mb-2">Step-by-Step Solution</h4>
-                                    <ol class="list-decimal list-inside space-y-2">
-                                      <li>First, identify the key concepts involved</li>
-                                      <li>Apply the appropriate security principles</li>
-                                      <li>Document your findings and approach</li>
-                                      <li>Verify your solution meets all requirements</li>
-                                    </ol>
-                                  </div>
-                                `,
-                                hints: [
-                                  "Think about the security principles discussed in this lesson",
-                                  "Consider both technical and human factors",
-                                  "Document your process for future reference"
-                                ]
-                              }
-                                                              setSelectedExercise(exerciseData)
-                                setShowExerciseModal(true)
-                              }}
-                            >
-                              View Solution
-                            </button>
+                              setSelectedExercise(solutionExercise)
+                              setShowExerciseModal(true)
+                            }}
+                          >
+                            View Solution
+                          </button>
                         </div>
                       </div>
                     ))}
@@ -405,14 +340,62 @@ export default function LessonViewer() {
                               'NIST Framework': 'nist-framework.html',
                               'CISA Essentials': 'cisa-essentials.html',
                               'Security basics guide': 'security-basics-guide.html',
-                              'Device security guide': 'device-security-guide.html',
-                              'Network security guide': 'network-security-guide.html',
                               'Mobile security checklist': 'mobile-security-checklist.html',
                               'App security checklist': 'app-security-checklist.html',
                               'Monitoring tools': 'network-security-guide.html',
-                              'Protocol security': 'network-security-guide.html',
                               'Configuration best practices': 'device-security-guide.html',
-                              'Firmware analysis tools': 'device-security-guide.html'
+                              'Cybersecurity fundamentals': 'cybersecurity-fundamentals-guide.pdf',
+                              'Network security': 'network-security-comprehensive.pdf',
+                              'Web application security': 'web-application-security-guide.pdf',
+                              'Ethical hacking': 'ethical-hacking-methodology.pdf',
+                              'Cryptography': 'cryptography-advanced-guide.pdf',
+                              'Incident response': 'incident-response-playbook.pdf',
+                              'Cloud security': 'cloud-security-best-practices.pdf',
+                              'IoT security': 'iot-security-handbook.pdf',
+                              'Mobile security': 'mobile-security-comprehensive.pdf',
+                              'Social engineering': 'social-engineering-defense.pdf',
+                              'Digital forensics': 'forensics-investigation-guide.pdf',
+                              'Penetration testing': 'penetration-testing-methodology.pdf',
+                              'Security architecture': 'security-architecture-guide.pdf',
+                              'Compliance frameworks': 'compliance-frameworks-overview.pdf',
+                              'Threat intelligence': 'threat-intelligence-guide.pdf',
+                              'Secure coding': 'secure-coding-practices.pdf',
+                              'Security monitoring': 'security-monitoring-guide.pdf',
+                              'Business continuity': 'business-continuity-planning.pdf',
+                              'OSINT tools': 'threat-intelligence-guide.pdf',
+                              'Scanning techniques': 'penetration-testing-methodology.pdf',
+                              'Reconnaissance methods': 'ethical-hacking-methodology.pdf',
+                              'Vulnerability databases': 'web-application-security-guide.pdf',
+                              'Assessment tools': 'penetration-testing-methodology.pdf',
+                              'Reporting templates': 'incident-response-playbook.pdf',
+                              'Exploit development': 'ethical-hacking-methodology.pdf',
+                              'Metasploit documentation': 'penetration-testing-methodology.pdf',
+                              'Exploitation techniques': 'ethical-hacking-methodology.pdf',
+                              'Web exploitation': 'web-application-security-guide.pdf',
+                              'Testing tools': 'penetration-testing-methodology.pdf',
+                              'Vulnerability examples': 'web-application-security-guide.pdf',
+                              'Wireless security': 'network-security-comprehensive.pdf',
+                              'Attack tools': 'ethical-hacking-methodology.pdf',
+                              'Security assessment methods': 'penetration-testing-methodology.pdf',
+                              'Incident response guide': 'incident-response-playbook.pdf',
+                              'Procedures template': 'incident-response-playbook.pdf',
+                              'Recovery checklist': 'business-continuity-planning.pdf',
+                              'Forensics guide': 'forensics-investigation-guide.pdf',
+                              'Analysis tools': 'forensics-investigation-guide.pdf',
+                              'Evidence handling procedures': 'forensics-investigation-guide.pdf',
+                              'Reverse engineering techniques': 'forensics-investigation-guide.pdf',
+                              'Cloud security guide': 'cloud-security-best-practices.pdf',
+                              'Security frameworks': 'compliance-frameworks-overview.pdf',
+                              'AWS security guide': 'cloud-security-best-practices.pdf',
+                              'Security tools': 'security-monitoring-guide.pdf',
+                              'Azure security guide': 'cloud-security-best-practices.pdf',
+                              'Security center docs': 'cloud-security-best-practices.pdf',
+                              'IoT security guide': 'iot-security-handbook.pdf',
+                              'Threat reports': 'threat-intelligence-guide.pdf',
+                              'Device security guide': 'device-security-guide.html',
+                              'Firmware analysis tools': 'device-security-guide.html',
+                              'Network security guide': 'network-security-guide.html',
+                              'Protocol security': 'network-security-guide.html'
                             }
                             
                             const fileName = resourceMap[resource] || `${resource.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase()}.html`

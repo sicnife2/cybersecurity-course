@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ethical Hacking Methodology</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        h3 { color: #7f8c8d; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 5px; }
+        .section { margin-bottom: 30px; }
+        .highlight { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <br><h1>Ethical Hacking Methodology</h1><br><h2>Reconnaissance</h2><li>Passive information gathering</li><li>Active scanning</li><li>Social engineering research</li><li>Network mapping</li><br><h2>Scanning</h2><li>Port scanning</li><li>Service enumeration</li><li>Vulnerability assessment</li><li>Network topology discovery</li><br><h2>Gaining Access</h2><li>Exploit development</li><li>Social engineering</li><li>Physical access</li><li>Remote exploitation</li><br><h2>Maintaining Access</h2><li>Backdoors</li><li>Rootkits</li><li>Persistence mechanisms</li><li>Privilege escalation</li><br><h2>Covering Tracks</h2><li>Log manipulation</li><li>File deletion</li><li>Anti-forensics</li><li>Evidence removal</li><br><h2>Legal and Ethical Considerations</h2><li>Always obtain proper authorization</li><li>Document all activities</li><li>Respect scope limitations</li><li>Follow responsible disclosure</li><br>
+</body>
+</html>
