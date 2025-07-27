@@ -22,7 +22,7 @@ export interface Exercise {
   id: string;
   title: string;
   description: string;
-  type: 'quiz' | 'coding' | 'simulation'; // Add other types as needed
+  type: 'quiz' | 'coding' | 'simulation' | 'practical' | 'analysis'; // Add other types as needed
   content: string;
   questions?: { question: string; options: string[]; correctAnswer: string; }[]; // Optional for quiz type
   // Add other properties relevant to different exercise types
@@ -68,8 +68,20 @@ export const cybersecurityCourse: CourseModule[] = [
               },
             ],
           },
-          'Threat identification',
-          'Security assessment',
+          {
+            id: 'threat-identification',
+            title: 'Threat identification',
+            description: 'Learn to identify various cybersecurity threats',
+            type: 'practical',
+            content: 'Practice identifying different types of cybersecurity threats.'
+          },
+          {
+            id: 'security-assessment',
+            title: 'Security assessment',
+            description: 'Learn to perform basic security assessments',
+            type: 'practical',
+            content: 'Practice performing a basic security assessment.'
+          }
         ],
         resources: ['NIST Framework', 'CISA Essentials', 'Security basics guide'],
         content: `
@@ -117,7 +129,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Learn about malware, phishing, and social engineering',
         duration: '60 min',
         topics: ['Malware types', 'Phishing techniques', 'Social engineering', 'Attack vectors'],
-        exercises: ['Threat analysis lab', 'Phishing simulation', 'Social engineering scenarios'],
+        exercises: [
+          {
+            id: 'threat-analysis-lab',
+            title: 'Threat analysis lab',
+            description: 'Analyze different types of digital threats',
+            type: 'practical',
+            content: 'Practice analyzing various digital threats and identifying their characteristics.'
+          },
+          {
+            id: 'phishing-simulation',
+            title: 'Phishing simulation',
+            description: 'Identify phishing attempts in emails',
+            type: 'simulation',
+            content: 'Practice identifying phishing attempts in sample emails.'
+          },
+          {
+            id: 'social-engineering-scenarios',
+            title: 'Social engineering scenarios',
+            description: 'Recognize social engineering tactics',
+            type: 'simulation',
+            content: 'Practice recognizing social engineering tactics in various scenarios.'
+          }
+        ],
         resources: ['Malware analysis guide', 'Phishing red flags', 'Social engineering defense'],
         content: `
           <h2>Types of Digital Threats</h2>
@@ -177,7 +211,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Create and manage strong passwords and authentication methods',
         duration: '40 min',
         topics: ['Password creation', 'Password managers', '2FA/MFA', 'Biometric security'],
-        exercises: ['Password strength test', '2FA setup lab', 'Password manager configuration'],
+        exercises: [
+          {
+            id: 'password-strength-test',
+            title: 'Password strength test',
+            description: 'Test the strength of different passwords',
+            type: 'practical',
+            content: 'Practice testing the strength of different passwords using various criteria.'
+          },
+          {
+            id: '2fa-setup-lab',
+            title: '2FA setup lab',
+            description: 'Set up two-factor authentication',
+            type: 'practical',
+            content: 'Practice setting up two-factor authentication for various accounts.'
+          },
+          {
+            id: 'password-manager-configuration',
+            title: 'Password manager configuration',
+            description: 'Configure a password manager',
+            type: 'practical',
+            content: 'Practice configuring a password manager to securely store and generate passwords.'
+          }
+        ],
         resources: ['Password best practices', '2FA guide', 'Password manager comparison'],
         content: `
           <h2>Password Security Fundamentals</h2>
@@ -261,7 +317,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Protect yourself from email-based attacks and scams',
         duration: '50 min',
         topics: ['Email threats', 'Phishing detection', 'Email encryption', 'Safe email practices'],
-        exercises: ['Phishing email analysis', 'Email security audit', 'Encryption setup'],
+        exercises: [
+          {
+            id: 'phishing-email-analysis',
+            title: 'Phishing email analysis',
+            description: 'Analyze and identify phishing emails',
+            type: 'practical',
+            content: 'Practice analyzing and identifying phishing emails using various indicators.'
+          },
+          {
+            id: 'email-security-audit',
+            title: 'Email security audit',
+            description: 'Audit email security settings',
+            type: 'practical',
+            content: 'Practice auditing email security settings and identifying potential vulnerabilities.'
+          },
+          {
+            id: 'encryption-setup',
+            title: 'Encryption setup',
+            description: 'Set up email encryption',
+            type: 'practical',
+            content: 'Practice setting up email encryption to protect sensitive communications.'
+          }
+        ],
         resources: ['Phishing examples', 'Email security tools', 'Encryption guide'],
         content: `
           <h2>Email Security Essentials</h2>
@@ -348,7 +426,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Protect your privacy and security on social platforms',
         duration: '35 min',
         topics: ['Privacy settings', 'Information sharing', 'Account security', 'Social engineering'],
-        exercises: ['Privacy audit', 'Social media cleanup', 'Security settings configuration'],
+        exercises: [
+          {
+            id: 'privacy-audit',
+            title: 'Privacy audit',
+            description: 'Conduct a privacy audit of your social media accounts',
+            type: 'practical',
+            content: 'Review your social media accounts and identify privacy vulnerabilities.'
+          },
+          {
+            id: 'social-media-cleanup',
+            title: 'Social media cleanup',
+            description: 'Clean up your social media presence',
+            type: 'practical',
+            content: 'Remove sensitive information and adjust privacy settings on your social media accounts.'
+          },
+          {
+            id: 'security-settings-configuration',
+            title: 'Security settings configuration',
+            description: 'Configure security settings on social platforms',
+            type: 'practical',
+            content: 'Set up two-factor authentication and other security features on your social media accounts.'
+          }
+        ],
         resources: ['Privacy guides', 'Social media security tips', 'Account protection'],
         content: `
           <h2>Social Media Security</h2>
@@ -436,7 +536,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Secure your smartphones and tablets',
         duration: '45 min',
         topics: ['Mobile threats', 'App security', 'Device encryption', 'Safe browsing'],
-        exercises: ['Mobile security audit', 'App permission review', 'Encryption setup'],
+        exercises: [
+          {
+            id: 'mobile-security-audit',
+            title: 'Mobile security audit',
+            description: 'Conduct a security audit of your mobile device',
+            type: 'practical',
+            content: 'Evaluate your mobile device security settings and identify vulnerabilities.'
+          },
+          {
+            id: 'app-permission-review',
+            title: 'App permission review',
+            description: 'Review app permissions on your mobile device',
+            type: 'practical',
+            content: 'Analyze the permissions granted to apps on your device and adjust as necessary.'
+          },
+          {
+            id: 'encryption-setup-mobile',
+            title: 'Encryption setup',
+            description: 'Set up encryption on your mobile device',
+            type: 'practical',
+            content: 'Configure encryption settings on your mobile device to protect your data.'
+          }
+        ],
         resources: ['Mobile security guide', 'App security checklist', 'Safe browsing tips'],
         content: `
           <h2>Mobile Device Security</h2>
@@ -555,7 +677,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Understanding how networks work and basic protocols',
         duration: '60 min',
         topics: ['OSI Model', 'TCP/IP', 'Network protocols', 'Network architecture'],
-        exercises: ['Network diagram creation', 'Protocol analysis', 'Network simulation'],
+        exercises: [
+          {
+            id: 'network-diagram-creation',
+            title: 'Network diagram creation',
+            description: 'Create a network diagram',
+            type: 'practical',
+            content: 'Design and create a diagram of a secure network architecture.'
+          },
+          {
+            id: 'protocol-analysis',
+            title: 'Protocol analysis',
+            description: 'Analyze network protocols',
+            type: 'analysis',
+            content: 'Examine different network protocols and their security implications.'
+          },
+          {
+            id: 'network-simulation',
+            title: 'Network simulation',
+            description: 'Simulate a network environment',
+            type: 'simulation',
+            content: 'Use a network simulation tool to create and test a secure network.'
+          }
+        ],
         resources: ['OSI Model guide', 'TCP/IP reference', 'Network protocols'],
         content: `
           <h2>Network Fundamentals</h2>
@@ -640,7 +784,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Secure your wireless networks and connections',
         duration: '50 min',
         topics: ['WiFi encryption', 'Rogue access points', 'WiFi attacks', 'Secure configuration'],
-        exercises: ['WiFi security audit', 'Encryption setup', 'Attack simulation'],
+        exercises: [
+          {
+            id: 'wifi-security-audit',
+            title: 'WiFi security audit',
+            description: 'Conduct a WiFi security audit',
+            type: 'practical',
+            content: 'Evaluate the security of a WiFi network and identify vulnerabilities.'
+          },
+          {
+            id: 'wifi-encryption-setup',
+            title: 'Encryption setup',
+            description: 'Set up WiFi encryption',
+            type: 'practical',
+            content: 'Configure secure encryption settings for a WiFi network.'
+          },
+          {
+            id: 'wifi-attack-simulation',
+            title: 'Attack simulation',
+            description: 'Simulate WiFi attacks',
+            type: 'simulation',
+            content: 'Use tools to simulate common WiFi attacks and understand their impact.'
+          }
+        ],
         resources: ['WiFi security guide', 'Encryption standards', 'Configuration best practices'],
         content: `
           <h2>WiFi Security</h2>
@@ -729,7 +895,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Implement and configure firewalls for network security',
         duration: '70 min',
         topics: ['Firewall types', 'Rule configuration', 'Network segmentation', 'Intrusion detection'],
-        exercises: ['Firewall configuration', 'Rule creation', 'Network monitoring'],
+        exercises: [
+          {
+            id: 'firewall-configuration',
+            title: 'Firewall configuration',
+            description: 'Configure a firewall',
+            type: 'practical',
+            content: 'Set up and configure a firewall to protect a network.'
+          },
+          {
+            id: 'rule-creation',
+            title: 'Rule creation',
+            description: 'Create firewall rules',
+            type: 'practical',
+            content: 'Develop and implement effective firewall rules for different scenarios.'
+          },
+          {
+            id: 'network-monitoring',
+            title: 'Network monitoring',
+            description: 'Monitor network traffic',
+            type: 'practical',
+            content: 'Use tools to monitor network traffic and identify suspicious activity.'
+          }
+        ],
         resources: ['Firewall guide', 'Configuration examples', 'Best practices'],
         content: `
           <h2>Firewalls & Network Protection</h2>
@@ -764,7 +952,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Use VPNs for secure remote connections',
         duration: '55 min',
         topics: ['VPN protocols', 'VPN setup', 'Remote access security', 'Tunneling'],
-        exercises: ['VPN configuration', 'Secure connection setup', 'Protocol comparison'],
+        exercises: [
+          {
+            id: 'vpn-configuration',
+            title: 'VPN configuration',
+            description: 'Configure a VPN',
+            type: 'practical',
+            content: 'Set up and configure a VPN for secure remote access.'
+          },
+          {
+            id: 'secure-connection-setup',
+            title: 'Secure connection setup',
+            description: 'Set up a secure remote connection',
+            type: 'practical',
+            content: 'Configure a secure remote connection using best practices.'
+          },
+          {
+            id: 'protocol-comparison',
+            title: 'Protocol comparison',
+            description: 'Compare VPN protocols',
+            type: 'analysis',
+            content: 'Analyze and compare different VPN protocols for security and performance.'
+          }
+        ],
         resources: ['VPN guide', 'Protocol comparison', 'Setup tutorials'],
         content: `
           <h2>VPNs & Secure Remote Access</h2>
@@ -800,7 +1010,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Monitor networks for suspicious activity',
         duration: '65 min',
         topics: ['Network monitoring tools', 'Traffic analysis', 'Anomaly detection', 'Log analysis'],
-        exercises: ['Network monitoring setup', 'Traffic capture', 'Log analysis'],
+        exercises: [
+          {
+            id: 'network-monitoring-setup',
+            title: 'Network monitoring setup',
+            description: 'Set up network monitoring tools',
+            type: 'practical',
+            content: 'Configure and deploy network monitoring tools to detect suspicious activity.'
+          },
+          {
+            id: 'traffic-capture',
+            title: 'Traffic capture',
+            description: 'Capture and analyze network traffic',
+            type: 'practical',
+            content: 'Use packet capture tools to collect and analyze network traffic.'
+          },
+          {
+            id: 'log-analysis',
+            title: 'Log analysis',
+            description: 'Analyze network logs',
+            type: 'analysis',
+            content: 'Review and analyze network logs to identify security incidents.'
+          }
+        ],
         resources: ['Monitoring tools', 'Analysis techniques', 'Detection methods'],
         content: `
           <h2>Network Monitoring & Detection</h2>
@@ -847,7 +1079,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Protect web applications from common attacks',
         duration: '80 min',
         topics: ['OWASP Top 10', 'SQL Injection', 'XSS', 'CSRF', 'Authentication'],
-        exercises: ['Vulnerability assessment', 'Penetration testing', 'Code review'],
+        exercises: [
+          {
+            id: 'vulnerability-assessment',
+            title: 'Vulnerability assessment',
+            description: 'Assess system vulnerabilities',
+            type: 'practical',
+            content: 'Practice assessing system vulnerabilities using various tools and techniques.'
+          },
+          {
+            id: 'penetration-testing',
+            title: 'Penetration testing',
+            description: 'Perform basic penetration testing',
+            type: 'practical',
+            content: 'Practice performing basic penetration testing to identify security weaknesses.'
+          },
+          {
+            id: 'code-review',
+            title: 'Code review',
+            description: 'Review code for security vulnerabilities',
+            type: 'practical',
+            content: 'Practice reviewing code to identify security vulnerabilities and weaknesses.'
+          }
+        ],
         resources: ['OWASP guide', 'Vulnerability database', 'Security testing tools'],
         content: `
           <h2>Web Application Security</h2>
@@ -876,7 +1130,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Understand encryption and cryptographic principles',
         duration: '90 min',
         topics: ['Symmetric encryption', 'Asymmetric encryption', 'Hashing', 'Digital signatures'],
-        exercises: ['Encryption implementation', 'Hash analysis', 'Signature verification'],
+        exercises: [
+          {
+            id: 'encryption-implementation',
+            title: 'Encryption implementation',
+            description: 'Implement basic encryption',
+            type: 'practical',
+            content: 'Practice implementing basic encryption algorithms to protect data.'
+          },
+          {
+            id: 'hash-analysis',
+            title: 'Hash analysis',
+            description: 'Analyze cryptographic hashes',
+            type: 'practical',
+            content: 'Practice analyzing cryptographic hashes and understanding their properties.'
+          },
+          {
+            id: 'signature-verification',
+            title: 'Signature verification',
+            description: 'Verify digital signatures',
+            type: 'practical',
+            content: 'Practice verifying digital signatures to ensure data integrity and authenticity.'
+          }
+        ],
         resources: ['Cryptography guide', 'Encryption algorithms', 'Implementation examples'],
         content: `
           <h2>Cryptography Fundamentals</h2>
@@ -902,7 +1178,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Write secure code and avoid common vulnerabilities',
         duration: '75 min',
         topics: ['Input validation', 'Output encoding', 'Error handling', 'Secure design'],
-        exercises: ['Code review', 'Vulnerability fixing', 'Secure coding practice'],
+        exercises: [
+          {
+            id: 'code-review-secure',
+            title: 'Code review',
+            description: 'Review code for security issues',
+            type: 'practical',
+            content: 'Practice reviewing code to identify and address security issues.'
+          },
+          {
+            id: 'vulnerability-fixing',
+            title: 'Vulnerability fixing',
+            description: 'Fix identified vulnerabilities',
+            type: 'practical',
+            content: 'Practice fixing identified vulnerabilities in code samples.'
+          },
+          {
+            id: 'secure-coding-practice',
+            title: 'Secure coding practice',
+            description: 'Apply secure coding principles',
+            type: 'practical',
+            content: 'Practice applying secure coding principles to prevent common vulnerabilities.'
+          }
+        ],
         resources: ['Secure coding guide', 'Best practices', 'Code examples'],
         content: `
           <h2>Secure Coding Practices</h2>
@@ -928,7 +1226,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Secure application programming interfaces',
         duration: '70 min',
         topics: ['API authentication', 'Authorization', 'Rate limiting', 'Input validation'],
-        exercises: ['API security audit', 'Authentication implementation', 'Security testing'],
+        exercises: [
+          {
+            id: 'api-security-audit',
+            title: 'API security audit',
+            description: 'Audit API security',
+            type: 'practical',
+            content: 'Practice auditing API security to identify potential vulnerabilities.'
+          },
+          {
+            id: 'authentication-implementation',
+            title: 'Authentication implementation',
+            description: 'Implement secure authentication',
+            type: 'practical',
+            content: 'Practice implementing secure authentication mechanisms for APIs.'
+          },
+          {
+            id: 'security-testing',
+            title: 'Security testing',
+            description: 'Test API security',
+            type: 'practical',
+            content: 'Practice testing API security to ensure proper protection.'
+          }
+        ],
         resources: ['API security guide', 'Authentication methods', 'Security standards'],
         content: `
           <h2>API Security</h2>
@@ -965,7 +1285,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Collect information about targets using legal methods',
         duration: '85 min',
         topics: ['OSINT techniques', 'Network scanning', 'Service enumeration', 'Social engineering'],
-        exercises: ['OSINT investigation', 'Network reconnaissance', 'Social engineering assessment'],
+        exercises: [
+          {
+            id: 'osint-investigation',
+            title: 'OSINT investigation',
+            description: 'Conduct open-source intelligence gathering',
+            type: 'practical',
+            content: 'Practice gathering intelligence from open sources to understand potential security risks.'
+          },
+          {
+            id: 'network-reconnaissance',
+            title: 'Network reconnaissance',
+            description: 'Perform network reconnaissance',
+            type: 'practical',
+            content: 'Practice performing network reconnaissance to identify potential entry points.'
+          },
+          {
+            id: 'social-engineering-assessment',
+            title: 'Social engineering assessment',
+            description: 'Assess social engineering vulnerabilities',
+            type: 'practical',
+            content: 'Practice assessing social engineering vulnerabilities in an organization.'
+          }
+        ],
         resources: ['OSINT tools', 'Scanning techniques', 'Reconnaissance methods']
       ,
 
@@ -1034,7 +1376,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Identify and assess security vulnerabilities',
         duration: '90 min',
         topics: ['Vulnerability scanning', 'Assessment methodologies', 'Risk analysis', 'Reporting'],
-        exercises: ['Vulnerability scan', 'Risk assessment', 'Report writing'],
+        exercises: [
+          {
+            id: 'vulnerability-scan',
+            title: 'Vulnerability scan',
+            description: 'Conduct a vulnerability scan',
+            type: 'practical',
+            content: 'Use vulnerability scanning tools to identify security weaknesses.'
+          },
+          {
+            id: 'risk-assessment',
+            title: 'Risk assessment',
+            description: 'Perform a risk assessment',
+            type: 'analysis',
+            content: 'Analyze identified vulnerabilities and assess their risk level.'
+          },
+          {
+            id: 'report-writing',
+            title: 'Report writing',
+            description: 'Write a vulnerability assessment report',
+            type: 'practical',
+            content: 'Create a comprehensive report documenting findings and recommendations.'
+          }
+        ],
         resources: ['Vulnerability databases', 'Assessment tools', 'Reporting templates']
       ,
 
@@ -1112,7 +1476,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Learn how vulnerabilities are exploited',
         duration: '100 min',
         topics: ['Exploit development', 'Metasploit framework', 'Custom exploits', 'Post-exploitation'],
-        exercises: ['Exploit development', 'Metasploit usage', 'Post-exploitation techniques'],
+        exercises: [
+          {
+            id: 'exploit-development',
+            title: 'Exploit development',
+            description: 'Develop a basic exploit',
+            type: 'coding',
+            content: 'Create a simple exploit to understand vulnerability exploitation.'
+          },
+          {
+            id: 'metasploit-usage',
+            title: 'Metasploit usage',
+            description: 'Use the Metasploit framework',
+            type: 'practical',
+            content: 'Practice using the Metasploit framework for vulnerability exploitation.'
+          },
+          {
+            id: 'post-exploitation-techniques',
+            title: 'Post-exploitation techniques',
+            description: 'Learn post-exploitation techniques',
+            type: 'practical',
+            content: 'Practice techniques used after successful exploitation of a system.'
+          }
+        ],
         resources: ['Exploit development guide', 'Metasploit documentation', 'Exploitation techniques']
       ,
 
@@ -1191,7 +1577,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Exploit web application vulnerabilities',
         duration: '95 min',
         topics: ['SQL injection', 'XSS exploitation', 'CSRF attacks', 'Authentication bypass'],
-        exercises: ['Web application testing', 'Vulnerability exploitation', 'Security assessment'],
+        exercises: [
+          {
+            id: 'web-application-testing',
+            title: 'Web application testing',
+            description: 'Test web applications for vulnerabilities',
+            type: 'practical',
+            content: 'Use tools and techniques to identify vulnerabilities in web applications.'
+          },
+          {
+            id: 'vulnerability-exploitation-web',
+            title: 'Vulnerability exploitation',
+            description: 'Exploit web application vulnerabilities',
+            type: 'practical',
+            content: 'Practice exploiting common web application vulnerabilities in a controlled environment.'
+          },
+          {
+            id: 'security-assessment-web',
+            title: 'Security assessment',
+            description: 'Conduct a web application security assessment',
+            type: 'analysis',
+            content: 'Perform a comprehensive security assessment of a web application.'
+          }
+        ],
         resources: ['Web exploitation guide', 'Testing tools', 'Vulnerability examples']
       ,
 
@@ -1281,7 +1689,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Test wireless network security',
         duration: '80 min',
         topics: ['WiFi attacks', 'Bluetooth security', 'RFID security', 'Wireless monitoring'],
-        exercises: ['WiFi penetration testing', 'Bluetooth security assessment', 'RFID analysis'],
+        exercises: [
+          {
+            id: 'wifi-penetration-testing',
+            title: 'WiFi penetration testing',
+            description: 'Conduct WiFi penetration testing',
+            type: 'practical',
+            content: 'Perform penetration testing on wireless networks to identify vulnerabilities.'
+          },
+          {
+            id: 'bluetooth-security-assessment',
+            title: 'Bluetooth security assessment',
+            description: 'Assess Bluetooth security',
+            type: 'analysis',
+            content: 'Evaluate the security of Bluetooth devices and connections.'
+          },
+          {
+            id: 'rfid-analysis',
+            title: 'RFID analysis',
+            description: 'Analyze RFID security',
+            type: 'analysis',
+            content: 'Examine RFID systems for security vulnerabilities.'
+          }
+        ],
         resources: ['Wireless security guide', 'Attack tools', 'Security assessment methods']
       ,
 
@@ -1384,7 +1814,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Respond to and manage security incidents',
         duration: '75 min',
         topics: ['Incident classification', 'Response procedures', 'Containment strategies', 'Recovery'],
-        exercises: ['Incident simulation', 'Response planning', 'Recovery procedures'],
+        exercises: [
+          {
+            id: 'incident-simulation',
+            title: 'Incident simulation',
+            description: 'Simulate a security incident',
+            type: 'simulation',
+            content: 'Participate in a simulated security incident to practice response procedures.'
+          },
+          {
+            id: 'response-planning',
+            title: 'Response planning',
+            description: 'Develop an incident response plan',
+            type: 'practical',
+            content: 'Create a comprehensive incident response plan for different types of security incidents.'
+          },
+          {
+            id: 'recovery-procedures',
+            title: 'Recovery procedures',
+            description: 'Establish recovery procedures',
+            type: 'practical',
+            content: 'Develop procedures for recovering from security incidents and returning to normal operations.'
+          }
+        ],
         resources: ['Incident response guide', 'Procedures template', 'Recovery checklist']
       ,
 
@@ -1477,7 +1929,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Investigate digital evidence and cybercrimes',
         duration: '90 min',
         topics: ['Forensic methodology', 'Evidence collection', 'Analysis techniques', 'Reporting'],
-        exercises: ['Evidence collection', 'Forensic analysis', 'Report writing'],
+        exercises: [
+          {
+            id: 'evidence-collection',
+            title: 'Evidence collection',
+            description: 'Collect digital evidence',
+            type: 'practical',
+            content: 'Practice proper techniques for collecting and preserving digital evidence.'
+          },
+          {
+            id: 'forensic-analysis',
+            title: 'Forensic analysis',
+            description: 'Analyze digital evidence',
+            type: 'analysis',
+            content: 'Use forensic tools to analyze digital evidence and identify relevant information.'
+          },
+          {
+            id: 'forensic-report-writing',
+            title: 'Report writing',
+            description: 'Write a forensic analysis report',
+            type: 'practical',
+            content: 'Create a detailed forensic analysis report documenting findings and conclusions.'
+          }
+        ],
         resources: ['Forensics guide', 'Analysis tools', 'Evidence handling procedures']
       ,
 
@@ -1582,7 +2056,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Analyze and understand malicious software',
         duration: '85 min',
         topics: ['Static analysis', 'Dynamic analysis', 'Behavioral analysis', 'Reverse engineering'],
-        exercises: ['Malware analysis', 'Behavioral analysis', 'Reverse engineering'],
+        exercises: [
+          {
+            id: 'malware-analysis',
+            title: 'Malware analysis',
+            description: 'Analyze malware samples',
+            type: 'analysis',
+            content: 'Examine malware samples to understand their functionality and impact.'
+          },
+          {
+            id: 'behavioral-analysis',
+            title: 'Behavioral analysis',
+            description: 'Conduct behavioral analysis of malware',
+            type: 'analysis',
+            content: 'Observe and document the behavior of malware in a controlled environment.'
+          },
+          {
+            id: 'reverse-engineering',
+            title: 'Reverse engineering',
+            description: 'Reverse engineer malware',
+            type: 'coding',
+            content: 'Use reverse engineering techniques to analyze malware code and functionality.'
+          }
+        ],
         resources: ['Malware analysis guide', 'Analysis tools', 'Reverse engineering techniques']
       ,
 
@@ -1706,7 +2202,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Understand cloud security challenges and solutions',
         duration: '60 min',
         topics: ['Cloud models', 'Shared responsibility', 'Cloud threats', 'Security controls'],
-        exercises: ['Cloud security assessment', 'Configuration review', 'Security planning'],
+        exercises: [
+          {
+            id: 'cloud-security-assessment',
+            title: 'Cloud security assessment',
+            description: 'Assess cloud security',
+            type: 'analysis',
+            content: 'Evaluate the security of cloud environments and identify vulnerabilities.'
+          },
+          {
+            id: 'configuration-review',
+            title: 'Configuration review',
+            description: 'Review cloud configurations',
+            type: 'analysis',
+            content: 'Analyze cloud configurations for security issues and best practices.'
+          },
+          {
+            id: 'security-planning-cloud',
+            title: 'Security planning',
+            description: 'Develop a cloud security plan',
+            type: 'practical',
+            content: 'Create a comprehensive security plan for cloud environments.'
+          }
+        ],
         resources: ['Cloud security guide', 'Best practices', 'Security frameworks']
       ,
 
@@ -1823,7 +2341,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Secure Amazon Web Services environments',
         duration: '80 min',
         topics: ['IAM security', 'VPC configuration', 'Security groups', 'CloudTrail'],
-        exercises: ['AWS security configuration', 'IAM setup', 'Security monitoring'],
+        exercises: [
+          {
+            id: 'aws-security-configuration',
+            title: 'AWS security configuration',
+            description: 'Configure AWS security settings',
+            type: 'practical',
+            content: 'Set up and configure security settings in an AWS environment.'
+          },
+          {
+            id: 'iam-setup',
+            title: 'IAM setup',
+            description: 'Configure AWS Identity and Access Management',
+            type: 'practical',
+            content: 'Set up and configure IAM roles, users, and permissions in AWS.'
+          },
+          {
+            id: 'security-monitoring-aws',
+            title: 'Security monitoring',
+            description: 'Set up AWS security monitoring',
+            type: 'practical',
+            content: 'Configure security monitoring and alerting in an AWS environment.'
+          }
+        ],
         resources: ['AWS security guide', 'Configuration examples', 'Security tools']
       ,
 
@@ -1939,7 +2479,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Secure Microsoft Azure cloud services',
         duration: '75 min',
         topics: ['Azure AD', 'Network security', 'Security center', 'Compliance'],
-        exercises: ['Azure security setup', 'Security center configuration', 'Compliance assessment'],
+        exercises: [
+          {
+            id: 'azure-security-setup',
+            title: 'Azure security setup',
+            description: 'Configure Azure security settings',
+            type: 'practical',
+            content: 'Set up and configure security settings in an Azure environment.'
+          },
+          {
+            id: 'security-center-configuration',
+            title: 'Security center configuration',
+            description: 'Configure Azure Security Center',
+            type: 'practical',
+            content: 'Set up and configure Azure Security Center for monitoring and protection.'
+          },
+          {
+            id: 'compliance-assessment',
+            title: 'Compliance assessment',
+            description: 'Assess Azure compliance',
+            type: 'analysis',
+            content: 'Evaluate Azure environment compliance with regulatory requirements.'
+          }
+        ],
         resources: ['Azure security guide', 'Security center docs', 'Compliance frameworks']
       ,
 
@@ -1985,7 +2547,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Understand IoT security challenges and threats',
         duration: '55 min',
         topics: ['IoT architecture', 'Security challenges', 'Threat landscape', 'Vulnerabilities'],
-        exercises: ['IoT security assessment', 'Threat analysis', 'Security planning'],
+        exercises: [
+          {
+            id: 'iot-security-assessment',
+            title: 'IoT security assessment',
+            description: 'Assess IoT device security',
+            type: 'analysis',
+            content: 'Evaluate the security of IoT devices and identify vulnerabilities.'
+          },
+          {
+            id: 'threat-analysis-iot',
+            title: 'Threat analysis',
+            description: 'Analyze IoT security threats',
+            type: 'analysis',
+            content: 'Identify and analyze potential security threats to IoT devices and networks.'
+          },
+          {
+            id: 'security-planning-iot',
+            title: 'Security planning',
+            description: 'Develop an IoT security plan',
+            type: 'practical',
+            content: 'Create a comprehensive security plan for IoT deployments.'
+          }
+        ],
         resources: ['IoT security guide', 'Threat reports', 'Security frameworks']
       ,
 
@@ -2021,7 +2605,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Secure individual IoT devices',
         duration: '70 min',
         topics: ['Device authentication', 'Firmware security', 'Communication security', 'Updates'],
-        exercises: ['Device security audit', 'Firmware analysis', 'Security configuration'],
+        exercises: [
+          {
+            id: 'device-security-audit',
+            title: 'Device security audit',
+            description: 'Audit IoT device security',
+            type: 'analysis',
+            content: 'Conduct a comprehensive security audit of IoT devices.'
+          },
+          {
+            id: 'firmware-analysis',
+            title: 'Firmware analysis',
+            description: 'Analyze IoT device firmware',
+            type: 'analysis',
+            content: 'Examine IoT device firmware for security vulnerabilities.'
+          },
+          {
+            id: 'security-configuration-iot',
+            title: 'Security configuration',
+            description: 'Configure IoT device security',
+            type: 'practical',
+            content: 'Set up and configure security settings for IoT devices.'
+          }
+        ],
         resources: ['Device security guide', 'Firmware analysis tools', 'Configuration best practices']
       ,
 
@@ -2057,7 +2663,29 @@ export const cybersecurityCourse: CourseModule[] = [
         description: 'Secure IoT networks and communications',
         duration: '65 min',
         topics: ['Network segmentation', 'Traffic monitoring', 'Protocol security', 'Access control'],
-        exercises: ['Network security setup', 'Traffic analysis', 'Access control configuration'],
+        exercises: [
+          {
+            id: 'network-security-setup-iot',
+            title: 'Network security setup',
+            description: 'Set up IoT network security',
+            type: 'practical',
+            content: 'Configure network security for IoT environments.'
+          },
+          {
+            id: 'traffic-analysis-iot',
+            title: 'Traffic analysis',
+            description: 'Analyze IoT network traffic',
+            type: 'analysis',
+            content: 'Monitor and analyze network traffic in IoT environments.'
+          },
+          {
+            id: 'access-control-configuration',
+            title: 'Access control configuration',
+            description: 'Configure IoT access controls',
+            type: 'practical',
+            content: 'Set up and configure access controls for IoT networks.'
+          }
+        ],
         resources: ['Network security guide', 'Monitoring tools', 'Protocol security']
       ,
 
