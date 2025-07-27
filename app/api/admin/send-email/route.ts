@@ -63,12 +63,6 @@ export async function POST(request: NextRequest) {
             <h3 style="color: #333; margin-top: 0;">Message</h3>
             <p style="line-height: 1.6; color: #555;">${message.replace(/\n/g, '<br>')}</p>
           </div>
-          
-          <div style="margin-top: 20px; padding: 15px; background-color: #e9ecef; border-radius: 8px;">
-            <p style="margin: 0; color: #6c757d; font-size: 14px;">
-              This message was sent from the CyberGuide admin panel. Please do not reply to this email.
-            </p>
-          </div>
         </div>
       `
     }
