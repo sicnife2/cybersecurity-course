@@ -497,7 +497,7 @@ export default function AdminPanel() {
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-2">
               <Shield className="w-8 h-8 text-cyber-500" />
-              <span className="text-xl font-bold text-white">CyberGuard Admin</span>
+              <span className="text-xl font-bold text-white">CyberGuide Admin</span>
             </div>
             <div className="flex items-center space-x-4">
               <span className="text-gray-300">Welcome, {session.user?.name}</span>

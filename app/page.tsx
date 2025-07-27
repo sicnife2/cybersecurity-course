@@ -89,7 +89,7 @@ export default function Home() {
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-2">
               <Shield className="w-8 h-8 text-cyber-500" />
-              <span className="text-xl font-bold text-white">CyberGuard</span>
+              <span className="text-xl font-bold text-white">CyberGuide</span>
             </div>
             <div className="hidden md:flex space-x-8">
               <a href="/course" className="text-gray-300 hover:text-white transition-colors">Course</a>
@@ -161,7 +161,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-4">Why Choose CyberGuard?</h2>
+            <h2 className="text-4xl font-bold mb-4">Why Choose CyberGuide?</h2>
             <p className="text-xl text-gray-300">Everything you need to become a cybersecurity expert</p>
           </motion.div>
 
