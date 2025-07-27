@@ -427,13 +427,6 @@ export default function AdminPanel() {
         <h2 className="text-2xl font-bold">Support Management</h2>
         <div className="flex space-x-3">
           <button 
-            onClick={() => setShowContactForm(true)}
-            className="cyber-button flex items-center space-x-2"
-          >
-            <Mail className="w-4 h-4" />
-            <span>View Submissions</span>
-          </button>
-          <button 
             onClick={() => setShowAdminEmailForm(true)}
             className="cyber-button flex items-center space-x-2"
           >
