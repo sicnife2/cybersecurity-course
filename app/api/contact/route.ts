@@ -13,6 +13,11 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Debug logging
+    console.log('Email configuration check:')
+    console.log('EMAIL_USER exists:', !!process.env.EMAIL_USER)
+    console.log('EMAIL_PASS exists:', !!process.env.EMAIL_PASS)
+
     // Create transporter using Gmail SMTP
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -55,8 +60,10 @@ export async function POST(request: NextRequest) {
       `
     }
 
+    console.log('Attempting to send email...')
     // Send email
     await transporter.sendMail(mailOptions)
+    console.log('Main email sent successfully')
 
     // Send confirmation email to the user
     const confirmationMailOptions = {
@@ -94,6 +101,7 @@ export async function POST(request: NextRequest) {
     }
 
     await transporter.sendMail(confirmationMailOptions)
+    console.log('Confirmation email sent successfully')
 
     return NextResponse.json(
       { 
