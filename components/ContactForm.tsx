@@ -100,12 +100,12 @@ export default function ContactForm({ onClose }: ContactFormProps) {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="cyber-card max-w-lg w-full mx-4"
+        className="cyber-card max-w-2xl w-full mx-4"
       >
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-3">
             <Mail className="w-6 h-6 text-cyber-400" />
-            <h2 className="text-2xl font-bold">Contact Us</h2>
+            <h2 className="text-3xl font-bold">Contact Us</h2>
           </div>
           <button
             onClick={onClose}

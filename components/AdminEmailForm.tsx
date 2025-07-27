@@ -172,11 +172,7 @@ export default function AdminEmailForm({ onClose, adminName }: AdminEmailFormPro
           </div>
         </form>
 
-        <div className="mt-4 p-3 bg-cyber-900/20 border border-cyber-500/30 rounded-lg">
-          <p className="text-sm text-gray-400">
-            Sending as <span className="text-cyber-400">{adminName}</span> from CyberGuide Admin
-          </p>
-        </div>
+
       </motion.div>
     </motion.div>
   )

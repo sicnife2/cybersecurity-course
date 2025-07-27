@@ -96,10 +96,10 @@ export default function Home() {
               <a href="/tools" className="text-gray-300 hover:text-white transition-colors">Tools</a>
               <button 
                 onClick={() => setShowContact(true)}
-                className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2"
+                className="cyber-button flex items-center space-x-2"
               >
                 <Mail className="w-4 h-4" />
-                <span>Contact</span>
+                <span>Contact Us</span>
               </button>
             </div>
             <button className="cyber-button" onClick={() => router.push('/course')}>
@@ -147,6 +147,13 @@ export default function Home() {
               <a href="/tools" className="px-6 py-3 border border-cyber-500 text-cyber-500 hover:bg-cyber-500 hover:text-white font-semibold rounded-lg transition-all duration-300">
                 Explore Tools
               </a>
+              <button 
+                onClick={() => setShowContact(true)}
+                className="cyber-button flex items-center space-x-2"
+              >
+                <Mail className="w-5 h-5" />
+                <span>Contact Us</span>
+              </button>
             </div>
           </motion.div>
         </div>
