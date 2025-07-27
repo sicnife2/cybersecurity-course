@@ -28,10 +28,12 @@ import {
   Lock,
   Unlock,
   Target,
-  Mail
+  Mail,
+  Send
 } from 'lucide-react'
 import { cybersecurityCourse, getModuleById, getAllModules } from '@/data/courseStructure'
 import ContactForm from '@/components/ContactForm'
+import AdminEmailForm from '@/components/AdminEmailForm'
 
 const allowedEmails = [
   'sicnife04@gmail.com',
@@ -56,6 +58,7 @@ export default function AdminPanel() {
   const [editingModule, setEditingModule] = useState<string | null>(null)
   const [showAddModule, setShowAddModule] = useState(false)
   const [showContactForm, setShowContactForm] = useState(false)
+  const [showAdminEmailForm, setShowAdminEmailForm] = useState(false)
   const [userStats, setUserStats] = useState({
     totalUsers: 0,
     activeUsers: 0,
@@ -422,13 +425,22 @@ export default function AdminPanel() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Contact Users</h2>
-        <button 
-          onClick={() => setShowContactForm(true)}
-          className="cyber-button flex items-center space-x-2"
-        >
-          <Mail className="w-4 h-4" />
-          <span>Send Message</span>
-        </button>
+        <div className="flex space-x-3">
+          <button 
+            onClick={() => setShowContactForm(true)}
+            className="cyber-button flex items-center space-x-2"
+          >
+            <Mail className="w-4 h-4" />
+            <span>View Submissions</span>
+          </button>
+          <button 
+            onClick={() => setShowAdminEmailForm(true)}
+            className="cyber-button flex items-center space-x-2"
+          >
+            <Send className="w-4 h-4" />
+            <span>Send Email to User</span>
+          </button>
+        </div>
       </div>
 
       <div className="cyber-card">
@@ -541,6 +553,12 @@ export default function AdminPanel() {
       {/* Contact Form Modal */}
       {showContactForm && (
         <ContactForm onClose={() => setShowContactForm(false)} />
+      )}
+      {showAdminEmailForm && (
+        <AdminEmailForm 
+          onClose={() => setShowAdminEmailForm(false)} 
+          adminName={session.user?.name || 'Admin'}
+        />
       )}
     </div>
   )
