@@ -443,20 +443,17 @@ export default function AdminPanel() {
         </div>
       </div>
       
-      <div className="cyber-card">
-        <h3 className="text-lg font-semibold mb-4">Support Email Setup</h3>
-        <div className="space-y-2">
-          <p className="text-sm text-gray-400">
-            <strong>Support Email:</strong> cyberguide9@gmail.com
-          </p>
-          <p className="text-sm text-gray-400">
-            <strong>Admin Email:</strong> sicnife04@gmail.com
-          </p>
-          <p className="text-xs text-gray-500">
-            All contact form submissions are sent to the support email, which forwards to admin.
-          </p>
+              <div className="cyber-card">
+          <h3 className="text-lg font-semibold mb-4">Support Email Setup</h3>
+          <div className="space-y-2">
+            <p className="text-sm text-gray-400">
+              <strong>Support Email:</strong> sicnife04@gmail.com
+            </p>
+            <p className="text-xs text-gray-500">
+              Contact form submissions are sent directly to admin email.
+            </p>
+          </div>
         </div>
-      </div>
 
       <div className="cyber-card">
         <h3 className="text-lg font-semibold mb-4">Recent Contact Submissions</h3>
