@@ -84,7 +84,7 @@ export default function ContactForm({ onClose }: ContactFormProps) {
             Thank you for contacting us. We'll get back to you soon at {formData.email}.
           </p>
           <p className="text-sm text-gray-400">
-            A copy has been sent to our support team
+            A copy has been sent to our support team at cyberguide9@gmail.com
           </p>
         </div>
       </motion.div>

@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
 
                 // Email content from admin to user
             const mailOptions = {
-              from: `"CyberGuide Support" <${process.env.EMAIL_USER}>`,
+              from: `"CyberGuide Support" <cyberguide9@gmail.com>`,
               to: to,
               subject: `[CyberGuide Support] ${subject}`,
       html: `
