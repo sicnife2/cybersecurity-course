@@ -89,16 +89,16 @@ export const cybersecurityCourse: CourseModule[] = [
       </div>
       <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4 mt-4">
         <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
-        <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
+        <p>Always practice in a controlled environment. Never test security techniques on systems you don't own or without proper authorization.</p>
       </div>
-    `
+    `,
           },
           {
             id: 'security-assessment',
             title: 'Security assessment',
             description: 'Learn to perform basic security assessments',
             type: 'practical',
-            content: '
+            content: `
       <h3>Security Analysis Exercise</h3>
       <p>Develop your analytical skills by examining security assessment scenarios and identifying security implications.</p>
       <div class="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4 mt-4">
@@ -111,7 +111,7 @@ export const cybersecurityCourse: CourseModule[] = [
           <li><strong>Document:</strong> Prepare a comprehensive analysis report</li>
         </ol>
       </div>
-    '
+    `
           }
         ],
         resources: ['NIST Framework', 'CISA Essentials', 'Security basics guide'],
@@ -248,7 +248,7 @@ export const cybersecurityCourse: CourseModule[] = [
             title: 'Password strength test',
             description: 'Test the strength of different passwords',
             type: 'practical',
-            content: '
+            content: `
       <h3>Hands-On Practical Exercise</h3>
       <p>Apply password security concepts through this practical, hands-on exercise designed to build real-world skills.</p>
       <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
@@ -266,14 +266,14 @@ export const cybersecurityCourse: CourseModule[] = [
         <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
         <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
       </div>
-    '
+    `
           },
           {
             id: '2fa-setup-lab',
             title: '2FA setup lab',
             description: 'Set up two-factor authentication',
             type: 'practical',
-            content: '
+            content: `
       <h3>Hands-On Practical Exercise</h3>
       <p>Apply two-factor authentication concepts through this practical, hands-on exercise designed to build real-world skills.</p>
       <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
@@ -291,14 +291,14 @@ export const cybersecurityCourse: CourseModule[] = [
         <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
         <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
       </div>
-    '
+    `
           },
           {
             id: 'password-manager-configuration',
             title: 'Password manager configuration',
             description: 'Configure a password manager',
             type: 'practical',
-            content: '
+            content: `
       <h3>Hands-On Practical Exercise</h3>
       <p>Apply password management concepts through this practical, hands-on exercise designed to build real-world skills.</p>
       <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
@@ -316,7 +316,7 @@ export const cybersecurityCourse: CourseModule[] = [
         <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
         <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
       </div>
-    '
+    `
           }
         ],
         resources: ['Password best practices', '2FA guide', 'Password manager comparison'],
@@ -2860,7 +2860,7 @@ export const cybersecurityCourse: CourseModule[] = [
             title: 'Device security audit',
             description: 'Audit IoT device security',
             type: 'analysis',
-            content: '
+            content: `
       <h3>Hands-On Practical Exercise</h3>
       <p>Apply IoT device security audit concepts through this practical, hands-on exercise designed to build real-world skills.</p>
       <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
@@ -2878,14 +2878,14 @@ export const cybersecurityCourse: CourseModule[] = [
         <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
         <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
       </div>
-    '
+    `
           },
           {
             id: 'firmware-analysis',
             title: 'Firmware analysis',
             description: 'Analyze IoT device firmware',
             type: 'analysis',
-            content: '
+            content: `
       <h3>Hands-On Practical Exercise</h3>
       <p>Apply firmware security analysis concepts through this practical, hands-on exercise designed to build real-world skills.</p>
       <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
@@ -2903,14 +2903,14 @@ export const cybersecurityCourse: CourseModule[] = [
         <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
         <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
       </div>
-    '
+    `
           },
           {
             id: 'security-configuration-iot',
             title: 'Security configuration',
             description: 'Configure IoT device security',
             type: 'practical',
-            content: '
+            content: `
       <h3>Hands-On Practical Exercise</h3>
       <p>Apply IoT device security configuration concepts through this practical, hands-on exercise designed to build real-world skills.</p>
       <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
@@ -2928,7 +2928,7 @@ export const cybersecurityCourse: CourseModule[] = [
         <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
         <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
       </div>
-    '
+    `
           }
         ],
         resources: ['Device security guide', 'Firmware analysis tools', 'Configuration best practices']
@@ -3054,7 +3054,7 @@ export const cybersecurityCourse: CourseModule[] = [
             title: 'Network security setup',
             description: 'Set up IoT network security',
             type: 'practical',
-            content: '
+            content: `
       <h3>Hands-On Practical Exercise</h3>
       <p>Apply IoT network security concepts through this practical, hands-on exercise designed to build real-world skills.</p>
       <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
@@ -3072,14 +3072,14 @@ export const cybersecurityCourse: CourseModule[] = [
         <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
         <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
       </div>
-    '
+    `
           },
           {
             id: 'traffic-analysis-iot',
             title: 'Traffic analysis',
             description: 'Analyze IoT network traffic',
             type: 'analysis',
-            content: '
+            content: `
       <h3>Hands-On Practical Exercise</h3>
       <p>Apply network traffic analysis concepts through this practical, hands-on exercise designed to build real-world skills.</p>
       <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
@@ -3097,14 +3097,14 @@ export const cybersecurityCourse: CourseModule[] = [
         <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
         <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
       </div>
-    '
+    `
           },
           {
             id: 'access-control-configuration',
             title: 'Access control configuration',
             description: 'Configure IoT access controls',
             type: 'practical',
-            content: '
+            content: `
       <h3>Hands-On Practical Exercise</h3>
       <p>Apply access control configuration concepts through this practical, hands-on exercise designed to build real-world skills.</p>
       <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
@@ -3122,7 +3122,7 @@ export const cybersecurityCourse: CourseModule[] = [
         <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
         <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
       </div>
-    '
+    `
           }
         ],
         resources: ['Network security guide', 'Monitoring tools', 'Protocol security']
