@@ -73,7 +73,7 @@ export const cybersecurityCourse: CourseModule[] = [
             title: 'Threat identification',
             description: 'Learn to identify various cybersecurity threats',
             type: 'practical',
-            content: '
+            content: `
       <h3>Hands-On Practical Exercise</h3>
       <p>Apply threat identification concepts through this practical, hands-on exercise designed to build real-world skills.</p>
       <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-4 mt-4">
@@ -91,7 +91,7 @@ export const cybersecurityCourse: CourseModule[] = [
         <h4 class="text-yellow-400 font-semibold mb-2">Safety Note</h4>
         <p>Always practice in a controlled environment. Never test security techniques on systems you don\'t own or without proper authorization.</p>
       </div>
-    '
+    `
           },
           {
             id: 'security-assessment',
