@@ -259,7 +259,7 @@ function CourseContent() {
                                 {lesson.exercises.map((exercise, exerciseIndex) => (
                                   <li key={exerciseIndex} className="flex items-center space-x-2">
                                     <div className="w-1.5 h-1.5 bg-success-500 rounded-full"></div>
-                                    <span>{exercise}</span>
+                                    <span>{typeof exercise === 'string' ? exercise : exercise.title}</span>
                                   </li>
                                 ))}
                               </ul>
@@ -424,4 +424,4 @@ export default function CoursePage() {
       <CourseContent />
     </Suspense>
   )
-} 
+}
