@@ -23,14 +23,27 @@ export default function ContactForm({ onClose }: ContactFormProps) {
     setIsSubmitting(true)
 
     try {
-      // Simulate email sending (in a real app, you'd use a service like SendGrid, EmailJS, or your own API)
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      // Send email using our API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message')
+      }
       
       // Log the contact attempt (for admin tracking)
       const contactData = {
         ...formData,
         timestamp: new Date().toISOString(),
-        userAgent: navigator.userAgent
+        userAgent: navigator.userAgent,
+        status: 'sent'
       }
       
       // Store in localStorage for admin panel to access
