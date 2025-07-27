@@ -13,6 +13,15 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Validate environment variables
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error('Missing email credentials')
+      return NextResponse.json(
+        { error: 'Email service not configured' },
+        { status: 500 }
+      )
+    }
+
     // Create transporter using Gmail SMTP
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -22,11 +31,23 @@ export async function POST(request: NextRequest) {
       }
     })
 
-                // Email content from admin to user
-            const mailOptions = {
-              from: `"CyberGuide Support" <cyberguide9@gmail.com>`,
-              to: to,
-              subject: `[CyberGuide Support] ${subject}`,
+    // Verify transporter
+    try {
+      await transporter.verify()
+      console.log('Admin transporter verified successfully')
+    } catch (verifyError) {
+      console.error('Admin transporter verification failed:', verifyError)
+      return NextResponse.json(
+        { error: 'Email service configuration error' },
+        { status: 500 }
+      )
+    }
+
+    // Email content from admin to user
+    const mailOptions = {
+      from: `"CyberGuide Support" <cyberguide9@gmail.com>`,
+      to: to,
+      subject: `[CyberGuide Support] ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
@@ -53,7 +74,12 @@ export async function POST(request: NextRequest) {
       `
     }
 
+    console.log('Attempting to send admin email...')
+    console.log('From: CyberGuide Support <cyberguide9@gmail.com>')
+    console.log('To:', to)
+
     await transporter.sendMail(mailOptions)
+    console.log('Admin email sent successfully')
 
     return NextResponse.json(
       { 
@@ -65,6 +91,11 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Admin email sending error:', error)
+    console.error('Admin error details:', {
+      message: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : 'No stack trace',
+      name: error instanceof Error ? error.name : 'Unknown'
+    })
     return NextResponse.json(
       { 
         error: 'Failed to send email. Please try again later.' 

@@ -17,21 +17,44 @@ export async function POST(request: NextRequest) {
     console.log('Email configuration check:')
     console.log('EMAIL_USER exists:', !!process.env.EMAIL_USER)
     console.log('EMAIL_PASS exists:', !!process.env.EMAIL_PASS)
+    console.log('EMAIL_USER length:', process.env.EMAIL_USER?.length)
+    console.log('EMAIL_PASS length:', process.env.EMAIL_PASS?.length)
+
+    // Validate environment variables
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error('Missing email credentials')
+      return NextResponse.json(
+        { error: 'Email service not configured' },
+        { status: 500 }
+      )
+    }
 
     // Create transporter using Gmail SMTP
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER, // Your Gmail address
-        pass: process.env.EMAIL_PASS  // Your Gmail app password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
       }
     })
 
-                // Email content
-            const mailOptions = {
-              from: process.env.EMAIL_USER,
-              to: 'cyberguide9@gmail.com', // Support email address
-              subject: `Contact Form: ${subject}`,
+    // Verify transporter
+    try {
+      await transporter.verify()
+      console.log('Transporter verified successfully')
+    } catch (verifyError) {
+      console.error('Transporter verification failed:', verifyError)
+      return NextResponse.json(
+        { error: 'Email service configuration error' },
+        { status: 500 }
+      )
+    }
+
+    // Email content
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: 'cyberguide9@gmail.com',
+      subject: `Contact Form: ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
@@ -61,6 +84,9 @@ export async function POST(request: NextRequest) {
     }
 
     console.log('Attempting to send email...')
+    console.log('From:', process.env.EMAIL_USER)
+    console.log('To: cyberguide9@gmail.com')
+    
     // Send email
     await transporter.sendMail(mailOptions)
     console.log('Main email sent successfully')
@@ -113,6 +139,11 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Email sending error:', error)
+    console.error('Error details:', {
+      message: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : 'No stack trace',
+      name: error instanceof Error ? error.name : 'Unknown'
+    })
     return NextResponse.json(
       { 
         error: 'Failed to send email. Please try again later.' 
