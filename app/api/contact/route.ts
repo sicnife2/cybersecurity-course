@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
 
     // Email content
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: `"CyberGuide Support" <cyberguide9@gmail.com>`,
       to: 'sicnife04@gmail.com', // Send to your email
       subject: `Contact Form: ${subject}`,
       html: `
@@ -84,8 +84,8 @@ export async function POST(request: NextRequest) {
     }
 
     console.log('Attempting to send email...')
-    console.log('From:', process.env.EMAIL_USER)
-    console.log('To: cyberguide9@gmail.com')
+    console.log('From: CyberGuide Support <cyberguide9@gmail.com>')
+    console.log('To: sicnife04@gmail.com')
     
     // Send email
     await transporter.sendMail(mailOptions)
@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to the user
     const confirmationMailOptions = {
-      from: process.env.EMAIL_USER,
+      from: `"CyberGuide Support" <cyberguide9@gmail.com>`,
       to: email,
       subject: 'Thank you for contacting us - Cybersecurity Course',
       html: `

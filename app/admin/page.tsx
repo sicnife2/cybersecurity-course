@@ -447,13 +447,13 @@ export default function AdminPanel() {
           <h3 className="text-lg font-semibold mb-4">Support Email Setup</h3>
           <div className="space-y-2">
             <p className="text-sm text-gray-400">
-              <strong>Support Email (FROM):</strong> cyberguide9@gmail.com
+              <strong>Sender Account:</strong> cyberguide9@gmail.com
             </p>
             <p className="text-sm text-gray-400">
-              <strong>Admin Email (TO):</strong> sicnife04@gmail.com
+              <strong>Admin Email:</strong> sicnife04@gmail.com
             </p>
             <p className="text-xs text-gray-500">
-              Contact form sends TO admin email. Admin emails send FROM support email.
+              All emails sent FROM cyberguide9@gmail.com. Contact form sends TO admin.
             </p>
           </div>
         </div>
