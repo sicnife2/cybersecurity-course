@@ -1,0 +1,185 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Length 2800
+>>
+stream
+BT
+/F1 24 Tf
+50 750 Td
+(NIST Cybersecurity Framework) Tj
+0 -30 Td
+/F2 14 Tf
+(A Comprehensive Guide for Organizations) Tj
+
+0 -50 Td
+/F1 18 Tf
+(Overview) Tj
+0 -25 Td
+/F2 12 Tf
+(The NIST Cybersecurity Framework provides a policy framework of) Tj
+0 -15 Td
+(computer security guidance for how private sector organizations in) Tj
+0 -15 Td
+(the United States can assess and improve their ability to prevent,) Tj
+0 -15 Td
+(detect, and respond to cyber attacks.) Tj
+
+0 -30 Td
+/F1 16 Tf
+(Core Functions) Tj
+0 -20 Td
+/F2 12 Tf
+(1. IDENTIFY \(ID\)) Tj
+0 -15 Td
+(   - Asset Management) Tj
+0 -12 Td
+(   - Business Environment) Tj
+0 -12 Td
+(   - Governance) Tj
+0 -12 Td
+(   - Risk Assessment) Tj
+0 -12 Td
+(   - Risk Management Strategy) Tj
+
+0 -20 Td
+(2. PROTECT \(PR\)) Tj
+0 -15 Td
+(   - Identity Management and Access Control) Tj
+0 -12 Td
+(   - Awareness and Training) Tj
+0 -12 Td
+(   - Data Security) Tj
+0 -12 Td
+(   - Information Protection Processes) Tj
+0 -12 Td
+(   - Maintenance) Tj
+0 -12 Td
+(   - Protective Technology) Tj
+
+0 -20 Td
+(3. DETECT \(DE\)) Tj
+0 -15 Td
+(   - Anomalies and Events) Tj
+0 -12 Td
+(   - Security Continuous Monitoring) Tj
+0 -12 Td
+(   - Detection Processes) Tj
+
+0 -20 Td
+(4. RESPOND \(RS\)) Tj
+0 -15 Td
+(   - Response Planning) Tj
+0 -12 Td
+(   - Communications) Tj
+0 -12 Td
+(   - Analysis) Tj
+0 -12 Td
+(   - Mitigation) Tj
+0 -12 Td
+(   - Improvements) Tj
+
+0 -20 Td
+(5. RECOVER \(RC\)) Tj
+0 -15 Td
+(   - Recovery Planning) Tj
+0 -12 Td
+(   - Improvements) Tj
+0 -12 Td
+(   - Communications) Tj
+
+0 -30 Td
+/F1 16 Tf
+(Implementation Tiers) Tj
+0 -20 Td
+/F2 12 Tf
+(Tier 1: Partial - Risk management practices are not formalized) Tj
+0 -15 Td
+(Tier 2: Risk Informed - Risk management practices are approved) Tj
+0 -15 Td
+(Tier 3: Repeatable - Risk management practices are formally) Tj
+0 -15 Td
+(         approved and expressed as policy) Tj
+0 -15 Td
+(Tier 4: Adaptive - Organization adapts its cybersecurity) Tj
+0 -15 Td
+(         practices based on lessons learned) Tj
+
+0 -30 Td
+/F1 16 Tf
+(Framework Profiles) Tj
+0 -20 Td
+/F2 12 Tf
+(Current Profile: Current state of cybersecurity activities) Tj
+0 -15 Td
+(Target Profile: Desired cybersecurity outcomes) Tj
+0 -15 Td
+(Gap Analysis: Comparison between current and target profiles) Tj
+
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+>>
+endobj
+
+6 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000003126 00000 n 
+0000003197 00000 n 
+trailer
+<<
+/Size 7
+/Root 1 0 R
+>>
+startxref
+3264
+%%EOF

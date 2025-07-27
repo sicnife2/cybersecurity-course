@@ -400,14 +400,28 @@ export default function LessonViewer() {
                         </div>
                         <button
                           onClick={() => {
-                            // Create a download link for the resource
-                            const fileName = `${resource.replace(/[^a-zA-Z0-9]+/g, '_').toLowerCase()}.pdf`
-                            console.log('Lesson viewer attempting to download:', fileName)
-                            console.log('Full URL:', `/resources/${fileName}`)
+                            // Map resource names to actual file names
+                            const resourceMap: { [key: string]: string } = {
+                              'NIST Framework': 'nist-framework.html',
+                              'CISA Essentials': 'cisa-essentials.html',
+                              'Security basics guide': 'security-basics-guide.html',
+                              'Device security guide': 'device-security-guide.html',
+                              'Network security guide': 'network-security-guide.html',
+                              'Mobile security checklist': 'mobile-security-checklist.html',
+                              'App security checklist': 'app-security-checklist.html',
+                              'Monitoring tools': 'network-security-guide.html',
+                              'Protocol security': 'network-security-guide.html',
+                              'Configuration best practices': 'device-security-guide.html',
+                              'Firmware analysis tools': 'device-security-guide.html'
+                            }
+                            
+                            const fileName = resourceMap[resource] || `${resource.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase()}.html`
+                            console.log('Downloading resource:', resource, '-> File:', fileName)
                             
                             const link = document.createElement('a')
                             link.href = `/resources/${fileName}`
                             link.download = fileName
+                            link.target = '_blank' // Open in new tab as fallback
                             document.body.appendChild(link)
                             link.click()
                             document.body.removeChild(link)

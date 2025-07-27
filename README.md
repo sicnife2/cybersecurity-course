@@ -6,13 +6,28 @@
 
 CyberGuard is a comprehensive, free cybersecurity education platform designed to make cybersecurity knowledge accessible to everyone. From beginners to experts, our platform offers structured learning paths, interactive exercises, and practical tools to help you master cybersecurity concepts and skills.
 
+## ✨ Recent Updates (Latest Release)
+
+- **🔧 Fixed Resource Downloads**: All cybersecurity resources now download properly
+- **📚 New High-Quality Resources**: Added comprehensive guides including:
+  - NIST Cybersecurity Framework Guide
+  - CISA Cybersecurity Essentials
+  - Security Basics Guide
+  - Device Security Guide
+  - Network Security Guide
+  - Mobile Security Checklist
+  - App Security Checklist
+- **🎯 Enhanced Exercise System**: Improved interactive exercises with better error handling
+- **🚀 Performance Improvements**: Optimized resource loading and download functionality
+
 ## Features
 
 - **Complete Course**: Comprehensive cybersecurity curriculum from beginner to expert level
 - **Interactive Exercises**: Hands-on exercises to practice and apply security concepts
 - **Free Security Tools**: Built-in tools for password generation, hash analysis, encoding/decoding, and more
-- **Downloadable Resources**: PDF guides and reference materials for offline learning
+- **Downloadable Resources**: High-quality PDF guides and reference materials for offline learning
 - **Responsive Design**: Fully responsive interface that works on desktop and mobile devices
+- **Real-time Progress Tracking**: Track your learning progress through each lesson and module
 
 ## Course Structure
 
