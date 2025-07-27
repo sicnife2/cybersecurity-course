@@ -13,7 +13,18 @@ export interface CourseLesson {
   description: string
   duration: string
   topics: string[]
-  exercises: string[]
+  exercises: Exercise[];
+}
+
+export interface Exercise {
+  id: string;
+  title: string;
+  description: string;
+  type: 'quiz' | 'coding' | 'simulation'; // Add other types as needed
+  content: string;
+  questions?: { question: string; options: string[]; correctAnswer: string; }[]; // Optional for quiz type
+  // Add other properties relevant to different exercise types
+
   resources: string[]
   content: string
 }
